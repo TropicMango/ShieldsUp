@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour {
 
+    public GameObject weapon;
     public float movementSpeed;
-    public Rigidbody2D Rb;
+    private Rigidbody2D Rb;
 
 	// Use this for initialization
 	void Start () {
-		
+        Rb = GetComponent<Rigidbody2D>();
+        Instantiate(weapon, transform);
 	}
 	
 	// Update is called once per frame
