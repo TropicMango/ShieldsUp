@@ -27,7 +27,7 @@ public class WeaponMovementScript : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKey(KeyCode.Space) && Time.time > coolDown) {
-            animations.Play("ReloadAnimation");
+            animations.Play("Reload");
             Instantiate(bullet, transform.position, transform.rotation);
             coolDown = Time.time + reload;
         }

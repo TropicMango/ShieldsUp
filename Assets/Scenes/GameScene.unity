@@ -113,48 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &502489956
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 5.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826768224171532, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &514419522
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ce000717012b145958def735a40d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 1026815966590882, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
+  weapon: {fileID: 1571977107982630, guid: 82d5489faf1f9094cafbd68f790a8b1b, type: 2}
   movementSpeed: 10
 --- !u!4 &2132696148
 Transform:
