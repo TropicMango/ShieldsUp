@@ -11,7 +11,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Rb = GetComponent<Rigidbody2D>();
-        Instantiate(weapon, transform);
+        weapon = Instantiate(weapon, transform);
 	}
 	
 	// Update is called once per frame
@@ -26,5 +26,12 @@ public class PlayerMovementScript : MonoBehaviour {
         } else if (Input.GetKey(KeyCode.D)) {
             Rb.AddForce(new Vector2(movementSpeed, 0));
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        WeaponPickUpScript PU = collision.gameObject.GetComponent<WeaponPickUpScript>();
+        Destroy(weapon);
+        weapon = Instantiate(PU.getItem(), transform);
+        Destroy(collision.gameObject);
     }
 }
