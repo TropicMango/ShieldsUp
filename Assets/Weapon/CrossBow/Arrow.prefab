@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4242127862576312}
   - component: {fileID: 212973291743619594}
   - component: {fileID: 114478556990878428}
+  - component: {fileID: 61002238923740992}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: AllyDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,6 +72,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61002238923740992
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059633206685988}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.04, y: 5.65}
+    newSize: {x: 0.95, y: 1.81}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.04, y: 5.65}
+  m_EdgeRadius: 0
 --- !u!96 &96686182652313702
 TrailRenderer:
   serializedVersion: 2
@@ -176,8 +202,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terminationTime: 5
   movementSpeed: 0.3
-  bulletSpray: 0
   offSetDist: 0.4
+  explosionSize: 0
+  damage: 25
+  pierce: 2
+  explosion: {fileID: 0}
 --- !u!212 &212973291743619594
 SpriteRenderer:
   m_ObjectHideFlags: 1

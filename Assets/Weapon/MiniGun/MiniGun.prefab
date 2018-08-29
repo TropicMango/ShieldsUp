@@ -255,7 +255,7 @@ MonoBehaviour:
   animations: {fileID: 95446602851155588}
   numBullets: 1
   bulletSpray: 15
-  knockBack: 0
+  knockBack: 10
 --- !u!212 &212020776754664578
 SpriteRenderer:
   m_ObjectHideFlags: 1
