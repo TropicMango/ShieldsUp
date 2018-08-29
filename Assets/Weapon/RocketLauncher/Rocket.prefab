@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terminationTime: 10
-  movementSpeed: 0.1
+  movementSpeed: 0.15
   offSetDist: 0.4
   explosionSize: 5
   damage: 5
