@@ -35,6 +35,7 @@ public class PlayerMovementScript : MonoBehaviour {
     }
 
     void SwapWeap(GameObject weap) {
+        // -------------------- deletes current weap & swap --------------------------
         Quaternion weapRot = weapon.transform.rotation;
         Destroy(weapon);
         weapon = Instantiate(weap, transform);

@@ -12,7 +12,10 @@ public class RoomGenerationScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Instantiate(Room[0], new Vector3(0, 0, 100), Quaternion.Euler(0,0,0));
+        // -------------------- change me! --------------------------
+        GameObject testR = Instantiate(Room[0], new Vector3(0, 0, 100), Quaternion.Euler(0,0,0));
+        bool[] tempList = { false, false, true, false };
+        testR.GetComponent<GateScript>().updateLocks(tempList);
         Instantiate(Room[0], new Vector3(0, 25, 100), Quaternion.Euler(0, 0, 0));
         Instantiate(Room[0], new Vector3(25, 0, 100), Quaternion.Euler(0, 0, 0));
         Instantiate(Room[0], new Vector3(0, -25, 100), Quaternion.Euler(0, 0, 0));
