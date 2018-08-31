@@ -61,8 +61,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\BulletScrpit.cs" />
+    <Compile Include="Assets\Script\DamageScrpit.cs" />
+    <Compile Include="Assets\Script\EnemyScript.cs" />
+    <Compile Include="Assets\Script\ExplosionScript.cs" />
+    <Compile Include="Assets\Script\GateScript.cs" />
     <Compile Include="Assets\Script\PlayerMovementScript.cs" />
-    <Compile Include="Assets\Script\ShieldMovementScript.cs" />
+    <Compile Include="Assets\Script\RoomGenerationScript.cs" />
+    <Compile Include="Assets\Script\WeaponPickUpScript.cs" />
+    <Compile Include="Assets\Script\WeaponScript.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Charlie Wan/Documents/Shields Up/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
