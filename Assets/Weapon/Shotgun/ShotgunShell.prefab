@@ -84,7 +84,7 @@ MonoBehaviour:
   explosionSize: 0
   damage: 5
   pierce: 0
-  explosion: {fileID: 0}
+  explosion: {fileID: 1597074422600882, guid: 0c3f3324b6730f04d92e8c51a0e263af, type: 2}
 --- !u!212 &212161960563564172
 SpriteRenderer:
   m_ObjectHideFlags: 1

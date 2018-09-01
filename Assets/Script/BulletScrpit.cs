@@ -27,17 +27,37 @@ public class BulletScrpit : DamageScrpit {
 
     override
     public float Hit() {
-        if (explosionSize > 0) {
-            //create an explosion that dies after ___ seconds
-            Destroy(Instantiate(explosion, transform.position, transform.rotation), 3f);
-        }
         //-----------------------------pierce-----------------------------
         if (pierce == 0) {
             Destroy(gameObject);
         } else {
             pierce -= 1;
         }
-        
-        return damage;
+        if (explosionSize > 0) {
+            //create an explosion that dies after ___ seconds
+            GameObject explo = Instantiate(explosion, transform.position, transform.rotation);
+            explo.GetComponent<ExplosionScript>().init(damage, explosionSize);
+            Destroy(explo, 3f);
+
+            return 0;
+        } else {
+            return damage;
+        }
+    }
+
+    public void DamageInc(float inc, int mode) { //modes{ 1:multiply, 2:add }
+        if (mode == 1) {
+            damage *= inc;
+        } else {
+            damage += inc;
+        }
+    }
+
+    public void ExplosionInc(float inc, int mode) { //modes{ 1:multiply, 2:add }
+        if (mode == 1) {
+            explosionSize *= inc;
+        } else {
+            explosionSize += inc;
+        }
     }
 }
