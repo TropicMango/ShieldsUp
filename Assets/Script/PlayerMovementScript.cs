@@ -45,7 +45,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Pickup") {
-            SwapWeap(collision.gameObject.GetComponent<WeaponPickUpScript>().getItem());
+            SwapWeap(collision.gameObject.GetComponent<WeaponPickUpScript>().getItem(weapon));
             // Destroy(collision.gameObject);
         }
     }

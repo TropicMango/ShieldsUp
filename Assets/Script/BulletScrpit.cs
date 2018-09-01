@@ -29,9 +29,12 @@ public class BulletScrpit : DamageScrpit {
     public float Hit() {
         //-----------------------------pierce-----------------------------
         if (pierce == 0) {
-            Destroy(gameObject);
+            movementSpeed = 0; // pretend to be dead to keep the trail alive
+            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(GetComponent <Collider2D>());
+            Destroy(gameObject,3);
         } else {
-            pierce -= 1;
+            pierce -= 1; //removes one off the pierce counter
         }
         if (explosionSize > 0) {
             //create an explosion that dies after ___ seconds
