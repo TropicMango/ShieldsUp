@@ -203,7 +203,7 @@ MonoBehaviour:
   terminationTime: 5
   movementSpeed: 0.45
   offSetDist: 0.4
-  explosionSize: 10
+  explosionSize: 50
   damage: 25
   pierce: 2
   explosion: {fileID: 1597074422600882, guid: 0c3f3324b6730f04d92e8c51a0e263af, type: 2}
