@@ -365,10 +365,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gates:
-  - {fileID: 61398977405665704}
-  - {fileID: 61750486371206382}
-  - {fileID: 61132840407752198}
   - {fileID: 61641524673846076}
+  - {fileID: 61132840407752198}
+  - {fileID: 61750486371206382}
+  - {fileID: 61398977405665704}
 --- !u!212 &212363845259939056
 SpriteRenderer:
   m_ObjectHideFlags: 1

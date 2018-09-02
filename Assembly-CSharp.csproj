@@ -66,11 +66,15 @@
     <Compile Include="Assets\Script\EnemyScript.cs" />
     <Compile Include="Assets\Script\ExplosionScript.cs" />
     <Compile Include="Assets\Script\GateScript.cs" />
-    <Compile Include="Assets\Script\PlayerMovementScript.cs" />
+    <Compile Include="Assets\Script\PlayerScript.cs" />
     <Compile Include="Assets\Script\RoomGenerationScript.cs" />
-    <Compile Include="Assets\Script\upgradePickUpScript.cs" />
+    <Compile Include="Assets\Script\UpgradePickUpScript.cs" />
     <Compile Include="Assets\Script\WeaponPickUpScript.cs" />
     <Compile Include="Assets\Script\WeaponScript.cs" />
+    <Compile Include="Assets\Upgrades\Sugar Pill\SugarPillScript.cs" />
+    <Compile Include="Assets\Weapon Resources\CrossBow\CrossBowScrpt.cs" />
+    <Compile Include="Assets\Weapon Resources\MiniGun\MiniGunScript.cs" />
+    <Compile Include="Assets\Weapon Resources\RocketLauncher\RocketLauncherScipt.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Charlie Wan/Documents/Shields Up/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

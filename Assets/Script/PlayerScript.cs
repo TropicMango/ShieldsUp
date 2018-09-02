@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour {
 
     public GameObject weapon;
     public float movementSpeed;
@@ -47,6 +47,8 @@ public class PlayerMovementScript : MonoBehaviour {
         if (collision.tag == "Pickup") {
             SwapWeap(collision.gameObject.GetComponent<WeaponPickUpScript>().getItem(weapon));
             // Destroy(collision.gameObject);
+        }else if(collision.tag == "AllyUpgrade") {
+            collision.gameObject.GetComponent<UpgradePickUpScript>().upgrade(this);
         }
     }
 }

@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4886481777622140}
-  - component: {fileID: 114538060977112108}
+  - component: {fileID: 114915443913014018}
   m_Layer: 0
   m_Name: CrossBow
   m_TagString: Shield
@@ -205,7 +205,7 @@ MonoBehaviour:
   damage: 0
   pierce: 0
   explosion: {fileID: 0}
---- !u!114 &114538060977112108
+--- !u!114 &114915443913014018
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1571977107982630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3466e59e8c253434097823e4f26bf878, type: 3}
+  m_Script: {fileID: 11500000, guid: 88d6d4a5013d5af429413d38a2c4e386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 2
@@ -223,6 +223,7 @@ MonoBehaviour:
   numBullets: 1
   bulletSpray: 0
   knockBack: 0
+  bonusBulletSize: 0
 --- !u!212 &212127452475392360
 SpriteRenderer:
   m_ObjectHideFlags: 1

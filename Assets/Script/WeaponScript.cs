@@ -11,6 +11,7 @@ public class WeaponScript : MonoBehaviour {
     public int numBullets;
     public float bulletSpray;
     public float knockBack;
+    public float bonusBulletSize;
     private float coolDown;
     private bool flipRender;
 
@@ -50,7 +51,8 @@ public class WeaponScript : MonoBehaviour {
             animations.Play("Reload");
             for (int i = 0; i < numBullets; i++) {
                 Quaternion sprayRot = Quaternion.Euler(0, 0, Random.Range(-bulletSpray, bulletSpray));
-                Instantiate(bullet, transform.position, transform.rotation * sprayRot);
+                GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
+                tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
             }
             coolDown = Time.time + reload;
             //calculate knockback

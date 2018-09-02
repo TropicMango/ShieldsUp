@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4784689745672384}
-  - component: {fileID: 114387377499869814}
+  - component: {fileID: 114358596917023848}
   m_Layer: 0
   m_Name: MiniGun
   m_TagString: Untagged
@@ -238,7 +238,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114387377499869814
+--- !u!114 &114358596917023848
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961481564720098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3466e59e8c253434097823e4f26bf878, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b38fb2228f9e749832cacdddbdc8a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 10
@@ -256,6 +256,7 @@ MonoBehaviour:
   numBullets: 1
   bulletSpray: 15
   knockBack: 10
+  bonusBulletSize: 0
 --- !u!212 &212020776754664578
 SpriteRenderer:
   m_ObjectHideFlags: 1
