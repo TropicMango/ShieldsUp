@@ -61,8 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Characters\BaseMage\Scripts\BaseMageScript.cs" />
+    <Compile Include="Assets\Characters\BaseMage\Scripts\BasicStaffScript.cs" />
     <Compile Include="Assets\Script\BasicShieldScript.cs" />
     <Compile Include="Assets\Script\BulletScrpit.cs" />
+    <Compile Include="Assets\Script\CharacterUpdateScript.cs" />
     <Compile Include="Assets\Script\DamageScrpit.cs" />
     <Compile Include="Assets\Script\EnemyScript.cs" />
     <Compile Include="Assets\Script\ExplosionScript.cs" />
@@ -73,7 +76,6 @@
     <Compile Include="Assets\Script\WeaponPickUpScript.cs" />
     <Compile Include="Assets\Script\WeaponScript.cs" />
     <Compile Include="Assets\Upgrades\Sugar Pill\SugarPillScript.cs" />
-    <Compile Include="Assets\Weapon Resources\BasicStaff\BasicStaffScript.cs" />
     <Compile Include="Assets\Weapon Resources\CrossBow\CrossBowScrpt.cs" />
     <Compile Include="Assets\Weapon Resources\MiniGun\MiniGunScript.cs" />
     <Compile Include="Assets\Weapon Resources\RocketLauncher\RocketLauncherScipt.cs" />

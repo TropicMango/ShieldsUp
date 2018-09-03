@@ -18,15 +18,9 @@ public class WeaponScript : MonoBehaviour {
     private float abilityCoolDown;
     public float bonusBulletSize;
     private float coolDown;
-    private bool flipRender;
+    private bool flipRender = true;
     private int currentBurst;
 
-    // Use this for initialization
-    protected void init () {
-        Debug.Log("in");
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        currentBurst = burst;
-    }
 
     // Update is called once per frame
     void FixedUpdate () {
