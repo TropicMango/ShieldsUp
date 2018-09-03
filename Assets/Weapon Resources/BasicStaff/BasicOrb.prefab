@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4641892226024596}
   - component: {fileID: 212075225788116758}
   - component: {fileID: 114790744723012612}
+  - component: {fileID: 58779438959217706}
   m_Layer: 0
   m_Name: BasicOrb
-  m_TagString: Untagged
+  m_TagString: AllyDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,12 +36,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731856771356328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 122.25288, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58779438959217706
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731856771356328}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.86
 --- !u!114 &114790744723012612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,13 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c6d908452df23479c5edf3c46b738b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terminationTime: 2
   movementSpeed: 0.05
   offSetDist: 0.7
   explosionSize: 0
   damage: 10
   pierce: 5
-  explosion: {fileID: 0}
+  explosion: {fileID: 1597074422600882, guid: 0c3f3324b6730f04d92e8c51a0e263af, type: 2}
 --- !u!212 &212075225788116758
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e642134a186b1094ba853e9e581dac7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60bde9d4bd0c5e8458344a6ecd5644cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

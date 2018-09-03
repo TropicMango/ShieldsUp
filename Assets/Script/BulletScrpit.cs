@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletScrpit : DamageScrpit {
 
-    public float terminationTime;
     public float movementSpeed;
     public float offSetDist;
     public float explosionSize;
@@ -15,7 +14,6 @@ public class BulletScrpit : DamageScrpit {
     // Use this for initialization
     void Start () {
         //determin how long this will fly
-        Destroy(gameObject, terminationTime);
         transform.Translate(new Vector2(0, offSetDist));
 	}
 	

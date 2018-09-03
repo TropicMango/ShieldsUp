@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour {
 
     public float RotationSpeed;
+    public float terminationTime;
     public float reload;
     public GameObject bullet;
     public Animator animations;
@@ -13,13 +14,16 @@ public class WeaponScript : MonoBehaviour {
     public float bulletSpray;
     public float knockBack;
     public int burst;
+    public float abilityRecharge;
+    private float abilityCoolDown;
     public float bonusBulletSize;
     private float coolDown;
     private bool flipRender;
     private int currentBurst;
 
     // Use this for initialization
-    void Start () {
+    protected void init () {
+        Debug.Log("in");
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         currentBurst = burst;
     }
@@ -56,29 +60,41 @@ public class WeaponScript : MonoBehaviour {
     }
 
     public void Attack(Rigidbody2D player) {
-        //-----------------------------Fires and playes reload animation-----------------------------
+        //-----------------------------accounts for burst-----------------------------
         if (Time.time > coolDown) {
-            if(currentBurst < 0) {
+            if (currentBurst < 0) {
                 coolDown = Time.time + reload;
                 currentBurst = burst;
             } else {
                 currentBurst--;
-                StartCoroutine(waitFor(delay));
+                StartCoroutine(waitFor(delay, player));
             }
         }
     }
 
-    IEnumerator waitFor(float waitTime) {
+    public virtual bool Activate(Rigidbody2D player) {
+        if (Time.time > abilityCoolDown) {
+            animations.Play("Activate");
+            abilityCoolDown = Time.time + abilityRecharge;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    IEnumerator waitFor(float waitTime, Rigidbody2D player) {
+        //-----------------------------Fires and playes reload animation-----------------------------
         animations.Play("Reload"); //Play Animation
         yield return new WaitForSeconds(waitTime); // Pause
         for (int i = 0; i < numBullets; i++) { // Fire
             Quaternion sprayRot = Quaternion.Euler(0, 0, Random.Range(-bulletSpray, bulletSpray));
             GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
             tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
+            Destroy(tempBullet, terminationTime);
         }
         //calculate knockback
         Vector3 tran = new Vector3(0, -knockBack, 0);
         tran = transform.rotation * tran;
-        //player.AddForce(tran);
+        player.AddForce(tran);
     }
 }

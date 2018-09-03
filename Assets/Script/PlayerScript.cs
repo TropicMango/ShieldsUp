@@ -62,7 +62,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     public virtual void ActivateAbility() {
-
+        weaponS.Activate(Rb);
     }
 
     public virtual void ShieldsUp() {

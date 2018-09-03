@@ -198,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c6d908452df23479c5edf3c46b738b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terminationTime: 5
   movementSpeed: 0.2
   offSetDist: 0.7
   explosionSize: 0
@@ -217,12 +216,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 2
+  terminationTime: 3
   reload: 3
   bullet: {fileID: 1059633206685988, guid: 4036f243c9d28da40b3b25149784397d, type: 2}
   animations: {fileID: 95163641194168004}
   numBullets: 1
+  delay: 0
   bulletSpray: 0
   knockBack: 0
+  burst: 0
+  abilityRecharge: 0
   bonusBulletSize: 0
 --- !u!212 &212127452475392360
 SpriteRenderer:
