@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour {
         weapon = Instantiate(weap, transform);
         weapon.transform.rotation = weapRot;
         weaponS = weapon.GetComponent<WeaponScript>();
-    }
+    } 
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Pickup") {
