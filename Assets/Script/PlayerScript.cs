@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     public GameObject weapon;
+    public GameObject Shield;
     public float movementSpeed;
     private Rigidbody2D Rb;
     private WeaponScript weaponS;
@@ -29,8 +30,16 @@ public class PlayerScript : MonoBehaviour {
         } else if (Input.GetKey(KeyCode.D)) {
             Rb.AddForce(new Vector2(movementSpeed, 0));
         }
+
+        // ------------------- other player input ----------------------
         if (Input.GetKey(KeyCode.Space)) {
             weaponS.Attack(Rb); // tranform is passed for knock back
+        }
+        if (Input.GetKey(KeyCode.DownArrow)) {
+            ActivateAbility();
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            ShieldsUp();
         }
     }
 
@@ -50,5 +59,13 @@ public class PlayerScript : MonoBehaviour {
         }else if(collision.tag == "AllyUpgrade") {
             collision.gameObject.GetComponent<UpgradePickUpScript>().upgrade(this);
         }
+    }
+
+    public virtual void ActivateAbility() {
+
+    }
+
+    public virtual void ShieldsUp() {
+        Destroy(Instantiate(Shield,transform),0.5f);
     }
 }

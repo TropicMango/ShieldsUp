@@ -254,8 +254,10 @@ MonoBehaviour:
   bullet: {fileID: 1393587720714880, guid: bb526fa14c39a9a4fb507f43e03723ac, type: 2}
   animations: {fileID: 95446602851155588}
   numBullets: 1
+  delay: 0.5
   bulletSpray: 15
   knockBack: 10
+  burst: 0
   bonusBulletSize: 0
 --- !u!212 &212020776754664578
 SpriteRenderer:

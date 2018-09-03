@@ -1096,7 +1096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ce000717012b145958def735a40d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 1664998803304762, guid: d12744a6c9b28d04dbb3054af6e8be12, type: 2}
+  weapon: {fileID: 1014750538374478, guid: d9aac6daf8584e147b46605dad259fcf, type: 2}
+  Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
   movementSpeed: 5
 --- !u!4 &2132696148
 Transform:
