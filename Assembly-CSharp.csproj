@@ -63,6 +63,8 @@
   <ItemGroup>
     <Compile Include="Assets\Characters\Explorer\Scripts\BaseExplorerScript.cs" />
     <Compile Include="Assets\Characters\Explorer\Scripts\DaggerScript.cs" />
+    <Compile Include="Assets\Characters\Fighter\Scripts\BoxingGloveScript.cs" />
+    <Compile Include="Assets\Characters\Fighter\Scripts\FighterScript.cs" />
     <Compile Include="Assets\Characters\Mage\Scripts\BaseMageScript.cs" />
     <Compile Include="Assets\Characters\Mage\Scripts\BasicStaffScript.cs" />
     <Compile Include="Assets\Script\BasicShieldScript.cs" />

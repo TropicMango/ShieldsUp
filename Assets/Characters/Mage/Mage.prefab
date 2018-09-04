@@ -248,6 +248,7 @@ MonoBehaviour:
   weapon: {fileID: 1014750538374478, guid: d9aac6daf8584e147b46605dad259fcf, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
   movementSpeed: 5
+  abilityRecharge: 5
 --- !u!212 &212094717331015016
 SpriteRenderer:
   m_ObjectHideFlags: 1

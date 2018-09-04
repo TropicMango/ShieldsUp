@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour {
     public GameObject weapon;
     public GameObject Shield;
     public float movementSpeed;
+    public float abilityRecharge;
+    private float abilityCoolDown;
     private Rigidbody2D Rb;
     private WeaponScript weaponS;
 
@@ -33,7 +35,7 @@ public class PlayerScript : MonoBehaviour {
 
         // ------------------- other player input ----------------------
         if (Input.GetKey(KeyCode.Space)) {
-            weaponS.Attack(Rb); // tranform is passed for knock back
+            Attack();
         }
         if (Input.GetKey(KeyCode.DownArrow)) {
             ActivateAbility();
@@ -62,10 +64,17 @@ public class PlayerScript : MonoBehaviour {
     }
 
     public virtual void ActivateAbility() {
-        weaponS.Activate(Rb);
+        if (Time.time > abilityCoolDown) {
+            weaponS.Activate(Rb);
+            abilityCoolDown = Time.time + abilityRecharge;
+        }
     }
 
     public virtual void ShieldsUp() {
         Destroy(Instantiate(Shield,transform),0.5f);
+    }
+
+    public virtual void Attack() {
+        weaponS.Attack(Rb); // tranform is passed for knock back
     }
 }

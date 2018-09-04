@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class BasicStaffScript : WeaponScript {
 
-	// Use this for initialization
-	void Start () {}
-
     override
-    public bool Activate(Rigidbody2D player) {
-        if (base.Activate(player)) {
-            StartCoroutine(Activation(2.5f, player));
-        }
-        return true;
+    public void Activate(Rigidbody2D player) {
+        base.Activate(player);
+        StartCoroutine(Activation(player));
     }
 
-    IEnumerator Activation(float waitTime, Rigidbody2D player) {
-        yield return new WaitForSeconds(waitTime);
+    IEnumerator Activation(Rigidbody2D player) {
+        yield return new WaitForSeconds(2.5f);
         GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation);
         tempBullet.transform.localScale += new Vector3(0.3f, 0.3f, 0);
         tempBullet.GetComponent<BulletScrpit>().damage *= 5;

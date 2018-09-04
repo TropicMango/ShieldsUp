@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class DaggerScript : WeaponScript {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    override
+    public void Activate(Rigidbody2D player) { }
+
 }
