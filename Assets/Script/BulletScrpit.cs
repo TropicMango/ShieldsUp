@@ -28,7 +28,7 @@ public class BulletScrpit : DamageScrpit {
         //-----------------------------pierce-----------------------------
         if (pierce == 0) {
             movementSpeed = 0; // pretend to be dead to keep the trail alive
-            Destroy(GetComponent<SpriteRenderer>());
+            gameObject.SetActive(false);
             Destroy(GetComponent <Collider2D>());
             Destroy(gameObject,3);
         } else {

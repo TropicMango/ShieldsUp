@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayableChar:
-  - {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
+  - {fileID: 1111181405742884, guid: b462e8d324fe15c42896e7c05a2aa083, type: 2}
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0

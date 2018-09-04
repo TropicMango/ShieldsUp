@@ -5,12 +5,15 @@ using UnityEngine;
 public class BaseExplorerScript : PlayerScript {
     override
     public void ActivateAbility() {
-        StartCoroutine(speedBoost());
+        if (Time.time > abilityCoolDown) {
+            StartCoroutine(speedBoost());
+            abilityCoolDown = Time.time + abilityRecharge;
+        }
     }
 
     IEnumerator speedBoost() {
-        movementSpeed += 10;
-        yield return new WaitForSeconds(0.2f);
-        movementSpeed -= 10;
+        movementSpeed += 30;
+        yield return new WaitForSeconds(0.5f);
+        movementSpeed -= 30;
     }
 }

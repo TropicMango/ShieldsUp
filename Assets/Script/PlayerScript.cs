@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject Shield;
     public float movementSpeed;
     public float abilityRecharge;
-    private float abilityCoolDown;
+    protected float abilityCoolDown;
     private Rigidbody2D Rb;
     private WeaponScript weaponS;
 
