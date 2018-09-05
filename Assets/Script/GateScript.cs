@@ -21,8 +21,16 @@ public class GateScript : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void openTop(bool status) {
+        gates[0].enabled = !status;
+    }
+    public void openBot(bool status) {
+        gates[1].enabled = !status;
+    }
+    public void openLeft(bool status) {
+        gates[2].enabled = !status;
+    }
+    public void openRight(bool status) {
+        gates[3].enabled = !status;
+    }
 }

@@ -10,76 +10,91 @@ public class RoomGenerationScript : MonoBehaviour {
     public GameObject[] Hall; // Order: Horizontal, Vertical
     public int numRooms = 10;
     private GameObject[,] Grid;
+    private int size = 40;
 
     private void Start() {
-        GenrateRoom();
+        Grid = new GameObject[size, size];
+        SmartGeneration(50, size/2, size/2, -100);
     }
 
-    // Use this for initialization
-    void GenrateRoom () {
-        Grid = new GameObject[50,50];
-        int x = 25;
-        int y = 25;
-        GameObject lastRoom;
-        //----------------------------- First Room -----------------------------
-        lastRoom = Instantiate(Room[0], new Vector3((x - 25) * 25, (y - 25) * 25, 100), Quaternion.Euler(0, 0, 0)); ;
-        Grid[x, y] = lastRoom;
+    void SmartGeneration(int numRooms, int roomX, int roomY, int dir) {
+        if(numRooms == 0) { return; } // Kinda Recursive but also is basically just a while loop XD
 
-        for (int i=0; i<numRooms; i++) { 
-            switch (Random.Range(0, 4)) { // Random Number for a direction
+        while (Grid[roomX, roomY]) { // if current room is taken keep on going in the same direction
+            switch (dir) {
                 case 0:
-                    y += 1;
+                    roomY += 1;
                     break;
                 case 1:
-                    y -= 1;
+                    roomY -= 1;
                     break;
                 case 2:
-                    x += 1;
+                    roomX -= 1;
                     break;
                 case 3:
-                    x -= 1;
+                    roomX += 1;
                     break;
             }
-            
-            Debug.Log(x + ", " + y);
-            // ----------------- VERY SHITTY ROOM GENERATION!!! ---------------------------
-            //replace with code that will split off into different lines instead of going in a random line
-            //use some recursive thing
-            if (y < 0) { y = 0; }
-            if (x < 0) { y = 25; x = 25; }
-            while (Grid[x, y]) {
-                if (!Grid[0, 0]) {
-                    if (y > 0) { y--; } // go down if can't find a room
-                    else if (x > 0) { x--; } // if at the top go to the left
-                    Debug.Log(x + ", " + y);
-                } else { // if zero zero is taken it means we are gona reset
-                    if (y < 50) { y++; } 
-                    else if (x < 50) { x++; } 
-                }
-            }
+        }
 
-            if (x < 0 || y < 0 || x > 50 || y > 50) { break; }
-            lastRoom = Instantiate(Room[0], new Vector3((x - 25) * 25, (y - 25) * 25, 100), Quaternion.Euler(0, 0, 0)); ;
-            Grid[x, y] = lastRoom;
+        // summon room
+        Grid[roomX,roomY] = Instantiate(Room[0], new Vector3((roomX - size / 2) * 25, (roomY - size / 2) * 25, 100), Quaternion.Euler(0, 0, 0)); ;
+
+        switch (dir) { // Open the gates on for the rooms and create the hall
+            case 0:
+                Grid[roomX, roomY-1].GetComponent<GateScript>().openTop(true);
+                Grid[roomX, roomY].GetComponent<GateScript>().openBot(true);
+                Instantiate(Hall[0], new Vector3((roomX - size / 2) * 25, (roomY - size / 2) * 25 - 12.5f, 120), Quaternion.Euler(0, 0, 90));
+                break;
+            case 1:
+                Grid[roomX, roomY + 1].GetComponent<GateScript>().openBot(true);
+                Grid[roomX, roomY].GetComponent<GateScript>().openTop(true);
+                Instantiate(Hall[0], new Vector3((roomX - size / 2) * 25, (roomY - size / 2) * 25 + 12.5f, 120), Quaternion.Euler(0, 0, 90));
+                break;
+            case 2:
+                Grid[roomX + 1, roomY].GetComponent<GateScript>().openLeft(true);
+                Grid[roomX, roomY].GetComponent<GateScript>().openRight(true);
+                Instantiate(Hall[0], new Vector3((roomX - size / 2) * 25 + 12.5f, (roomY - size / 2) * 25, 120), Quaternion.Euler(0, 0, 0));
+                break;
+            case 3:
+                Grid[roomX - 1, roomY].GetComponent<GateScript>().openRight(true);
+                Grid[roomX, roomY].GetComponent<GateScript>().openLeft(true);
+                Instantiate(Hall[0], new Vector3((roomX - size / 2) * 25 - 12.5f, (roomY - size / 2) * 25, 120), Quaternion.Euler(0, 0, 0));
+                break;
         }
 
 
-        /*
-        // -------------------- change me! -------------------------
-        GameObject testR = Instantiate(Room[0], new Vector3(0, 0, 100), Quaternion.Euler(0,0,0));
-        bool[] tempList = { false, false, true, false };
-        testR.GetComponent<GateScript>().updateLocks(tempList);
-        Instantiate(Room[0], new Vector3(0, 25, 100), Quaternion.Euler(0, 0, 0));
-        Instantiate(Room[0], new Vector3(25, 0, 100), Quaternion.Euler(0, 0, 0));
-        Instantiate(Room[0], new Vector3(0, -25, 100), Quaternion.Euler(0, 0, 0));
+        switch (Random.Range(0, 3)) { // calls it self for new rooms
+            case 0:
+                if (roomY < size) {
+                    SmartGeneration(numRooms - 1, roomX, roomY + 1, 0);
+                } else {
+                    SmartGeneration(numRooms - 1, roomX, roomY - 1, 1);
+                }
+                break;
+            case 1:
+                if (roomY > 0) {
+                    SmartGeneration(numRooms - 1, roomX, roomY - 1, 1);
+                } else {
+                    SmartGeneration(numRooms - 1, roomX, roomY + 1, 0);
+                }
+                break;
+            case 2:
+                if (roomX > 0) {
+                    SmartGeneration(numRooms - 1, roomX - 1, roomY, 2);
+                } else {
+                    SmartGeneration(numRooms - 1, roomX + 1, roomY, 3);
+                }
+                break;
+            case 3:
+                if (roomX < 0) {
+                    SmartGeneration(numRooms - 1, roomX + 1, roomY, 3);
+                } else {
+                    SmartGeneration(numRooms - 1, roomX - 1, roomY, 2);
+                }
+                break;
+        }
 
-        Instantiate(Hall[0], new Vector3(0, 12.5f, 120), Quaternion.Euler(0, 0, 90));
-        Instantiate(Hall[0], new Vector3(0, -12.5f, 120), Quaternion.Euler(0, 0, 90));
-        Instantiate(Hall[0], new Vector3(12.5f, 0, 120), Quaternion.Euler(0, 0, 0));*/
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
