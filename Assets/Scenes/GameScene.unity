@@ -216,7 +216,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayableChar:
+  - {fileID: 1584864687232338, guid: 26a435476b7a0ed46981e7100a86b149, type: 2}
   - {fileID: 1111181405742884, guid: b462e8d324fe15c42896e7c05a2aa083, type: 2}
+  - {fileID: 1629498480316104, guid: b20e40592b6638445bbd4db0677d54f8, type: 2}
+  - {fileID: 1294545291177298, guid: 18fa50cdfffee9d418b5c4259b7612bf, type: 2}
+  - {fileID: 1584864687232338, guid: 26a435476b7a0ed46981e7100a86b149, type: 2}
+  - {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0
@@ -513,7 +518,6 @@ MonoBehaviour:
   Door: []
   Hall:
   - {fileID: 1175409267527028, guid: 73087c0005396db40b7a1d1e546e4690, type: 2}
-  - {fileID: 1056485548291334, guid: 087493b334473c4438994347f3077cf8, type: 2}
 --- !u!4 &1675456579
 Transform:
   m_ObjectHideFlags: 0
