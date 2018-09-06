@@ -32,7 +32,7 @@ public class WeaponPickUpScript : MonoBehaviour {
     void setUpDisplay (GameObject newWeap) {
         displayItem = Instantiate(newWeap.gameObject, transform);
         Destroy(displayItem.GetComponent<WeaponScript>());
-        displayItem.transform.localPosition = new Vector3(0, -0.2f, 0);
+        displayItem.transform.localPosition = new Vector3(0, -0.2f, -5);
         displayItem.transform.localScale = new Vector3(10, 10, 0);
     }
 

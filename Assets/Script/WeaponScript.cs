@@ -13,36 +13,10 @@ public class WeaponScript : MonoBehaviour {
     public float delay;
     public float bulletSpray;
     public float knockBack;
-    public int burst;
-    public float abilityRecharge;
-    private float abilityCoolDown;
     public float bonusBulletSize;
-    private float coolDown;
-    private bool flipRender;
-    private int currentBurst;
+    protected float coolDown;
+    private bool flipRender = true;
 
-    // Use this for initialization
-    protected void init () {
-        Debug.Log("in");
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        currentBurst = burst;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate () {
-        //-----------------------------rotation of weapon-----------------------------
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            transform.Rotate(new Vector3(0, 0, RotationSpeed));
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
-            transform.Rotate(new Vector3(0, 0, -RotationSpeed));
-        }
-    }
-
-    IEnumerator waitforOne() {
-        Debug.Log("coroutineB created");
-        yield return new WaitForSeconds(2.5f);
-        Debug.Log("coroutineB enables coroutineA to run");
-    }
 
     void Update() {
         //-----------------------------determine if the weapon should be flipped-----------------------------
@@ -59,33 +33,26 @@ public class WeaponScript : MonoBehaviour {
         }
     }
 
-    public void Attack(Rigidbody2D player) {
+    public void rotateLeft() {
+        transform.Rotate(new Vector3(0, 0, RotationSpeed));
+    }
+
+    public void rotateRight() {
+        transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+    }
+
+    public virtual void Attack(Rigidbody2D player) {
         //-----------------------------accounts for burst-----------------------------
         if (Time.time > coolDown) {
-            if (currentBurst < 0) {
-                coolDown = Time.time + reload;
-                currentBurst = burst;
-            } else {
-                currentBurst--;
-                StartCoroutine(waitFor(delay, player));
-            }
+            coolDown = Time.time + reload;
+            animations.Play("Reload"); //Play Animation
+            StartCoroutine(AttackCommand(player));
         }
     }
 
-    public virtual bool Activate(Rigidbody2D player) {
-        if (Time.time > abilityCoolDown) {
-            animations.Play("Activate");
-            abilityCoolDown = Time.time + abilityRecharge;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    IEnumerator waitFor(float waitTime, Rigidbody2D player) {
+    protected IEnumerator AttackCommand(Rigidbody2D player) {
         //-----------------------------Fires and playes reload animation-----------------------------
-        animations.Play("Reload"); //Play Animation
-        yield return new WaitForSeconds(waitTime); // Pause
+        yield return new WaitForSeconds(delay); // Pause
         for (int i = 0; i < numBullets; i++) { // Fire
             Quaternion sprayRot = Quaternion.Euler(0, 0, Random.Range(-bulletSpray, bulletSpray));
             GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
@@ -96,5 +63,9 @@ public class WeaponScript : MonoBehaviour {
         Vector3 tran = new Vector3(0, -knockBack, 0);
         tran = transform.rotation * tran;
         player.AddForce(tran);
+    }
+
+    public virtual void Activate(Rigidbody2D player) {
+        animations.Play("Activate");
     }
 }
