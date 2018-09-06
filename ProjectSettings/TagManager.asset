@@ -9,6 +9,7 @@ TagManager:
   - AllyDamage
   - AllyUpgrade
   - Room
+  - EnemyDamage
   layers:
   - Default
   - TransparentFX

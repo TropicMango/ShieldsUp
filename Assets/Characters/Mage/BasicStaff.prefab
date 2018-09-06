@@ -198,9 +198,8 @@ MonoBehaviour:
   delay: 1
   bulletSpray: 5
   knockBack: 0
-  burst: 0
-  abilityRecharge: 5
   bonusBulletSize: 0
+  activeAnimationTime: 2.7
 --- !u!212 &212569998851911364
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -14,9 +14,14 @@ public class WeaponScript : MonoBehaviour {
     public float bulletSpray;
     public float knockBack;
     public float bonusBulletSize;
+    public float activeAnimationTime;
     protected float coolDown;
     private bool flipRender = true;
+    private bool isPlayer = false;
 
+    public void init(bool isPlayer) {
+        this.isPlayer = isPlayer;
+    }
 
     void Update() {
         //-----------------------------determine if the weapon should be flipped-----------------------------
@@ -41,9 +46,13 @@ public class WeaponScript : MonoBehaviour {
         transform.Rotate(new Vector3(0, 0, -RotationSpeed));
     }
 
+    public void setRotation(Quaternion angle) {
+        transform.rotation = angle;
+    }
+
     public virtual void Attack(Rigidbody2D player) {
         //-----------------------------accounts for burst-----------------------------
-        if (Time.time > coolDown) {
+        if (Time.time > coolDown && !animations.GetCurrentAnimatorStateInfo(0).IsName("Activate")) {
             coolDown = Time.time + reload;
             animations.Play("Reload"); //Play Animation
             StartCoroutine(AttackCommand(player));
@@ -57,7 +66,13 @@ public class WeaponScript : MonoBehaviour {
             Quaternion sprayRot = Quaternion.Euler(0, 0, Random.Range(-bulletSpray, bulletSpray));
             GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
             tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
+            if (isPlayer) {
+                tempBullet.tag = "AllyDamage";
+            } else {
+                tempBullet.tag = "EnemyDamage";
+            }
             Destroy(tempBullet, terminationTime);
+            
         }
         //calculate knockback
         Vector3 tran = new Vector3(0, -knockBack, 0);
@@ -66,6 +81,7 @@ public class WeaponScript : MonoBehaviour {
     }
 
     public virtual void Activate(Rigidbody2D player) {
+        coolDown += activeAnimationTime;
         animations.Play("Activate");
     }
 }

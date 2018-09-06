@@ -6,14 +6,19 @@ public class EnemyScript : MonoBehaviour {
 
     public float hp;
     public float movementSpeed = 0.01f;
+    public GameObject weapon;
     private Vector2 dir;
     private GameObject target;
+    private Rigidbody2D Rb;
     public Animator animations;
+    private WeaponScript weaponScript;
 
     // Use this for initialization
     void Start () {
+        Rb = GetComponent<Rigidbody2D>();
         dir = new Vector2(0, 0.01f);
         transform.Translate(new Vector3(0, 0, -50));
+        weaponScript = Instantiate(weapon, transform).GetComponent<WeaponScript>();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +28,8 @@ public class EnemyScript : MonoBehaviour {
             float angel = Vector2.SignedAngle(transform.position - target.transform.position, Vector2.up);
             transform.Translate(Quaternion.Euler(0, 0, -angel) * new Vector2(0, -movementSpeed));
             // transform.Translate(Quaternion.Euler(0,0,  * new Vector2(0,1));
+            weaponScript.setRotation(Quaternion.Euler(0, 0, 180-angel));
+            weaponScript.Attack(Rb);
         }
 	}
 
@@ -34,6 +41,7 @@ public class EnemyScript : MonoBehaviour {
             hp -= damage;
             if(hp < 0) {
                 animations.Play("Death");
+                Destroy(weaponScript.gameObject);
                 Destroy(GetComponent<Collider2D>());
                 Destroy(this);
                 Destroy(gameObject,5);

@@ -5,19 +5,21 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     //public Camera camera;
+    public float hp;
     public GameObject weapon;
     public GameObject Shield;
     public float movementSpeed;
     public float abilityRecharge;
     protected float abilityCoolDown;
     private Rigidbody2D Rb;
-    private WeaponScript weaponS;
+    private WeaponScript weaponScript;
 
     // Use this for initialization
     void Start() {
         Rb = GetComponent<Rigidbody2D>();
         weapon = Instantiate(weapon, transform);
-        weaponS = weapon.GetComponent<WeaponScript>();
+        weaponScript = weapon.GetComponent<WeaponScript>();
+        weaponScript.init(true);
         //Instantiate(camera, transform);
     }
 
@@ -37,9 +39,9 @@ public class PlayerScript : MonoBehaviour {
 
         //-----------------------------rotation of weapon-----------------------------
         if (Input.GetKey(KeyCode.LeftArrow)) {
-            weaponS.rotateLeft();
+            weaponScript.rotateLeft();
         } else if (Input.GetKey(KeyCode.RightArrow)) {
-            weaponS.rotateRight();
+            weaponScript.rotateRight();
         }
 
         // ------------------- other player input ----------------------
@@ -54,6 +56,8 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    //no longer being used due to the class system
+    /*
     void SwapWeap(GameObject weap) {
         // -------------------- deletes current weap & swap --------------------------
         Quaternion weapRot = weapon.transform.rotation;
@@ -61,22 +65,29 @@ public class PlayerScript : MonoBehaviour {
         weapon = Instantiate(weap, transform);
         weapon.transform.rotation = weapRot;
         weaponS = weapon.GetComponent<WeaponScript>();
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Pickup") {
-            SwapWeap(collision.gameObject.GetComponent<WeaponPickUpScript>().getItem(weapon));
+            // SwapWeap(collision.gameObject.GetComponent<WeaponPickUpScript>().getItem(weapon));
             // Destroy(collision.gameObject);
         } else if (collision.tag == "AllyUpgrade") {
             collision.gameObject.GetComponent<UpgradePickUpScript>().upgrade(this);
-        } else if (collision.tag == "Room") {
+        } else if (collision.tag == "EnemyDamage") {
+            collision.gameObject.GetComponent<BulletScrpit>().Hit();
+            Debug.Log("OW");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.tag == "Room") {
             collision.gameObject.GetComponent<GateScript>().spawnEnemies(gameObject);
         }
     }
 
     public virtual void ActivateAbility() {
         if (Time.time > abilityCoolDown) {
-            weaponS.Activate(Rb);
+            weaponScript.Activate(Rb);
             abilityCoolDown = Time.time + abilityRecharge;
         }
     }
@@ -86,6 +97,6 @@ public class PlayerScript : MonoBehaviour {
     }
 
     public virtual void Attack() {
-        weaponS.Attack(Rb); // tranform is passed for knock back
+        weaponScript.Attack(Rb); // tranform is passed for knock back
     }
 }

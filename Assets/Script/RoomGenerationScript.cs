@@ -14,11 +14,11 @@ public class RoomGenerationScript : MonoBehaviour {
 
     private void Start() {
         Grid = new GameObject[size, size];
-        SmartGeneration(50, size/2, size/2, -100);
+        SmartGeneration(numRooms, size/2, size/2, -100);
     }
 
-    void SmartGeneration(int numRooms, int roomX, int roomY, int dir) {
-        if(numRooms == 0) { return; } // Kinda Recursive but also is basically just a while loop XD
+    void SmartGeneration(int roomsLeft, int roomX, int roomY, int dir) {
+        if(roomsLeft == 0) { return; } // Kinda Recursive but also is basically just a while loop XD
 
         while (Grid[roomX, roomY]) { // if current room is taken keep on going in the same direction
             switch (dir) {
@@ -63,36 +63,39 @@ public class RoomGenerationScript : MonoBehaviour {
                 break;
         }
 
+        int repeats = Random.Range(1, 3);
 
-        switch (Random.Range(0, 3)) { // calls it self for new rooms
-            case 0:
-                if (roomY < size) {
-                    SmartGeneration(numRooms - 1, roomX, roomY + 1, 0);
-                } else {
-                    SmartGeneration(numRooms - 1, roomX, roomY - 1, 1);
-                }
-                break;
-            case 1:
-                if (roomY > 0) {
-                    SmartGeneration(numRooms - 1, roomX, roomY - 1, 1);
-                } else {
-                    SmartGeneration(numRooms - 1, roomX, roomY + 1, 0);
-                }
-                break;
-            case 2:
-                if (roomX > 0) {
-                    SmartGeneration(numRooms - 1, roomX - 1, roomY, 2);
-                } else {
-                    SmartGeneration(numRooms - 1, roomX + 1, roomY, 3);
-                }
-                break;
-            case 3:
-                if (roomX < 0) {
-                    SmartGeneration(numRooms - 1, roomX + 1, roomY, 3);
-                } else {
-                    SmartGeneration(numRooms - 1, roomX - 1, roomY, 2);
-                }
-                break;
+        for (int i = 0; i < repeats; i++) {
+            switch (Random.Range(0, 3)) { // calls it self for new rooms
+                case 0:
+                    if (roomY < size) {
+                        SmartGeneration(roomsLeft - 1, roomX, roomY + 1, 0);
+                    } else {
+                        SmartGeneration(roomsLeft - 1, roomX, roomY - 1, 1);
+                    }
+                    break;
+                case 1:
+                    if (roomY > 0) {
+                        SmartGeneration(roomsLeft - 1, roomX, roomY - 1, 1);
+                    } else {
+                        SmartGeneration(roomsLeft - 1, roomX, roomY + 1, 0);
+                    }
+                    break;
+                case 2:
+                    if (roomX > 0) {
+                        SmartGeneration(roomsLeft - 1, roomX - 1, roomY, 2);
+                    } else {
+                        SmartGeneration(roomsLeft - 1, roomX + 1, roomY, 3);
+                    }
+                    break;
+                case 3:
+                    if (roomX < 0) {
+                        SmartGeneration(roomsLeft - 1, roomX + 1, roomY, 3);
+                    } else {
+                        SmartGeneration(roomsLeft - 1, roomX - 1, roomY, 2);
+                    }
+                    break;
+            }
         }
 
     }

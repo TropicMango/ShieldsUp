@@ -68,6 +68,7 @@
     <Compile Include="Assets\Characters\Mage\Scripts\BaseMageScript.cs" />
     <Compile Include="Assets\Characters\Mage\Scripts\BasicStaffScript.cs" />
     <Compile Include="Assets\Characters\Mech\Scripts\MechanicScript.cs" />
+    <Compile Include="Assets\Characters\Mech\Scripts\MechWallScript.cs" />
     <Compile Include="Assets\Characters\Mech\Scripts\WrenchScript.cs" />
     <Compile Include="Assets\Characters\Shaman\Script\BlowPipeScript.cs" />
     <Compile Include="Assets\Characters\Shaman\Script\ShamanScript.cs" />
