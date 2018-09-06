@@ -8,8 +8,8 @@ public class CharacterUpdateScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //Instantiate(PlayableChar[Random.Range(0, PlayableChar.Length)]);
-        Instantiate(PlayableChar[0]);
+        Instantiate(PlayableChar[Random.Range(0, PlayableChar.Length)]);
+        //Instantiate(PlayableChar[0]);
 
     }
 	

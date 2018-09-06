@@ -18,16 +18,6 @@ public class WeaponScript : MonoBehaviour {
     private bool flipRender = true;
 
 
-    // Update is called once per frame
-    void FixedUpdate () {
-        //-----------------------------rotation of weapon-----------------------------
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            transform.Rotate(new Vector3(0, 0, RotationSpeed));
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
-            transform.Rotate(new Vector3(0, 0, -RotationSpeed));
-        }
-    }
-
     void Update() {
         //-----------------------------determine if the weapon should be flipped-----------------------------
         if (transform.rotation.eulerAngles.z < 180) { 
@@ -41,6 +31,14 @@ public class WeaponScript : MonoBehaviour {
                 flipRender = true;
             }
         }
+    }
+
+    public void rotateLeft() {
+        transform.Rotate(new Vector3(0, 0, RotationSpeed));
+    }
+
+    public void rotateRight() {
+        transform.Rotate(new Vector3(0, 0, -RotationSpeed));
     }
 
     public virtual void Attack(Rigidbody2D player) {

@@ -8,6 +8,7 @@ TagManager:
   - Pickup
   - AllyDamage
   - AllyUpgrade
+  - Room
   layers:
   - Default
   - TransparentFX

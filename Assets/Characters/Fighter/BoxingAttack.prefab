@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58836633531295288}
   m_Layer: 0
   m_Name: BoxingAttack
-  m_TagString: Untagged
+  m_TagString: AllyDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

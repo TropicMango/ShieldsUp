@@ -119,7 +119,7 @@ MonoBehaviour:
   movementSpeed: 0.1
   offSetDist: 0.4
   explosionSize: 0
-  damage: 10
+  damage: 20
   pierce: 0
   explosion: {fileID: 0}
 --- !u!212 &212037876287272412
