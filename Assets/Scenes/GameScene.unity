@@ -222,6 +222,7 @@ MonoBehaviour:
   - {fileID: 1294545291177298, guid: 18fa50cdfffee9d418b5c4259b7612bf, type: 2}
   - {fileID: 1584864687232338, guid: 26a435476b7a0ed46981e7100a86b149, type: 2}
   - {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
+  select: 3
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0
@@ -375,6 +376,8 @@ MonoBehaviour:
   Door: []
   Hall:
   - {fileID: 1175409267527028, guid: 73087c0005396db40b7a1d1e546e4690, type: 2}
+  enemies:
+  - {fileID: 1701488535871266, guid: 563098381cb8cca4c8cb591c423cff37, type: 2}
   numRooms: 10
 --- !u!4 &1675456579
 Transform:

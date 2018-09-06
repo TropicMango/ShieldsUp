@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c83d2f8ce8168b4995561c9bc121d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
   weapon: {fileID: 1037791129452742, guid: edbb3abc1fcf5f3479dd630016673837, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
   movementSpeed: 5

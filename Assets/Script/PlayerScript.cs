@@ -81,6 +81,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "Room") {
+            Debug.Log(gameObject);
             collision.gameObject.GetComponent<GateScript>().spawnEnemies(gameObject);
         }
     }

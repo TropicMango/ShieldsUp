@@ -5,13 +5,11 @@ using UnityEngine;
 public class GateScript : MonoBehaviour {
 
     public BoxCollider2D[] gates;
-    public GameObject[] enemies;
-    private bool spawned = false;
+    private List<GameObject> enemies;
+    private bool spawned = true;
 
-    // Use this for initialization
     void Start () {
-		
-	}
+    }
 
     public void openTop(bool status) {
         gates[0].isTrigger = status;
@@ -26,11 +24,16 @@ public class GateScript : MonoBehaviour {
         gates[3].isTrigger = status;
     }
 
+    public void addMonsters(List<GameObject> enemy) {
+        enemies = enemy;
+        spawned = false;
+    }
+
+    private float range = 8;
     public void spawnEnemies(GameObject player) {
         if (!spawned) {
-            Debug.Log("GOT HIM!");
-            for (int i = 0; i < enemies.Length; i++) {
-                GameObject temp = Instantiate(enemies[i], transform.position, Quaternion.Euler(0, 0, 0));
+            for (int i = 0; i < enemies.Count; i++) {
+                GameObject temp = Instantiate(enemies[i], transform.position + new Vector3(Random.Range(-range, range), Random.Range(-range, range)), Quaternion.Euler(0, 0, 0));
                 temp.GetComponent<EnemyScript>().setTarget(player);
             }
             spawned = true;

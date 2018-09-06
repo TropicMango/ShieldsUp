@@ -8,13 +8,16 @@ public class RoomGenerationScript : MonoBehaviour {
     public GameObject[] Room; 
     public GameObject[] Door; // Order: up, down, left, right
     public GameObject[] Hall; // Order: Horizontal, Vertical
+    public GameObject[] enemies;
     public int numRooms = 10;
     private GameObject[,] Grid;
     private int size = 40;
+    private int difficulty = 5;
+
 
     private void Start() {
         Grid = new GameObject[size, size];
-        SmartGeneration(numRooms, size/2, size/2, -100);
+        SmartGeneration(numRooms, size / 2, size / 2, -100);
     }
 
     void SmartGeneration(int roomsLeft, int roomX, int roomY, int dir) {
@@ -38,7 +41,10 @@ public class RoomGenerationScript : MonoBehaviour {
         }
 
         // summon room
-        Grid[roomX,roomY] = Instantiate(Room[0], new Vector3((roomX - size / 2) * 25, (roomY - size / 2) * 25, 100), Quaternion.Euler(0, 0, 0)); ;
+        Grid[roomX, roomY] = Instantiate(Room[0], new Vector3((roomX - size / 2) * 25, (roomY - size / 2) * 25, 100), Quaternion.Euler(0, 0, 0)); ;
+        if (roomsLeft != numRooms && roomsLeft != 1) {
+            addEnemies(Grid[roomX, roomY].GetComponent<GateScript>());
+        }
 
         switch (dir) { // Open the gates on for the rooms and create the hall
             case 0:
@@ -63,7 +69,7 @@ public class RoomGenerationScript : MonoBehaviour {
                 break;
         }
 
-        int repeats = Random.Range(1, 3);
+        int repeats = Random.Range(1, 1);
 
         for (int i = 0; i < repeats; i++) {
             switch (Random.Range(0, 3)) { // calls it self for new rooms
@@ -100,4 +106,11 @@ public class RoomGenerationScript : MonoBehaviour {
 
     }
 
+    void addEnemies(GateScript room) {
+        List<GameObject> monsters = new List<GameObject>();
+        for (int i=0; i<difficulty; i++) {
+            monsters.Add(enemies[Random.Range(0, enemies.Length - 1)]);
+        }
+        room.addMonsters(monsters);
+    }
 }
