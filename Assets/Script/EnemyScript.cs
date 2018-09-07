@@ -25,13 +25,18 @@ public class EnemyScript : MonoBehaviour {
 	void Update () {
         //-----------------------------random movements---------------------------
         if (target) {
-            float angel = Vector2.SignedAngle(transform.position - target.transform.position, Vector2.up);
-            transform.Translate(Quaternion.Euler(0, 0, -angel) * new Vector2(0, -movementSpeed));
+            float angle = -Vector2.SignedAngle(transform.position - target.transform.position, Vector2.up);
+            transform.Translate(Quaternion.Euler(0, 0, angle) * new Vector2(0, -movementSpeed));
             // transform.Translate(Quaternion.Euler(0,0,  * new Vector2(0,1));
-            weaponScript.setRotation(Quaternion.Euler(0, 0, 180-angel));
-            weaponScript.Attack(Rb);
+            updateWeap(angle);
         }
 	}
+
+    protected virtual void updateWeap(float angle) {
+        weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
+        weaponScript.Attack(Rb);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision) {
         //-----------------------------hitting ally bullet-----------------------------
