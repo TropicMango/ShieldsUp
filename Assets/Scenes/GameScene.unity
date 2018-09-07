@@ -222,7 +222,7 @@ MonoBehaviour:
   - {fileID: 1294545291177298, guid: 18fa50cdfffee9d418b5c4259b7612bf, type: 2}
   - {fileID: 1584864687232338, guid: 26a435476b7a0ed46981e7100a86b149, type: 2}
   - {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
-  select: 5
+  select: -1
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0
@@ -344,48 +344,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1673131488
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800728376822142, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1675456577
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +378,7 @@ MonoBehaviour:
   - {fileID: 1175409267527028, guid: 73087c0005396db40b7a1d1e546e4690, type: 2}
   enemies:
   - {fileID: 1701488535871266, guid: 563098381cb8cca4c8cb591c423cff37, type: 2}
+  - {fileID: 1885300840042394, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
   numRooms: 10
 --- !u!4 &1675456579
 Transform:

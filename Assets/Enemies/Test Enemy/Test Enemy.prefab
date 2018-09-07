@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00ec9a3b27b70548ae3fbd4fb9333e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 70
   movementSpeed: 0.01
   weapon: {fileID: 1037791129452742, guid: edbb3abc1fcf5f3479dd630016673837, type: 2}
   animations: {fileID: 95881344945181728}

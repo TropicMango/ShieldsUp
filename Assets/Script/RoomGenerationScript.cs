@@ -109,7 +109,7 @@ public class RoomGenerationScript : MonoBehaviour {
     void addEnemies(GateScript room) {
         List<GameObject> monsters = new List<GameObject>();
         for (int i=0; i<difficulty; i++) {
-            monsters.Add(enemies[Random.Range(0, enemies.Length - 1)]);
+            monsters.Add(enemies[Random.Range(0, enemies.Length)]);
         }
         room.addMonsters(monsters);
     }
