@@ -138,9 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 70
-  movementSpeed: 0.01
+  movementSpeed: 0.03
   weapon: {fileID: 1200839959132878, guid: 449d77a546de8dc44ace5f6f7072c4eb, type: 2}
   animations: {fileID: 95881344945181728}
+  attackRange: 0
 --- !u!212 &212811998805007948
 SpriteRenderer:
   m_ObjectHideFlags: 1

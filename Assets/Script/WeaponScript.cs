@@ -18,6 +18,7 @@ public class WeaponScript : MonoBehaviour {
     protected float coolDown;
     private bool flipRender = true;
     private bool isPlayer = false;
+    public bool melee;
 
     public void init(bool isPlayer) {
         this.isPlayer = isPlayer;
@@ -64,7 +65,13 @@ public class WeaponScript : MonoBehaviour {
         yield return new WaitForSeconds(delay); // Pause
         for (int i = 0; i < numBullets; i++) { // Fire
             Quaternion sprayRot = Quaternion.Euler(0, 0, Random.Range(-bulletSpray, bulletSpray));
-            GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
+            GameObject tempBullet;
+            if (melee) {
+                tempBullet = Instantiate(bullet, transform);
+                tempBullet.transform.rotation = transform.rotation * sprayRot;
+            } else {
+                tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
+            }
             tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
             if (isPlayer) {
                 tempBullet.tag = "AllyDamage";

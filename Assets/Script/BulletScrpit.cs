@@ -16,7 +16,7 @@ public class BulletScrpit : DamageScrpit {
         //determin how long this will fly
         transform.Translate(new Vector2(0, offSetDist));
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
         //moving the bullet

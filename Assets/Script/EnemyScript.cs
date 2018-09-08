@@ -7,28 +7,34 @@ public class EnemyScript : MonoBehaviour {
     public float hp;
     public float movementSpeed = 0.01f;
     public GameObject weapon;
-    private Vector2 dir;
+    private Quaternion dir;
+    private float dirDuration;
     private GameObject target;
     private Rigidbody2D Rb;
     public Animator animations;
+    public float attackRange;
     private WeaponScript weaponScript;
 
     // Use this for initialization
     void Start () {
         Rb = GetComponent<Rigidbody2D>();
-        dir = new Vector2(0, 0.01f);
+        dir = new Quaternion(0,0,0,0);
         transform.Translate(new Vector3(0, 0, -50));
         weaponScript = Instantiate(weapon, transform).GetComponent<WeaponScript>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         //-----------------------------random movements---------------------------
         if (target) {
             float angle = -Vector2.SignedAngle(transform.position - target.transform.position, Vector2.up);
-            transform.Translate(Quaternion.Euler(0, 0, angle) * new Vector2(0, -movementSpeed));
-            // transform.Translate(Quaternion.Euler(0,0,  * new Vector2(0,1));
             updateWeap(angle);
+            if(Time.time < dirDuration) {
+                transform.Translate(dir * new Vector2(0, -movementSpeed));
+            } else {
+                dir = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+                dirDuration = Time.time + Random.Range(0.5f, 3f);
+            }
         }
 	}
 

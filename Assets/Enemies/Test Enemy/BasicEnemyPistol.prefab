@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 5
-  terminationTime: 2
+  terminationTime: 5
   reload: 1.5
   bullet: {fileID: 1288961516915786, guid: 1813aa3eb95abcd41b7045953561eeda, type: 2}
   animations: {fileID: 95501663409431628}
@@ -140,6 +140,7 @@ MonoBehaviour:
   knockBack: 0
   bonusBulletSize: 0
   activeAnimationTime: 0
+  melee: 0
 --- !u!212 &212319566174128300
 SpriteRenderer:
   m_ObjectHideFlags: 1
