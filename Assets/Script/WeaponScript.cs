@@ -19,6 +19,8 @@ public class WeaponScript : MonoBehaviour {
     private bool flipRender = true;
     private bool isPlayer = false;
     public bool melee;
+    private float rotationLock;
+
 
     public void init(bool isPlayer) {
         this.isPlayer = isPlayer;
@@ -40,15 +42,21 @@ public class WeaponScript : MonoBehaviour {
     }
 
     public void rotateLeft() {
-        transform.Rotate(new Vector3(0, 0, RotationSpeed));
+        if (Time.time > rotationLock) {
+            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+        }
     }
 
     public void rotateRight() {
-        transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        if (Time.time > rotationLock) {
+            transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        }
     }
 
     public void setRotation(Quaternion angle) {
-        transform.rotation = angle;
+        if (Time.time > rotationLock) {
+            transform.rotation = angle;
+        }
     }
 
     public virtual void Attack(Rigidbody2D player) {
@@ -63,6 +71,9 @@ public class WeaponScript : MonoBehaviour {
     protected IEnumerator AttackCommand(Rigidbody2D player) {
         //-----------------------------Fires and playes reload animation-----------------------------
         yield return new WaitForSeconds(delay); // Pause
+        if (melee) {
+            rotationLock = Time.time + terminationTime;
+        }
         for (int i = 0; i < numBullets; i++) { // Fire
             Quaternion sprayRot = Quaternion.Euler(0, 0, Random.Range(-bulletSpray, bulletSpray));
             GameObject tempBullet;
@@ -81,6 +92,7 @@ public class WeaponScript : MonoBehaviour {
             Destroy(tempBullet, terminationTime);
             
         }
+
         //calculate knockback
         Vector3 tran = new Vector3(0, -knockBack, 0);
         tran = transform.rotation * tran;

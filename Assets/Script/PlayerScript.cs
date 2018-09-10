@@ -76,6 +76,8 @@ public class PlayerScript : MonoBehaviour {
         } else if (collision.tag == "EnemyDamage") {
             collision.gameObject.GetComponent<BulletScrpit>().Hit();
             Debug.Log("OW");
+        } else if(collision.tag == "Token") {
+            collision.gameObject.GetComponent<ProgressionTokenScript>().progress(gameObject);
         }
     }
 

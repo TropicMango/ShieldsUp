@@ -137,10 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef016ab7f3beef4abaac0edac1feb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 50
   movementSpeed: 0.01
   weapon: {fileID: 1530929983378568, guid: 0fe94cd91dce4804fa5d9cdb59ca214e, type: 2}
   animations: {fileID: 95453110151906850}
+  attackRange: 0
 --- !u!212 &212505002435640910
 SpriteRenderer:
   m_ObjectHideFlags: 1

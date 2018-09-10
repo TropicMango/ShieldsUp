@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour {
     public Animator animations;
     public float attackRange;
     private WeaponScript weaponScript;
+    private GateScript RS;
 
     // Use this for initialization
     void Start () {
@@ -50,8 +51,10 @@ public class EnemyScript : MonoBehaviour {
             float damage = collision.gameObject.GetComponent<DamageScrpit>().Hit();
             Debug.Log(damage);
             hp -= damage;
-            if(hp < 0) {
+            if(hp < 0 && hp != -123) {
+                hp = -123;
                 animations.Play("Death");
+                RS.allyDied();
                 Destroy(weaponScript.gameObject);
                 Destroy(GetComponent<Collider2D>());
                 Destroy(this);
@@ -60,7 +63,8 @@ public class EnemyScript : MonoBehaviour {
         }
     }
 
-    public void setTarget(GameObject player) {
+    public void initialize(GameObject player, GateScript RS) {
         target = player;
+        this.RS = RS;
     }
 }

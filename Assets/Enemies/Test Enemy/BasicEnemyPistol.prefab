@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 5
   terminationTime: 5
-  reload: 1.5
+  reload: 2.5
   bullet: {fileID: 1288961516915786, guid: 1813aa3eb95abcd41b7045953561eeda, type: 2}
   animations: {fileID: 95501663409431628}
   numBullets: 1

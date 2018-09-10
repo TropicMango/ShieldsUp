@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 1304026068016546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
   - {fileID: 4353973603749000}
   m_Father: {fileID: 0}
@@ -130,17 +130,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 5
-  terminationTime: 0.5
+  terminationTime: 0.2
   reload: 1
   bullet: {fileID: 1159773852254208, guid: 9dbc4d0806e12a54094c86bc3e74736b, type: 2}
   animations: {fileID: 95942981692391626}
   numBullets: 1
   delay: 0.03
-  bulletSpray: 5
+  bulletSpray: 0
   knockBack: 0
   bonusBulletSize: 0
   activeAnimationTime: 0
-  melee: 0
+  melee: 1
 --- !u!212 &212447025544090756
 SpriteRenderer:
   m_ObjectHideFlags: 1

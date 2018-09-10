@@ -81,6 +81,7 @@
     <Compile Include="Assets\Script\ExplosionScript.cs" />
     <Compile Include="Assets\Script\GateScript.cs" />
     <Compile Include="Assets\Script\PlayerScript.cs" />
+    <Compile Include="Assets\Script\ProgressionTokenScript.cs" />
     <Compile Include="Assets\Script\RoomGenerationScript.cs" />
     <Compile Include="Assets\Script\upgradePickUpScript.cs" />
     <Compile Include="Assets\Script\WeaponPickUpScript.cs" />

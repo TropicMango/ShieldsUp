@@ -222,7 +222,7 @@ MonoBehaviour:
   - {fileID: 1294545291177298, guid: 18fa50cdfffee9d418b5c4259b7612bf, type: 2}
   - {fileID: 1584864687232338, guid: 26a435476b7a0ed46981e7100a86b149, type: 2}
   - {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
-  select: 3
+  select: 1
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0
@@ -379,7 +379,9 @@ MonoBehaviour:
   enemies:
   - {fileID: 1701488535871266, guid: 563098381cb8cca4c8cb591c423cff37, type: 2}
   - {fileID: 1885300840042394, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
-  numRooms: 10
+  ProgressionToken: {fileID: 1854891708291474, guid: aff42e5f7ebea384f8a119b1cb72bc7d,
+    type: 2}
+  numRooms: 5
 --- !u!4 &1675456579
 Transform:
   m_ObjectHideFlags: 0

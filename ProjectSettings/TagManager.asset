@@ -10,6 +10,7 @@ TagManager:
   - AllyUpgrade
   - Room
   - EnemyDamage
+  - Token
   layers:
   - Default
   - TransparentFX
