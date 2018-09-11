@@ -20,9 +20,11 @@ public class ProgressionTokenScript : MonoBehaviour {
     }
 
     public void progress(GameObject player) {
-        passed = true;
-        spinTill = Time.time + 3;
-        StartCoroutine(reset(player));
+        if (!passed) {
+            passed = true;
+            spinTill = Time.time + 3;
+            StartCoroutine(reset(player));
+        }
     }
 
     IEnumerator reset(GameObject player) {

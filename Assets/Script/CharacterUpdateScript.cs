@@ -5,14 +5,17 @@ using UnityEngine;
 public class CharacterUpdateScript : MonoBehaviour {
 
     public GameObject[] PlayableChar;
+    public Camera camera;
     public int select;
 
 	// Use this for initialization
 	void Start () {
         if (select == -1) {
-            Instantiate(PlayableChar[Random.Range(0, PlayableChar.Length)]);
+            GameObject player = Instantiate(PlayableChar[Random.Range(0, PlayableChar.Length)]);
+            Instantiate(camera, player.transform);
         } else {
-            Instantiate(PlayableChar[select]);
+            GameObject player = Instantiate(PlayableChar[select]);
+            Instantiate(camera, player.transform);
         }
 
     }

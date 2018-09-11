@@ -72,6 +72,7 @@
     <Compile Include="Assets\Characters\Mech\Scripts\WrenchScript.cs" />
     <Compile Include="Assets\Characters\Shaman\Script\BlowPipeScript.cs" />
     <Compile Include="Assets\Characters\Shaman\Script\ShamanScript.cs" />
+    <Compile Include="Assets\Enemies\EnemySummoningPortal\SummoningPortal.cs" />
     <Compile Include="Assets\Enemies\Test Enemy 2\ZombieScript.cs" />
     <Compile Include="Assets\Script\BasicShieldScript.cs" />
     <Compile Include="Assets\Script\BulletScrpit.cs" />

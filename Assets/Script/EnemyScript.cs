@@ -15,12 +15,14 @@ public class EnemyScript : MonoBehaviour {
     public float attackRange;
     private WeaponScript weaponScript;
     private GateScript RS;
+    public bool melee;
 
     // Use this for initialization
     void Start () {
         Rb = GetComponent<Rigidbody2D>();
         dir = new Quaternion(0,0,0,0);
         transform.Translate(new Vector3(0, 0, -50));
+
         weaponScript = Instantiate(weapon, transform).GetComponent<WeaponScript>();
 	}
 	
@@ -30,11 +32,15 @@ public class EnemyScript : MonoBehaviour {
         if (target) {
             float angle = -Vector2.SignedAngle(transform.position - target.transform.position, Vector2.up);
             updateWeap(angle);
-            if(Time.time < dirDuration) {
-                transform.Translate(dir * new Vector2(0, -movementSpeed));
+            if (melee) {
+                transform.Translate(Quaternion.Euler(0,0,angle) * new Vector2(0, -movementSpeed));
             } else {
-                dir = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
-                dirDuration = Time.time + Random.Range(0.5f, 3f);
+                if (Time.time < dirDuration) {
+                    transform.Translate(dir * new Vector2(0, -movementSpeed));
+                } else {
+                    dir = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+                    dirDuration = Time.time + Random.Range(0.5f, 3f);
+                }
             }
         }
 	}
