@@ -6,9 +6,10 @@ public class GateScript : MonoBehaviour {
 
     public BoxCollider2D[] gates;
     private List<GameObject> enemies;
+    public GameObject portal;
     private bool spawned = true;
     private bool[] gateUsed= {false, false, false, false };
-    private int numEnemies=0;
+    private int numEnemies = 0;
 
     void Start () {
     }
@@ -50,8 +51,8 @@ public class GateScript : MonoBehaviour {
     public void spawnEnemies(GameObject player) {
         if (!spawned) {
             for (int i = 0; i < enemies.Count; i++) {
-                GameObject temp = Instantiate(enemies[i], transform.position + new Vector3(Random.Range(-range, range), Random.Range(-range, range)), Quaternion.Euler(0, 0, 0));
-                temp.GetComponent<EnemyScript>().initialize(player, this);
+                GameObject temp = Instantiate(portal, transform.position + new Vector3(Random.Range(-range, range), Random.Range(-range, range)), Quaternion.Euler(0, 0, 0));
+                temp.GetComponent<SummoningPortal>().initialize(enemies[i], player, this);
             }
             spawned = true;
             for(int i=0; i < gates.Length; i++) {

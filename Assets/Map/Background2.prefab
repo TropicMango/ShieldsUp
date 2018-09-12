@@ -369,8 +369,7 @@ MonoBehaviour:
   - {fileID: 61132840407752198}
   - {fileID: 61750486371206382}
   - {fileID: 61398977405665704}
-  enemies:
-  - {fileID: 1701488535871266, guid: 563098381cb8cca4c8cb591c423cff37, type: 2}
+  portal: {fileID: 1983841559840682, guid: 437fe9db5a41e5c40ad87513b81cd722, type: 2}
 --- !u!212 &212363845259939056
 SpriteRenderer:
   m_ObjectHideFlags: 1

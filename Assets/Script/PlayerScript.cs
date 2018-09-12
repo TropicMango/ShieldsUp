@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-    //public Camera camera;
-    public float hp;
+    private OverlayScript camera;
+    public float maxHp;
+    private float currentHp;
     public GameObject weapon;
     public GameObject Shield;
     public float movementSpeed;
+    public float reload;
+    protected float coolDown;
     public float abilityRecharge;
     protected float abilityCoolDown;
     private Rigidbody2D Rb;
@@ -20,6 +23,7 @@ public class PlayerScript : MonoBehaviour {
         weapon = Instantiate(weapon, transform);
         weaponScript = weapon.GetComponent<WeaponScript>();
         weaponScript.init(true);
+        currentHp = maxHp;
         //Instantiate(camera, transform);
     }
 
@@ -56,6 +60,10 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    private void Update() {
+        camera.updateAbility(abilityRecharge, abilityCoolDown - Time.time);
+    }
+
     //no longer being used due to the class system
     /*
     void SwapWeap(GameObject weap) {
@@ -67,6 +75,10 @@ public class PlayerScript : MonoBehaviour {
         weaponS = weapon.GetComponent<WeaponScript>();
     }*/
 
+    public void setUI(OverlayScript camera) {
+        this.camera = camera;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Pickup") {
             // SwapWeap(collision.gameObject.GetComponent<WeaponPickUpScript>().getItem(weapon));
@@ -74,16 +86,20 @@ public class PlayerScript : MonoBehaviour {
         } else if (collision.tag == "AllyUpgrade") {
             collision.gameObject.GetComponent<UpgradePickUpScript>().upgrade(this);
         } else if (collision.tag == "EnemyDamage") {
-            collision.gameObject.GetComponent<BulletScrpit>().Hit();
-            Debug.Log("OW");
+            hurt(collision.gameObject.GetComponent<BulletScrpit>().Hit());
         } else if(collision.tag == "Token") {
             collision.gameObject.GetComponent<ProgressionTokenScript>().progress(gameObject);
         }
     }
 
+    protected void hurt(float damage) {
+        StartCoroutine(camera.shake());
+        currentHp -= damage;
+        camera.updateHP(maxHp, currentHp);
+    }
+
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "Room") {
-            Debug.Log(gameObject);
             collision.gameObject.GetComponent<GateScript>().spawnEnemies(gameObject);
         }
     }
@@ -100,6 +116,9 @@ public class PlayerScript : MonoBehaviour {
     }
 
     public virtual void Attack() {
-        weaponScript.Attack(Rb); // tranform is passed for knock back
+        if (Time.time > coolDown) {
+            coolDown = Time.time + reload;
+            weaponScript.Attack(Rb); // tranform is passed for knock back
+        }
     }
 }

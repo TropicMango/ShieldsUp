@@ -15,14 +15,16 @@ public class EnemyScript : MonoBehaviour {
     public float attackRange;
     private WeaponScript weaponScript;
     private GateScript RS;
+    public SpriteRenderer spriteRenderer;
     public bool melee;
+    protected float coolDown;
+    public float reload;
 
     // Use this for initialization
     void Start () {
         Rb = GetComponent<Rigidbody2D>();
         dir = new Quaternion(0,0,0,0);
         transform.Translate(new Vector3(0, 0, -50));
-
         weaponScript = Instantiate(weapon, transform).GetComponent<WeaponScript>();
 	}
 	
@@ -65,7 +67,18 @@ public class EnemyScript : MonoBehaviour {
                 Destroy(GetComponent<Collider2D>());
                 Destroy(this);
                 Destroy(gameObject,5);
+            } else {
+                StartCoroutine(damageFlash());
             }
+        }
+    }
+
+    IEnumerator damageFlash() {
+        for (int i = 0; i < 5; i++) {
+            spriteRenderer.color = new Color(1f, 1f, 1f, .2f);
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

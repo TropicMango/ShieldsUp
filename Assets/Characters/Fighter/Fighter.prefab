@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1075849886887240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4940867226398352}
   m_Father: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1059539286104918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 4593486722283040}
   m_RootOrder: 0
@@ -117,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 1059539286104918}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2f48df053560e4340b1ee36e62185dce, type: 2}
+  m_Controller: {fileID: 9100000, guid: 24f8f0cb86426b2488531d5eb8a267a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -137,10 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1e95ba9e4c25f49bda40529753ca0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  maxHp: 1000
   weapon: {fileID: 1530929983378568, guid: 0fe94cd91dce4804fa5d9cdb59ca214e, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
-  movementSpeed: 8.5
+  movementSpeed: 8
+  reload: 0
   abilityRecharge: 4
 --- !u!212 &212661979597629440
 SpriteRenderer:
