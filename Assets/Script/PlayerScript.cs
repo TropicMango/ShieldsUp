@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     private OverlayScript camera;
+    public GameObject CharacterSprite;
     public float maxHp;
     private float currentHp;
     public GameObject weapon;
@@ -43,9 +44,18 @@ public class PlayerScript : MonoBehaviour {
 
         //-----------------------------rotation of weapon-----------------------------
         if (Input.GetKey(KeyCode.LeftArrow)) {
-            weaponScript.rotateLeft();
+            if (weaponScript.rotateLeft()) {
+                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+            } else {
+                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+            }
         } else if (Input.GetKey(KeyCode.RightArrow)) {
-            weaponScript.rotateRight();
+            if (weaponScript.rotateRight()) {
+                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+            } else {
+                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+
+            }
         }
 
         // ------------------- other player input ----------------------
@@ -76,6 +86,7 @@ public class PlayerScript : MonoBehaviour {
     }*/
 
     public void setUI(OverlayScript camera) {
+        Debug.Log("camera set");
         this.camera = camera;
     }
 

@@ -16,7 +16,7 @@ public class WeaponScript : MonoBehaviour {
     public float bonusBulletSize;
     public float activeAnimationTime;
     protected float coolDown;
-    private bool flipRender = true;
+    // private bool flipRender = true;
     private bool isPlayer = false;
     public bool melee;
     private float rotationLock;
@@ -28,35 +28,49 @@ public class WeaponScript : MonoBehaviour {
 
     void Update() {
         //-----------------------------determine if the weapon should be flipped-----------------------------
-        if (transform.rotation.eulerAngles.z < 180) { 
-            if (flipRender) {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                flipRender = false;
-            }
-        } else {//flips it 180 no matter what direction it's curretly in (might cause problems)
-            if (!flipRender) {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                flipRender = true;
-            }
-        }
+        
     }
 
-    public void rotateLeft() {
+    private bool flip() {
+        if (transform.rotation.eulerAngles.z < 180) {
+            /*if (flipRender) {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                flipRender = false;
+                
+            }*/
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            return false;
+        } else {//flips it 180 no matter what direction it's curretly in (might cause problems)
+            /*if (!flipRender) {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                flipRender = true;
+                return true;
+            }*/
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            return true;
+        }
+
+    }
+
+    public bool rotateLeft() {
         if (Time.time > rotationLock) {
             transform.Rotate(new Vector3(0, 0, RotationSpeed));
         }
+        return flip();
     }
 
-    public void rotateRight() {
+    public bool rotateRight() {
         if (Time.time > rotationLock) {
             transform.Rotate(new Vector3(0, 0, -RotationSpeed));
         }
+        return flip();
     }
 
-    public void setRotation(Quaternion angle) {
+    public bool setRotation(Quaternion angle) {
         if (Time.time > rotationLock) {
             transform.rotation = angle;
         }
+        return flip();
     }
 
     public virtual void Attack(Rigidbody2D player) {

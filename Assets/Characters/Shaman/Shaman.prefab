@@ -141,7 +141,7 @@ MonoBehaviour:
   weapon: {fileID: 1037791129452742, guid: edbb3abc1fcf5f3479dd630016673837, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
   movementSpeed: 7
-  reload: 0
+  reload: 0.5
   abilityRecharge: 5
   totem: {fileID: 1429334214771702, guid: 7dab6a744c8d17d4aaf53a4c61557812, type: 2}
 --- !u!212 &212400831657036298

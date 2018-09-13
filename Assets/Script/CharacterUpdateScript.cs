@@ -17,7 +17,8 @@ public class CharacterUpdateScript : MonoBehaviour {
             // StartCoroutine(test(Instantiate(ui, player.transform)));
         } else {
             GameObject player = Instantiate(PlayableChar[select]);
-            Instantiate(ui, player.transform);
+            GameObject overlay = Instantiate(ui, player.transform);
+            player.GetComponent<PlayerScript>().setUI(overlay.GetComponent<OverlayScript>());
             // player.GetComponent<PlayerScript>().setUI(ui.GetComponent<UIScript>());
         }
 

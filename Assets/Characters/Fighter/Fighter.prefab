@@ -141,7 +141,7 @@ MonoBehaviour:
   weapon: {fileID: 1530929983378568, guid: 0fe94cd91dce4804fa5d9cdb59ca214e, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
   movementSpeed: 8
-  reload: 0
+  reload: 0.4
   abilityRecharge: 4
 --- !u!212 &212661979597629440
 SpriteRenderer:
