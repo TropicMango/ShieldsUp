@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SummoningPortal : MonoBehaviour {
 
-
+    private void Start() {
+        transform.Translate(new Vector3(0, 0, -10));
+    }
     public void initialize(GameObject summoned, GameObject player, GateScript GS) {
         StartCoroutine(summonSequence(summoned, player, GS));
     }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-    private OverlayScript camera;
+    private OverlayScript cam;
+    public Animator ani;
     public GameObject CharacterSprite;
     public float maxHp;
     private float currentHp;
@@ -31,15 +32,20 @@ public class PlayerScript : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
         // -------------------- basic movement --------------------------
+        ani.speed = 1;
         if (Input.GetKey(KeyCode.W)) {
             Rb.AddForce(new Vector2(0, movementSpeed));
+            ani.speed = movementSpeed/5+1;
         } else if (Input.GetKey(KeyCode.S)) {
             Rb.AddForce(new Vector2(0, -1 * movementSpeed));
+            ani.speed = movementSpeed/5+1;
         }
         if (Input.GetKey(KeyCode.A)) {
             Rb.AddForce(new Vector2(-1 * movementSpeed, 0));
+            ani.speed = movementSpeed/5+1;
         } else if (Input.GetKey(KeyCode.D)) {
             Rb.AddForce(new Vector2(movementSpeed, 0));
+            ani.speed = movementSpeed/5+1;
         }
 
         //-----------------------------rotation of weapon-----------------------------
@@ -71,7 +77,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     private void Update() {
-        camera.updateAbility(abilityRecharge, abilityCoolDown - Time.time);
+        cam.updateAbility(abilityRecharge, abilityCoolDown - Time.time);
     }
 
     //no longer being used due to the class system
@@ -87,7 +93,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void setUI(OverlayScript camera) {
         Debug.Log("camera set");
-        this.camera = camera;
+        this.cam = camera;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -104,9 +110,9 @@ public class PlayerScript : MonoBehaviour {
     }
 
     protected void hurt(float damage) {
-        StartCoroutine(camera.shake());
+        StartCoroutine(cam.shake());
         currentHp -= damage;
-        camera.updateHP(maxHp, currentHp);
+        cam.updateHP(maxHp, currentHp);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {

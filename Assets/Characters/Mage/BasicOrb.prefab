@@ -68,10 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c6d908452df23479c5edf3c46b738b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.1
+  movementSpeed: 0.2
   offSetDist: 0.7
   explosionSize: 0
-  damage: 10
+  damage: 15
   pierce: 5
   explosion: {fileID: 1597074422600882, guid: 0c3f3324b6730f04d92e8c51a0e263af, type: 2}
 --- !u!212 &212075225788116758

@@ -12,7 +12,7 @@ public class WrenchScript : WeaponScript {
     }
 
     IEnumerator Activation(Rigidbody2D player) {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.35f);
         GameObject wall = Instantiate(wallObject, transform.position, transform.rotation);
         wall.transform.Translate(new Vector2(0, 0.75f));
         Destroy(wall, 25);

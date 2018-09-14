@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1867269932321396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.4, z: 10}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 4117843392351132}
   m_RootOrder: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b762c0214deeb8e46bddea00e5e60b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ani: {fileID: 95592689812746658}
   CharacterSprite: {fileID: 1867269932321396}
   maxHp: 800
   weapon: {fileID: 1304026068016546, guid: b5aef177cd03c43409c7a9fd57f07774, type: 2}
