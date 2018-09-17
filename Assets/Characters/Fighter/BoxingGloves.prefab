@@ -161,7 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 6
   terminationTime: 0.2
-  reload: 0.4
   bullet: {fileID: 1633032499039514, guid: 6e850f755da6d11448e6c91440216c2f, type: 2}
   animations: {fileID: 95009049217478468}
   numBullets: 1
@@ -169,7 +168,10 @@ MonoBehaviour:
   bulletSpray: 15
   knockBack: -20
   bonusBulletSize: 0
-  activeAnimationTime: 1.1
+  damage: 5
+  explosionSize: 0
+  pierce: 100
+  bulletSpeed: 0.06
   melee: 1
 --- !u!212 &212121861393545980
 SpriteRenderer:

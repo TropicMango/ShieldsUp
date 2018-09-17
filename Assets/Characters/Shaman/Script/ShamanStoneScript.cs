@@ -12,5 +12,6 @@ public class ShamanStoneScript : pedestalScript {
             player.GetWeaponScript().damage += 1;
             player.movementSpeed += 2;
         }
+        base.pickUp(player);
     }
 }

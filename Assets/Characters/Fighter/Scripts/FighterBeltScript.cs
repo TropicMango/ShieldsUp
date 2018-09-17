@@ -10,5 +10,6 @@ public class FighterBeltScript : pedestalScript {
         } else {
             player.maxHp += 50;
         }
+        base.pickUp(player);
     }
 }

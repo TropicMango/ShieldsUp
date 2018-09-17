@@ -49,7 +49,10 @@ public class EnemyScript : MonoBehaviour {
 
     protected virtual void updateWeap(float angle) {
         weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
-        weaponScript.Attack(Rb);
+        if (Time.time > coolDown) {
+            coolDown = Time.time + reload;
+            weaponScript.Attack(Rb);
+        }
     }
 
 

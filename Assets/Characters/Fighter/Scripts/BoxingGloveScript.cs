@@ -14,8 +14,7 @@ public class BoxingGloveScript : WeaponScript {
         GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation);
         tempBullet.transform.localScale += new Vector3(0.3f, 0.3f, 0);
         BulletScrpit bulletScript = tempBullet.GetComponent<BulletScrpit>();
-        bulletScript.movementSpeed = 1;
-        bulletScript.damage *= 3;
+        bulletScript.setStats(damage * 3, 1, explosionSize, pierce);
         Destroy(tempBullet, terminationTime);
         Vector3 tran = new Vector3(0, 600, 0);
         tran = transform.rotation * tran;

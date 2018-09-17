@@ -11,5 +11,6 @@ public class MagicStickScript : pedestalScript {
         } else {
             player.GetWeaponScript().damage += 5;
         }
+        base.pickUp(player);
     }
 }

@@ -14,7 +14,9 @@ public class WeaponScript : MonoBehaviour {
     public float knockBack;
     public float bonusBulletSize;
     public float damage;
-    // private bool flipRender = true;
+    public float explosionSize;
+    public float pierce;
+    public float bulletSpeed;
     private bool isPlayer = false;
     public bool melee;
     private float rotationLock;
@@ -80,7 +82,7 @@ public class WeaponScript : MonoBehaviour {
                 tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
             }
             tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
-            tempBullet.GetComponent<BulletScrpit>().damage = damage;
+            tempBullet.GetComponent<BulletScrpit>().setStats(damage, bulletSpeed, explosionSize, pierce);
             if (isPlayer) {
                 tempBullet.tag = "AllyDamage";
             } else {

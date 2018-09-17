@@ -12,5 +12,6 @@ public class ExplorerMapScript : pedestalScript {
         } else {
             player.movementSpeed += 5;
         }
+        base.pickUp(player);
     }
 }

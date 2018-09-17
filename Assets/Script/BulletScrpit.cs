@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BulletScrpit : DamageScrpit {
 
-    public float movementSpeed;
+    private float damage;
+    private float movementSpeed;
     public float offSetDist;
-    public float explosionSize;
-    public float damage;
-    public float pierce;
+    private float explosionSize;
+    private float pierce;
     public GameObject explosion;
 
     // Use this for initialization
@@ -22,6 +22,13 @@ public class BulletScrpit : DamageScrpit {
         //moving the bullet
         transform.Translate(new Vector2(0, movementSpeed));
 	}
+
+    public void setStats(float damage, float movementSpeed, float explosionSize, float pierce) {
+        this.damage = damage;
+        this.movementSpeed = movementSpeed;
+        this.explosionSize = explosionSize;
+        this.pierce = pierce;
+    }
 
     override
     public float Hit() {

@@ -144,7 +144,7 @@ MonoBehaviour:
   attackRange: 0
   spriteRenderer: {fileID: 212811998805007948}
   melee: 0
-  reload: 0
+  reload: 2
 --- !u!212 &212811998805007948
 SpriteRenderer:
   m_ObjectHideFlags: 1

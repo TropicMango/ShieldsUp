@@ -30,7 +30,8 @@ public class RoomGenerationScript : MonoBehaviour {
         float pedestalDistance = 4;
         for (int i = 0; i < itemPedestal.Length; i++) {
             GameObject IP = Instantiate(itemPedestal[i], new Vector3(pedestalDistance * Mathf.Sin(2*Mathf.PI/ itemPedestal.Length*i), pedestalDistance * Mathf.Cos(2 * Mathf.PI / itemPedestal.Length * i), 15), Quaternion.Euler(0, 0, 0));
-            IP.GetComponent<pedestalScript>().setManager(CharacterManager);
+            IP.GetComponent<pedestalScript>().setManager(CharacterManager, this);
+            otherInstanciatedObjects.Add(IP);
         }
     }
 

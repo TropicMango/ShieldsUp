@@ -12,5 +12,6 @@ public class GearScript : pedestalScript {
             player.GetWeaponScript().damage += 2;
             player.movementSpeed += 1;
         }
+        base.pickUp(player);
     }
 }
