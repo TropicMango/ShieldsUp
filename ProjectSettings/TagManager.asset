@@ -11,6 +11,7 @@ TagManager:
   - Room
   - EnemyDamage
   - Token
+  - Pedestal
   layers:
   - Default
   - TransparentFX

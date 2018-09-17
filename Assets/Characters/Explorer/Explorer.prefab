@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b762c0214deeb8e46bddea00e5e60b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterClass: Explorer
   ani: {fileID: 95592689812746658}
   CharacterSprite: {fileID: 1867269932321396}
   maxHp: 800

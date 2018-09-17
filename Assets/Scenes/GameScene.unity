@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 125071669}
   - component: {fileID: 125071668}
   m_Layer: 0
-  m_Name: CharacterSelect
+  m_Name: CharacterManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c492509014dc34faa2595e77dde767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseCharacter: {fileID: 1693986797304758, guid: 01a4381df7c6e6643b8f1b154334fa74,
+    type: 2}
   PlayableChar:
   - {fileID: 1584864687232338, guid: 26a435476b7a0ed46981e7100a86b149, type: 2}
   - {fileID: 1111181405742884, guid: b462e8d324fe15c42896e7c05a2aa083, type: 2}
@@ -147,7 +149,7 @@ MonoBehaviour:
   - {fileID: 1294545291177298, guid: 18fa50cdfffee9d418b5c4259b7612bf, type: 2}
   - {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
   ui: {fileID: 1073570624076944, guid: 6ed1a387eed56694f82b0a2040f54508, type: 2}
-  select: -1
+  select: -5
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0
@@ -226,8 +228,15 @@ MonoBehaviour:
   enemies:
   - {fileID: 1701488535871266, guid: 563098381cb8cca4c8cb591c423cff37, type: 2}
   - {fileID: 1885300840042394, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
+  itemPedestal:
+  - {fileID: 1273508619531320, guid: 3001a1264355f2d4da34359b02fdf953, type: 2}
+  - {fileID: 1030259908501460, guid: ceb40cd2e9c65e045879fb30057a165b, type: 2}
+  - {fileID: 1914481208859974, guid: 6aa9d58c7f6486d4cbaa85b88458ab24, type: 2}
+  - {fileID: 1219203955227420, guid: e7766969211705746b90b8bd543b5d85, type: 2}
+  - {fileID: 1590726205991806, guid: 24817e8951086f94eb75ab53ba7fdd3b, type: 2}
   ProgressionToken: {fileID: 1854891708291474, guid: aff42e5f7ebea384f8a119b1cb72bc7d,
     type: 2}
+  CharacterManager: {fileID: 125071668}
   numRooms: 5
 --- !u!4 &1675456579
 Transform:

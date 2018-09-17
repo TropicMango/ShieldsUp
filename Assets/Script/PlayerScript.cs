@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     private OverlayScript cam;
+    public string characterClass;
     public Animator ani;
     public GameObject CharacterSprite;
     public float maxHp;
@@ -16,14 +17,13 @@ public class PlayerScript : MonoBehaviour {
     protected float coolDown;
     public float abilityRecharge;
     protected float abilityCoolDown;
-    private Rigidbody2D Rb;
+    protected Rigidbody2D Rb;
     private WeaponScript weaponScript;
 
     // Use this for initialization
     void Start() {
         Rb = GetComponent<Rigidbody2D>();
-        weapon = Instantiate(weapon, transform);
-        weaponScript = weapon.GetComponent<WeaponScript>();
+        weaponScript = Instantiate(weapon,transform).GetComponent<WeaponScript>();
         weaponScript.init(true);
         currentHp = maxHp;
         //Instantiate(camera, transform);
@@ -106,6 +106,8 @@ public class PlayerScript : MonoBehaviour {
             hurt(collision.gameObject.GetComponent<BulletScrpit>().Hit());
         } else if(collision.tag == "Token") {
             collision.gameObject.GetComponent<ProgressionTokenScript>().progress(gameObject);
+        }else if(collision.tag == "Pedestal") {
+            collision.gameObject.GetComponent<pedestalScript>().pickUp(this);
         }
     }
 
