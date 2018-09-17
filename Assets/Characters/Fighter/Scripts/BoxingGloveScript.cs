@@ -25,11 +25,8 @@ public class BoxingGloveScript : WeaponScript {
     override
     public void Attack(Rigidbody2D player) {
         //-----------------------------accounts for burst-----------------------------
-        if (Time.time > coolDown) {
-            animations.Play("Reload"); //Play Animation
-            coolDown = Time.time + reload;
-            StartCoroutine(Boxing(player));
-        }
+        animations.Play("Reload"); //Play Animation
+        StartCoroutine(Boxing(player));
     }
 
     IEnumerator Boxing(Rigidbody2D player) {

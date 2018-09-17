@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject Shield;
     public float movementSpeed;
     public float reload;
+    public float activationTime;
     protected float coolDown;
     public float abilityRecharge;
     protected float abilityCoolDown;
@@ -91,6 +92,10 @@ public class PlayerScript : MonoBehaviour {
         weaponS = weapon.GetComponent<WeaponScript>();
     }*/
 
+    public WeaponScript GetWeaponScript() {
+        return weaponScript;
+    }
+
     public void setUI(OverlayScript camera) {
         Debug.Log("camera set");
         this.cam = camera;
@@ -127,6 +132,7 @@ public class PlayerScript : MonoBehaviour {
         if (Time.time > abilityCoolDown) {
             weaponScript.Activate(Rb);
             abilityCoolDown = Time.time + abilityRecharge;
+            coolDown += activationTime;
         }
     }
 

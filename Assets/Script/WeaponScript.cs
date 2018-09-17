@@ -6,7 +6,6 @@ public class WeaponScript : MonoBehaviour {
 
     public float RotationSpeed;
     public float terminationTime;
-    public float reload;
     public GameObject bullet;
     public Animator animations;
     public int numBullets;
@@ -14,8 +13,7 @@ public class WeaponScript : MonoBehaviour {
     public float bulletSpray;
     public float knockBack;
     public float bonusBulletSize;
-    public float activeAnimationTime;
-    protected float coolDown;
+    public float damage;
     // private bool flipRender = true;
     private bool isPlayer = false;
     public bool melee;
@@ -26,26 +24,11 @@ public class WeaponScript : MonoBehaviour {
         this.isPlayer = isPlayer;
     }
 
-    void Update() {
-        //-----------------------------determine if the weapon should be flipped-----------------------------
-        
-    }
-
     private bool flip() {
         if (transform.rotation.eulerAngles.z < 180) {
-            /*if (flipRender) {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                flipRender = false;
-                
-            }*/
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             return false;
-        } else {//flips it 180 no matter what direction it's curretly in (might cause problems)
-            /*if (!flipRender) {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                flipRender = true;
-                return true;
-            }*/
+        } else {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             return true;
         }
@@ -75,8 +58,7 @@ public class WeaponScript : MonoBehaviour {
 
     public virtual void Attack(Rigidbody2D player) {
         //-----------------------------accounts for burst-----------------------------
-        if (Time.time > coolDown && !animations.GetCurrentAnimatorStateInfo(0).IsName("Activate")) {
-            coolDown = Time.time + reload;
+        if (!animations.GetCurrentAnimatorStateInfo(0).IsName("Activate")) {
             animations.Play("Reload"); //Play Animation
             StartCoroutine(AttackCommand(player));
         }
@@ -98,6 +80,7 @@ public class WeaponScript : MonoBehaviour {
                 tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
             }
             tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
+            tempBullet.GetComponent<BulletScrpit>().damage = damage;
             if (isPlayer) {
                 tempBullet.tag = "AllyDamage";
             } else {
@@ -114,7 +97,6 @@ public class WeaponScript : MonoBehaviour {
     }
 
     public virtual void Activate(Rigidbody2D player) {
-        coolDown += activeAnimationTime;
         animations.Play("Activate");
     }
 }

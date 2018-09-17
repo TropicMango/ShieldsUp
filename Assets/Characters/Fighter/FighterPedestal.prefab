@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4164521947803108}
   - component: {fileID: 212063617968408504}
-  - component: {fileID: 114835465080436374}
   - component: {fileID: 70748218656877002}
   - component: {fileID: 70222054531637434}
+  - component: {fileID: 114013051254759520}
   m_Layer: 0
   m_Name: FighterPedestal
   m_TagString: Pedestal
@@ -73,7 +73,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000000038082128, y: -1.347211}
   m_Size: {x: 3.4509447, y: 3.4509447}
   m_Direction: 1
---- !u!114 &114835465080436374
+--- !u!114 &114013051254759520
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,11 +81,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030259908501460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf411f88a5f71da49b3815a109ae9c58, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e08fc4257a0e6e48a22fde88e576510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayItem: {fileID: 1778444229726730, guid: 767b74f2e47c7344782f498e0c4cc60f,
     type: 2}
+  futureEvo: {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
 --- !u!212 &212063617968408504
 SpriteRenderer:
   m_ObjectHideFlags: 1

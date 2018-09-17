@@ -62,18 +62,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Characters\BaseCharacter\BasePlayerScript.cs" />
-    <Compile Include="Assets\Characters\Explorer\ExplorerMapScript.cs" />
     <Compile Include="Assets\Characters\Explorer\Scripts\BaseExplorerScript.cs" />
     <Compile Include="Assets\Characters\Explorer\Scripts\DaggerScript.cs" />
+    <Compile Include="Assets\Characters\Explorer\Scripts\ExplorerMapScript.cs" />
     <Compile Include="Assets\Characters\Fighter\Scripts\BoxingGloveScript.cs" />
+    <Compile Include="Assets\Characters\Fighter\Scripts\FighterBeltScript.cs" />
     <Compile Include="Assets\Characters\Fighter\Scripts\FighterScript.cs" />
     <Compile Include="Assets\Characters\Mage\Scripts\BaseMageScript.cs" />
     <Compile Include="Assets\Characters\Mage\Scripts\BasicStaffScript.cs" />
+    <Compile Include="Assets\Characters\Mage\Scripts\MagicStickScript.cs" />
+    <Compile Include="Assets\Characters\Mech\Scripts\GearScript.cs" />
     <Compile Include="Assets\Characters\Mech\Scripts\MechanicScript.cs" />
     <Compile Include="Assets\Characters\Mech\Scripts\MechWallScript.cs" />
     <Compile Include="Assets\Characters\Mech\Scripts\WrenchScript.cs" />
     <Compile Include="Assets\Characters\Shaman\Script\BlowPipeScript.cs" />
     <Compile Include="Assets\Characters\Shaman\Script\ShamanScript.cs" />
+    <Compile Include="Assets\Characters\Shaman\Script\ShamanStoneScript.cs" />
     <Compile Include="Assets\Enemies\EnemySummoningPortal\SummoningPortal.cs" />
     <Compile Include="Assets\Enemies\Test Enemy 2\ZombieScript.cs" />
     <Compile Include="Assets\Script\BasicShieldScript.cs" />

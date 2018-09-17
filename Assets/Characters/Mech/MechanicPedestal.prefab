@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569885655307428}
   - component: {fileID: 212566750661529900}
-  - component: {fileID: 114123701520269068}
+  - component: {fileID: 114190367242519762}
   - component: {fileID: 70590442136760820}
   - component: {fileID: 70223558031994964}
   m_Layer: 0
@@ -73,7 +73,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000000038082128, y: -1.347211}
   m_Size: {x: 3.4509447, y: 3.4509447}
   m_Direction: 1
---- !u!114 &114123701520269068
+--- !u!114 &114190367242519762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,11 +81,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1219203955227420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf411f88a5f71da49b3815a109ae9c58, type: 3}
+  m_Script: {fileID: 11500000, guid: a80cff44f2df1f347b93c4d955aebdf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayItem: {fileID: 1239170054927968, guid: d619f60d2fc8b464c986e7a69b4d5a02,
     type: 2}
+  futureEvo: {fileID: 1294545291177298, guid: 18fa50cdfffee9d418b5c4259b7612bf, type: 2}
 --- !u!212 &212566750661529900
 SpriteRenderer:
   m_ObjectHideFlags: 1
