@@ -34,19 +34,17 @@ public class BulletScrpit : DamageScrpit {
     public float Hit() {
         //-----------------------------pierce-----------------------------
         if (pierce == 0) {
-            movementSpeed = 0; // pretend to be dead to keep the trail alive
-            gameObject.SetActive(false);
-            Destroy(GetComponent <Collider2D>());
-            Destroy(gameObject,3);
-        } else {
+            Destroy(gameObject,0.05f);
+        } else if(pierce > 0) {
             pierce -= 1; //removes one off the pierce counter
+        } else {
+            return 0;
         }
         if (explosionSize > 0) {
             //create an explosion that dies after ___ seconds
             GameObject explo = Instantiate(explosion, transform.position, transform.rotation);
             explo.GetComponent<ExplosionScript>().init(damage, explosionSize);
             Destroy(explo, 3f);
-
             return 0;
         } else {
             return damage;

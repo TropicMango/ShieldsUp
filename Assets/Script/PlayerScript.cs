@@ -117,7 +117,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     protected void hurt(float damage) {
-        StartCoroutine(cam.shake());
+        StartCoroutine(cam.shake(damage));
         currentHp -= damage;
         cam.updateHP(maxHp, currentHp);
     }

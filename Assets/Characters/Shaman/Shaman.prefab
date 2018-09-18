@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1584864687232338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 4597499352957166}
   m_Father: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c83d2f8ce8168b4995561c9bc121d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterClass: 
   ani: {fileID: 95442718787001530}
   CharacterSprite: {fileID: 1360553797582248}
   maxHp: 550
@@ -144,6 +145,7 @@ MonoBehaviour:
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
   movementSpeed: 7
   reload: 0.5
+  activationTime: 0
   abilityRecharge: 5
   totem: {fileID: 1429334214771702, guid: 7dab6a744c8d17d4aaf53a4c61557812, type: 2}
 --- !u!212 &212400831657036298

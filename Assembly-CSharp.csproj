@@ -93,6 +93,7 @@
     <Compile Include="Assets\Script\upgradePickUpScript.cs" />
     <Compile Include="Assets\Script\WeaponPickUpScript.cs" />
     <Compile Include="Assets\Script\WeaponScript.cs" />
+    <Compile Include="Assets\StartingScreen\TitleManager.cs" />
     <Compile Include="Assets\Upgrades\Sugar Pill\SugarPillScript.cs" />
     <Compile Include="Assets\Utilities\Item pedestal\pedestalScript.cs" />
     <Compile Include="Assets\Utilities\OverLay\OverlayScript.cs" />

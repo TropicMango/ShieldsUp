@@ -9,9 +9,11 @@ public class OverlayScript : MonoBehaviour {
     public GameObject AbilityhMeter;
     private Vector3 offset;
 
-    public IEnumerator shake() {
-        transform.localPosition = new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
-        yield return new WaitForSeconds(0.05f);
+    public IEnumerator shake(float damage) {
+        transform.localPosition = new Vector2(damage*0.02f, damage * 0.02f);
+        yield return new WaitForSeconds(0.025f);
+        transform.localPosition = new Vector2(-damage * 0.02f, -damage * 0.02f);
+        yield return new WaitForSeconds(0.025f);
         transform.localPosition = new Vector2(0, 0);
 
     }

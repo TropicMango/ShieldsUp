@@ -226,8 +226,8 @@ MonoBehaviour:
   Hall:
   - {fileID: 1175409267527028, guid: 73087c0005396db40b7a1d1e546e4690, type: 2}
   enemies:
-  - {fileID: 1701488535871266, guid: 563098381cb8cca4c8cb591c423cff37, type: 2}
-  - {fileID: 1885300840042394, guid: ccf60150988caf445b3bcb211a64d4d2, type: 2}
+  - {fileID: 1537122835573160, guid: a56aa3f721fb20d4f90b27398101f8ae, type: 2}
+  - {fileID: 1095708330562286, guid: 9cab30f1f8b64b84785f030d9e00a700, type: 2}
   itemPedestal:
   - {fileID: 1273508619531320, guid: 3001a1264355f2d4da34359b02fdf953, type: 2}
   - {fileID: 1030259908501460, guid: ceb40cd2e9c65e045879fb30057a165b, type: 2}

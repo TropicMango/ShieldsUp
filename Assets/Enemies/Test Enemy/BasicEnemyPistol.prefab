@@ -141,7 +141,7 @@ MonoBehaviour:
   damage: 5
   explosionSize: 0
   pierce: 0
-  bulletSpeed: 0.1
+  bulletSpeed: 0.2
   melee: 0
 --- !u!212 &212319566174128300
 SpriteRenderer:

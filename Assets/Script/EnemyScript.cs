@@ -26,6 +26,7 @@ public class EnemyScript : MonoBehaviour {
         dir = new Quaternion(0,0,0,0);
         transform.Translate(new Vector3(0, 0, -50));
         weaponScript = Instantiate(weapon, transform).GetComponent<WeaponScript>();
+        coolDown = Time.time + Random.Range(0, reload);
 	}
 	
 	// Update is called once per frame
@@ -35,7 +36,12 @@ public class EnemyScript : MonoBehaviour {
             float angle = -Vector2.SignedAngle(transform.position - target.transform.position, Vector2.up);
             updateWeap(angle);
             if (melee) {
-                transform.Translate(Quaternion.Euler(0,0,angle) * new Vector2(0, -movementSpeed));
+                if (Time.time < dirDuration) {
+                    transform.Translate(dir * new Vector2(0, -movementSpeed));
+                } else {
+                    dir = Quaternion.Euler(0, 0, angle + Random.Range(-40f, 40f));
+                    dirDuration = Time.time + Random.Range(0.5f, 3f);
+                }
             } else {
                 if (Time.time < dirDuration) {
                     transform.Translate(dir * new Vector2(0, -movementSpeed));
@@ -48,7 +54,8 @@ public class EnemyScript : MonoBehaviour {
 	}
 
     protected virtual void updateWeap(float angle) {
-        weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
+        spriteRenderer.flipX = weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
+        
         if (Time.time > coolDown) {
             coolDown = Time.time + reload;
             weaponScript.Attack(Rb);
@@ -66,6 +73,7 @@ public class EnemyScript : MonoBehaviour {
                 hp = -123;
                 animations.Play("Death");
                 RS.allyDied();
+                spriteRenderer.color = new Color(1f, 1f, 1f, .2f);
                 Destroy(weaponScript.gameObject);
                 Destroy(GetComponent<Collider2D>());
                 Destroy(this);
