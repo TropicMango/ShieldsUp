@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressionTokenScript : MonoBehaviour {
+public class ProgressionTokenScript : Removable {
     private RoomGenerationScript RG;
     private float rotationSpeed;
     private float spinTill;

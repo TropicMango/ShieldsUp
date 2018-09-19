@@ -15,19 +15,19 @@ public class GateScript : MonoBehaviour {
     }
 
     public void openTop(bool status) {
-        gates[0].isTrigger = status;
+        gates[0].enabled = !status;
         gateUsed[0] = status;
     }
     public void openBot(bool status) {
-        gates[1].isTrigger = status;
+        gates[1].enabled = !status;
         gateUsed[1] = status;
     }
     public void openLeft(bool status) {
-        gates[2].isTrigger = status;
+        gates[2].enabled = !status;
         gateUsed[2] = status;
     }
     public void openRight(bool status) {
-        gates[3].isTrigger = status;
+        gates[3].enabled = !status;
         gateUsed[3] = status;
     }
 
@@ -56,7 +56,7 @@ public class GateScript : MonoBehaviour {
             }
             spawned = true;
             for(int i=0; i < gates.Length; i++) {
-                gates[i].isTrigger = false;
+                gates[i].enabled = true;
             }
         }
     }

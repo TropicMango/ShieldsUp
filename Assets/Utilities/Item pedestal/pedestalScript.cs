@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pedestalScript : MonoBehaviour {
+public class pedestalScript : Removable {
     public GameObject displayItem;
     public GameObject futureEvo;
     protected CharacterUpdateScript characterManager;

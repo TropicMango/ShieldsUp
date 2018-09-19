@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1075849886887240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4940867226398352}
   m_Father: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   maxHp: 1000
   weapon: {fileID: 1530929983378568, guid: 0fe94cd91dce4804fa5d9cdb59ca214e, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
-  movementSpeed: 8
+  movementSpeed: 9
   reload: 0.4
   activationTime: 1.1
   abilityRecharge: 4
