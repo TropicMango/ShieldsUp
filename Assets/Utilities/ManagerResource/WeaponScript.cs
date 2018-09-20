@@ -38,14 +38,46 @@ public class WeaponScript : MonoBehaviour {
 
     public bool rotateLeft() {
         if (Time.time > rotationLock) {
-            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+            if (transform.rotation.eulerAngles.z > 90 - RotationSpeed && transform.rotation.eulerAngles.z < 90 + RotationSpeed) {
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+            } else if (transform.rotation.eulerAngles.z > 270 || transform.rotation.eulerAngles.z < 90) {
+                transform.Rotate(new Vector3(0, 0, RotationSpeed));
+            } else {
+                transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+            }
         }
         return flip();
     }
 
     public bool rotateRight() {
-        if (Time.time > rotationLock) {
+        if (transform.rotation.eulerAngles.z > 270 - RotationSpeed && transform.rotation.eulerAngles.z < 270 + RotationSpeed) {
+            transform.rotation = Quaternion.Euler(0, 0, 270);
+        } else if (transform.rotation.eulerAngles.z > 270 || transform.rotation.eulerAngles.z < 90) {
             transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        } else {
+            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+        }
+        return flip();
+    }
+
+    public bool rotateUp() {
+        if (transform.rotation.eulerAngles.z > - RotationSpeed && transform.rotation.eulerAngles.z < + RotationSpeed) {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        } else if (transform.rotation.eulerAngles.z > 180) {
+            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+        } else {
+            transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        }
+        return flip();
+    }
+
+    public bool rotateDown() {
+        if (transform.rotation.eulerAngles.z > 180- RotationSpeed && transform.rotation.eulerAngles.z < 180 + RotationSpeed) {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+        } else if (transform.rotation.eulerAngles.z > 180) {
+            transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        } else {
+            transform.Rotate(new Vector3(0, 0, RotationSpeed));
         }
         return flip();
     }

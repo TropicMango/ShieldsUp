@@ -51,29 +51,32 @@ public class PlayerScript : MonoBehaviour {
 
         //-----------------------------rotation of weapon-----------------------------
         if (Input.GetKey(KeyCode.LeftArrow)) {
-            if (weaponScript.rotateLeft()) {
-                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            } else {
-                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            }
+            updateWeapSprite(weaponScript.rotateLeft());
         } else if (Input.GetKey(KeyCode.RightArrow)) {
-            if (weaponScript.rotateRight()) {
-                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            } else {
-                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-
-            }
+            updateWeapSprite(weaponScript.rotateRight());
+        } else if (Input.GetKey(KeyCode.UpArrow)) {
+            updateWeapSprite(weaponScript.rotateUp());
+        } else if (Input.GetKey(KeyCode.DownArrow)) {
+            updateWeapSprite(weaponScript.rotateDown());
         }
 
         // ------------------- other player input ----------------------
         if (Input.GetKey(KeyCode.Space)) {
             Attack();
         }
-        if (Input.GetKey(KeyCode.DownArrow)) {
+        if (Input.GetKey(KeyCode.Q)) {
             ActivateAbility();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             ShieldsUp();
+        }
+    }
+
+    private void updateWeapSprite(bool flip) {
+        if (flip) {
+            CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+        } else {
+            CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
         }
     }
 
