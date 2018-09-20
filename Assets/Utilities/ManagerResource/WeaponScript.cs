@@ -38,14 +38,71 @@ public class WeaponScript : MonoBehaviour {
 
     public bool rotateLeft() {
         if (Time.time > rotationLock) {
-            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+            /*if (transform.rotation.eulerAngles.z > 90 - RotationSpeed && transform.rotation.eulerAngles.z < 90 + RotationSpeed) {
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+            } else if (transform.rotation.eulerAngles.z > 270 || transform.rotation.eulerAngles.z < 90) {
+                transform.Rotate(new Vector3(0, 0, RotationSpeed));
+            } else {
+                transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+            }*/
         }
-        return flip();
+        //return flip();
+        return rotateAssist(90);
     }
 
     public bool rotateRight() {
-        if (Time.time > rotationLock) {
+        /*if (transform.rotation.eulerAngles.z > 270 - RotationSpeed && transform.rotation.eulerAngles.z < 270 + RotationSpeed) {
+            transform.rotation = Quaternion.Euler(0, 0, 270);
+        } else if (transform.rotation.eulerAngles.z > 270 || transform.rotation.eulerAngles.z < 90) {
             transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        } else {
+            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+        }*/
+        //return flip();
+        return rotateAssist(270);
+    }
+
+    public bool rotateTop() {
+        /*if (transform.rotation.eulerAngles.z > -RotationSpeed && transform.rotation.eulerAngles.z < +RotationSpeed) {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        } else if (transform.rotation.eulerAngles.z > 180) {
+            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+        } else {
+            transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        }*/
+        //return flip();
+        return rotateAssist(0);
+    }
+
+    public bool rotateBot() {
+        /*if (transform.rotation.eulerAngles.z > 180 - RotationSpeed && transform.rotation.eulerAngles.z < 180 + RotationSpeed) {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+        } else if (transform.rotation.eulerAngles.z > 180) {
+            transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+        } else {
+            transform.Rotate(new Vector3(0, 0, RotationSpeed));
+        }*/
+        return rotateAssist(180);
+    }
+
+
+    private bool rotateAssist(float targetAngle) {
+
+        Debug.Log(transform.rotation.eulerAngles.z + ", " + (targetAngle + 180) + ", " + targetAngle);
+        if (transform.rotation.eulerAngles.z > targetAngle - RotationSpeed && transform.rotation.eulerAngles.z < targetAngle + RotationSpeed) {
+            transform.rotation = Quaternion.Euler(0, 0, targetAngle);
+        } else if (targetAngle + 180 <= 360) { 
+            if (transform.rotation.eulerAngles.z > targetAngle + 180 || transform.rotation.eulerAngles.z < targetAngle) {
+                transform.Rotate(new Vector3(0, 0, RotationSpeed));
+            } else {
+                transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+            }
+        } else {
+            if (transform.rotation.eulerAngles.z > targetAngle - 180 || transform.rotation.eulerAngles.z < targetAngle) {
+                transform.Rotate(new Vector3(0, 0, -RotationSpeed));
+            } else {
+                transform.Rotate(new Vector3(0, 0, RotationSpeed));
+            }
         }
         return flip();
     }

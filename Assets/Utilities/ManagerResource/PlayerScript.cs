@@ -36,44 +36,47 @@ public class PlayerScript : MonoBehaviour {
         ani.speed = 1;
         if (Input.GetKey(KeyCode.W)) {
             Rb.AddForce(new Vector2(0, movementSpeed));
-            ani.speed = movementSpeed/5+1;
+            ani.speed = movementSpeed / 5 + 1;
         } else if (Input.GetKey(KeyCode.S)) {
             Rb.AddForce(new Vector2(0, -1 * movementSpeed));
-            ani.speed = movementSpeed/5+1;
+            ani.speed = movementSpeed / 5 + 1;
         }
         if (Input.GetKey(KeyCode.A)) {
             Rb.AddForce(new Vector2(-1 * movementSpeed, 0));
-            ani.speed = movementSpeed/5+1;
+            ani.speed = movementSpeed / 5 + 1;
         } else if (Input.GetKey(KeyCode.D)) {
             Rb.AddForce(new Vector2(movementSpeed, 0));
-            ani.speed = movementSpeed/5+1;
+            ani.speed = movementSpeed / 5 + 1;
         }
 
         //-----------------------------rotation of weapon-----------------------------
         if (Input.GetKey(KeyCode.LeftArrow)) {
-            if (weaponScript.rotateLeft()) {
-                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            } else {
-                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            }
+            updateWeapSprite(weaponScript.rotateLeft());
         } else if (Input.GetKey(KeyCode.RightArrow)) {
-            if (weaponScript.rotateRight()) {
-                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            } else {
-                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-
-            }
+            updateWeapSprite(weaponScript.rotateRight());
+        } else if (Input.GetKey(KeyCode.UpArrow)) {
+            updateWeapSprite(weaponScript.rotateTop());
+        } else if (Input.GetKey(KeyCode.DownArrow)) {
+            updateWeapSprite(weaponScript.rotateBot());
         }
 
         // ------------------- other player input ----------------------
         if (Input.GetKey(KeyCode.Space)) {
             Attack();
         }
-        if (Input.GetKey(KeyCode.DownArrow)) {
+        if (Input.GetKey(KeyCode.Q)) {
             ActivateAbility();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             ShieldsUp();
+        }
+    }
+
+    private void updateWeapSprite(bool flip) {
+        if (flip) {
+            CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+        } else {
+            CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
         }
     }
 
