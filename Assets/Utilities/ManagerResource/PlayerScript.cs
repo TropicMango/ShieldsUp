@@ -32,6 +32,15 @@ public class PlayerScript : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        
+        updateMovement();
+
+        updateWeapon();
+
+        updateOther();
+    }
+
+    private void updateMovement() {
         // -------------------- basic movement --------------------------
         ani.speed = 1;
         if (Input.GetKey(KeyCode.W)) {
@@ -48,18 +57,34 @@ public class PlayerScript : MonoBehaviour {
             Rb.AddForce(new Vector2(movementSpeed, 0));
             ani.speed = movementSpeed / 5 + 1;
         }
+    }
 
+    private void updateWeapon() {
         //-----------------------------rotation of weapon-----------------------------
         if (Input.GetKey(KeyCode.LeftArrow)) {
-            updateWeapSprite(weaponScript.rotateLeft());
+            if (Input.GetKey(KeyCode.UpArrow)) {
+                updateWeapSprite(weaponScript.rotateAngle(45)); // top left
+            } else if (Input.GetKey(KeyCode.DownArrow)) {
+                updateWeapSprite(weaponScript.rotateAngle(135)); // bot left
+            } else {
+                updateWeapSprite(weaponScript.rotateAngle(90)); // left
+            }
         } else if (Input.GetKey(KeyCode.RightArrow)) {
-            updateWeapSprite(weaponScript.rotateRight());
+            if (Input.GetKey(KeyCode.UpArrow)) {
+                updateWeapSprite(weaponScript.rotateAngle(315)); // top right
+            } else if (Input.GetKey(KeyCode.DownArrow)) {
+                updateWeapSprite(weaponScript.rotateAngle(225)); // bot right
+            } else {
+                updateWeapSprite(weaponScript.rotateAngle(270)); // right
+            }
         } else if (Input.GetKey(KeyCode.UpArrow)) {
-            updateWeapSprite(weaponScript.rotateTop());
+            updateWeapSprite(weaponScript.rotateAngle(0)); // top
         } else if (Input.GetKey(KeyCode.DownArrow)) {
-            updateWeapSprite(weaponScript.rotateBot());
+            updateWeapSprite(weaponScript.rotateAngle(180)); // bot
         }
+    }
 
+    private void updateOther() {
         // ------------------- other player input ----------------------
         if (Input.GetKey(KeyCode.Space)) {
             Attack();
