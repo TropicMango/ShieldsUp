@@ -8,7 +8,6 @@ public class WeaponScript : MonoBehaviour {
     public float terminationTime;
     public GameObject bullet;
     public Animator animations;
-    public int numBullets;
     public float delay;
     public float bulletSpray;
     public float knockBack;
@@ -66,36 +65,41 @@ public class WeaponScript : MonoBehaviour {
         }
     }
 
-    protected IEnumerator AttackCommand(Rigidbody2D player) {
+    protected virtual IEnumerator AttackCommand(Rigidbody2D player, float offSet = 0.12345f) {
         //-----------------------------Fires and playes reload animation-----------------------------
         yield return new WaitForSeconds(delay); // Pause
         if (melee) {
             rotationLock = Time.time + terminationTime;
         }
-        for (int i = 0; i < numBullets; i++) { // Fire
-            Quaternion sprayRot = Quaternion.Euler(0, 0, Random.Range(-bulletSpray, bulletSpray));
-            GameObject tempBullet;
-            if (melee) {
-                tempBullet = Instantiate(bullet, transform);
-                tempBullet.transform.rotation = transform.rotation * sprayRot;
-            } else {
-                tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
-            }
-            tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
-            tempBullet.GetComponent<BulletScrpit>().setStats(damage, bulletSpeed, explosionSize, pierce);
-            if (isPlayer) {
-                tempBullet.tag = "AllyDamage";
-            } else {
-                tempBullet.tag = "EnemyDamage";
-            }
-            Destroy(tempBullet, terminationTime);
-            
+        // Fire
+        GameObject tempBullet;
+        if (offSet == 0.12345f) {
+            offSet = Random.Range(-bulletSpray, bulletSpray); // if offset not stated do random spray
         }
+        Quaternion sprayRot = Quaternion.Euler(0, 0, offSet);
+
+        if (melee) {
+            tempBullet = Instantiate(bullet, transform);
+            tempBullet.transform.rotation = transform.rotation * sprayRot;
+        } else {
+            tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
+        }
+        tempBullet.transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
+        tempBullet.GetComponent<BulletScrpit>().setStats(damage, bulletSpeed, explosionSize, pierce);
+
+        if (isPlayer) {
+            tempBullet.tag = "AllyDamage";
+        } else {
+            tempBullet.tag = "EnemyDamage";
+        }
+        Destroy(tempBullet, terminationTime);
 
         //calculate knockback
-        Vector3 tran = new Vector3(0, -knockBack, 0);
-        tran = transform.rotation * tran;
-        player.AddForce(tran);
+        if (player) {
+            Vector3 tran = new Vector3(0, -knockBack, 0);
+            tran = transform.rotation * tran;
+            player.AddForce(tran);
+        }
     }
 
     public virtual void Activate(Rigidbody2D player) {

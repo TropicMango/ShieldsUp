@@ -75,11 +75,12 @@
     <Compile Include="Assets\Characters\Mech\Scripts\MechanicScript.cs" />
     <Compile Include="Assets\Characters\Mech\Scripts\MechWallScript.cs" />
     <Compile Include="Assets\Characters\Mech\Scripts\WrenchScript.cs" />
-    <Compile Include="Assets\Characters\Shaman\Script\BlowPipeScript.cs" />
-    <Compile Include="Assets\Characters\Shaman\Script\ShamanScript.cs" />
-    <Compile Include="Assets\Characters\Shaman\Script\ShamanStoneScript.cs" />
+    <Compile Include="Assets\Characters\Shaman\Scripts\BlowPipeScript.cs" />
+    <Compile Include="Assets\Characters\Shaman\Scripts\ShamanScript.cs" />
+    <Compile Include="Assets\Characters\Shaman\Scripts\ShamanStoneScript.cs" />
+    <Compile Include="Assets\Enemies\BlossomCannoner\Script\LogCannonScript.cs" />
+    <Compile Include="Assets\Enemies\BlossomSpearman\Script\ZombieScript.cs" />
     <Compile Include="Assets\Enemies\EnemySummoningPortal\SummoningPortal.cs" />
-    <Compile Include="Assets\Enemies\Test Enemy 2\Script\ZombieScript.cs" />
     <Compile Include="Assets\Script\BasicShieldScript.cs" />
     <Compile Include="Assets\Script\BulletScrpit.cs" />
     <Compile Include="Assets\Script\DamageScrpit.cs" />

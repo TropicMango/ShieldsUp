@@ -10,7 +10,6 @@ public class EnemyScript : MonoBehaviour {
     private Quaternion dir;
     private float dirDuration;
     private GameObject target;
-    private Rigidbody2D Rb;
     public Animator animations;
     public float attackRange;
     private WeaponScript weaponScript;
@@ -22,11 +21,10 @@ public class EnemyScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Rb = GetComponent<Rigidbody2D>();
         dir = new Quaternion(0,0,0,0);
         transform.Translate(new Vector3(0, 0, -50));
         weaponScript = Instantiate(weapon, transform).GetComponent<WeaponScript>();
-        coolDown = Time.time + Random.Range(0, reload);
+        coolDown = Time.time + Random.Range(0, reload*2);
 	}
 	
 	// Update is called once per frame
@@ -55,10 +53,10 @@ public class EnemyScript : MonoBehaviour {
 
     protected virtual void updateWeap(float angle) {
         spriteRenderer.flipX = weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
-        
-        if (Time.time > coolDown) {
+        Debug.Log(Vector2.Distance(target.transform.position, transform.position));
+        if (Time.time > coolDown && Vector2.Distance(target.transform.position, transform.position) < attackRange) {
             coolDown = Time.time + reload;
-            weaponScript.Attack(Rb);
+            weaponScript.Attack(GetComponent<Rigidbody2D>());
         }
     }
 

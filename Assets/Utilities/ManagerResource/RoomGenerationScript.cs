@@ -15,7 +15,7 @@ public class RoomGenerationScript : MonoBehaviour {
     public int numRooms = 10;
     private GameObject[,] Grid;
     private int size = 40;
-    private int difficulty = 5;
+    public int difficulty = 5;
     private List<GameObject> otherInstanciatedObjects;
     private float roomDist = 25;
 
