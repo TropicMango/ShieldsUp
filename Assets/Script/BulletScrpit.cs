@@ -23,11 +23,12 @@ public class BulletScrpit : DamageScrpit {
         transform.Translate(new Vector2(0, movementSpeed));
 	}
 
-    public void setStats(float damage, float movementSpeed, float explosionSize, float pierce) {
+    public void setStats(float damage, float movementSpeed, float explosionSize, float pierce, float bonusBulletSize) {
         this.damage = damage;
         this.movementSpeed = movementSpeed;
         this.explosionSize = explosionSize;
         this.pierce = pierce;
+        transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
     }
 
     override

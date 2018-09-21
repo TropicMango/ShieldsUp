@@ -53,10 +53,9 @@ public class EnemyScript : MonoBehaviour {
 
     protected virtual void updateWeap(float angle) {
         spriteRenderer.flipX = weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
-        Debug.Log(Vector2.Distance(target.transform.position, transform.position));
         if (Time.time > coolDown && Vector2.Distance(target.transform.position, transform.position) < attackRange) {
             coolDown = Time.time + reload;
-            weaponScript.Attack(GetComponent<Rigidbody2D>());
+            weaponScript.checkAttack(GetComponent<Rigidbody2D>());
         }
     }
 
@@ -66,19 +65,24 @@ public class EnemyScript : MonoBehaviour {
         if (collision.tag == "AllyDamage") {
             float damage = collision.gameObject.GetComponent<DamageScrpit>().Hit();
             Debug.Log(damage);
-            hp -= damage;
-            if(hp < 0 && hp != -123) {
-                hp = -123;
-                animations.Play("Death");
-                RS.allyDied();
-                spriteRenderer.color = new Color(1f, 1f, 1f, .2f);
-                Destroy(weaponScript.gameObject);
-                Destroy(GetComponent<Collider2D>());
-                Destroy(this);
-                Destroy(gameObject,5);
-            } else {
-                StartCoroutine(damageFlash());
-            }
+            recieveDamage(damage);
+        }
+    }
+
+    public void recieveDamage(float damage) {
+        hp -= damage;
+        if (hp < 0 && hp != -123) {
+            hp = -123;
+            animations.Play("Death");
+            RS.allyDied();
+            spriteRenderer.color = new Color(1f, 1f, 1f, .2f);
+            gameObject.tag = "Dead";
+            Destroy(weaponScript.gameObject);
+            Destroy(GetComponent<Collider2D>());
+            Destroy(this);
+            Destroy(gameObject, 5);
+        } else {
+            StartCoroutine(damageFlash());
         }
     }
 

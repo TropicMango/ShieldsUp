@@ -12,6 +12,8 @@ TagManager:
   - EnemyDamage
   - Token
   - Pedestal
+  - Enemy
+  - Dead
   layers:
   - Default
   - TransparentFX

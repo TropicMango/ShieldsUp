@@ -140,13 +140,10 @@ MonoBehaviour:
   characterClass: Sorcerer
   ani: {fileID: 95636648069269826}
   CharacterSprite: {fileID: 1653828343714988}
-  maxHp: 500
-  weapon: {fileID: 1014750538374478, guid: d9aac6daf8584e147b46605dad259fcf, type: 2}
+  weapon: {fileID: 1698424768380492, guid: 513f0aa53da4a1a43a3e6816e82269b4, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
+  maxHp: 500
   movementSpeed: 7.5
-  reload: 1
-  activationTime: 2.7
-  abilityRecharge: 5
 --- !u!212 &212554219697895832
 SpriteRenderer:
   m_ObjectHideFlags: 1

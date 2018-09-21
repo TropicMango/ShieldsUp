@@ -134,13 +134,16 @@ MonoBehaviour:
   bullet: {fileID: 1427002501409778, guid: b8e2cb1234cce464d8603a914f63f559, type: 2}
   animations: {fileID: 95596452142612974}
   delay: 0
-  bulletSpray: 50
+  bulletSpray: 70
   knockBack: 10
   bonusBulletSize: 0
   damage: 10
   explosionSize: 0
   pierce: 0
   bulletSpeed: 0.1
+  reload: 0
+  activationTime: 0
+  abilityRecharge: 0
   melee: 0
   numShots: 5
 --- !u!212 &212055626361695490

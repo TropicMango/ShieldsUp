@@ -133,7 +133,6 @@ MonoBehaviour:
   terminationTime: 5
   bullet: {fileID: 1288961516915786, guid: 1813aa3eb95abcd41b7045953561eeda, type: 2}
   animations: {fileID: 95501663409431628}
-  numBullets: 1
   delay: 0
   bulletSpray: 0
   knockBack: 0
@@ -142,6 +141,9 @@ MonoBehaviour:
   explosionSize: 0
   pierce: 0
   bulletSpeed: 0.2
+  reload: 0
+  activationTime: 0
+  abilityRecharge: 0
   melee: 0
 --- !u!212 &212319566174128300
 SpriteRenderer:

@@ -7,9 +7,8 @@ public class ShamanScript : PlayerScript {
 
     override
     public void ActivateAbility() {
-        if (Time.time > abilityCoolDown) {
+        if (weaponScript.activatable()) {
             dropTotem();
-            abilityCoolDown = Time.time + abilityRecharge;
         }
     }
 

@@ -6,7 +6,7 @@ public class WrenchScript : WeaponScript {
     public GameObject wallObject;
 
     override
-    public void Activate(Rigidbody2D player) {
+    protected void Activate(Rigidbody2D player) {
         base.Activate(player);
         StartCoroutine(Activation(player));
     }

@@ -6,10 +6,11 @@ public class GateScript : MonoBehaviour {
 
     public BoxCollider2D[] gates;
     private List<GameObject> enemies;
+    private GameObject[] generatedEnemies;
     public GameObject portal;
     private bool spawned = true;
     private bool[] gateUsed= {false, false, false, false };
-    private int numEnemies = 0;
+    public int numEnemies = 0;
 
     void Start () {
     }
@@ -38,7 +39,6 @@ public class GateScript : MonoBehaviour {
     }
 
     public void allyDied() {
-        Debug.Log(numEnemies);
         numEnemies--;
         if(numEnemies <= 0) {
             for (int i = 0; i < gates.Length; i++) {

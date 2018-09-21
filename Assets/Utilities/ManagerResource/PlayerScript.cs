@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
-
-    private OverlayScript cam;
+    
     public string characterClass;
     public Animator ani;
     public GameObject CharacterSprite;
-    public float maxHp;
-    private float currentHp;
     public GameObject weapon;
     public GameObject Shield;
+    public float maxHp;
     public float movementSpeed;
-    public float reload;
-    public float activationTime;
-    protected float coolDown;
-    public float abilityRecharge;
-    protected float abilityCoolDown;
+    protected float currentHp;
     protected Rigidbody2D Rb;
-    private WeaponScript weaponScript;
+    protected WeaponScript weaponScript;
+    protected OverlayScript cam;
 
     // Use this for initialization
     void Start() {
@@ -27,20 +22,19 @@ public class PlayerScript : MonoBehaviour {
         weaponScript = Instantiate(weapon,transform).GetComponent<WeaponScript>();
         weaponScript.init(true);
         currentHp = maxHp;
-        //Instantiate(camera, transform);
+        initialize();
     }
+
+    protected virtual void initialize() { }
 
     // Update is called once per frame
     void FixedUpdate() {
-        
         updateMovement();
-
         updateWeapon();
-
         updateOther();
     }
 
-    private void updateMovement() {
+    protected virtual void updateMovement() {
         // -------------------- basic movement --------------------------
         ani.speed = 1;
         if (Input.GetKey(KeyCode.W)) {
@@ -59,45 +53,58 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
-    private void updateWeapon() {
+    protected virtual void updateWeapon() {
         //-----------------------------rotation of weapon-----------------------------
         if (Input.GetKey(KeyCode.LeftArrow)) {
             if (Input.GetKey(KeyCode.UpArrow)) {
-                updateWeapSprite(weaponScript.rotateAngle(45)); // top left
+                updatePlayerSprite(weaponScript.rotateAngle(45)); // top left
             } else if (Input.GetKey(KeyCode.DownArrow)) {
-                updateWeapSprite(weaponScript.rotateAngle(135)); // bot left
+                updatePlayerSprite(weaponScript.rotateAngle(135)); // bot left
             } else {
-                updateWeapSprite(weaponScript.rotateAngle(90)); // left
+                updatePlayerSprite(weaponScript.rotateAngle(90)); // left
             }
         } else if (Input.GetKey(KeyCode.RightArrow)) {
             if (Input.GetKey(KeyCode.UpArrow)) {
-                updateWeapSprite(weaponScript.rotateAngle(315)); // top right
+                updatePlayerSprite(weaponScript.rotateAngle(315)); // top right
             } else if (Input.GetKey(KeyCode.DownArrow)) {
-                updateWeapSprite(weaponScript.rotateAngle(225)); // bot right
+                updatePlayerSprite(weaponScript.rotateAngle(225)); // bot right
             } else {
-                updateWeapSprite(weaponScript.rotateAngle(270)); // right
+                updatePlayerSprite(weaponScript.rotateAngle(270)); // right
             }
         } else if (Input.GetKey(KeyCode.UpArrow)) {
-            updateWeapSprite(weaponScript.rotateAngle(0)); // top
+            updatePlayerSprite(weaponScript.rotateAngle(0)); // top
         } else if (Input.GetKey(KeyCode.DownArrow)) {
-            updateWeapSprite(weaponScript.rotateAngle(180)); // bot
+            updatePlayerSprite(weaponScript.rotateAngle(180)); // bot
         }
     }
 
-    private void updateOther() {
+    protected virtual void updateOther() {
         // ------------------- other player input ----------------------
-        if (Input.GetKey(KeyCode.Space)) {
-            Attack();
-        }
+        Attack();
+        ActivateAbility();
+        ShieldsUp();
+    }
+
+    public virtual void ActivateAbility() {
         if (Input.GetKey(KeyCode.Q)) {
-            ActivateAbility();
-        }
-        if (Input.GetKeyDown(KeyCode.E)) {
-            ShieldsUp();
+            weaponScript.checkActivation(Rb);
         }
     }
 
-    private void updateWeapSprite(bool flip) {
+    public virtual void ShieldsUp() {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            Destroy(Instantiate(Shield, transform), 0.5f);
+        }
+    }
+
+    public virtual void Attack() {
+        if (Input.GetKey(KeyCode.Space)) {
+            weaponScript.checkAttack(Rb);
+        }
+        // tranform is passed for knock back
+    }
+
+    protected void updatePlayerSprite(bool flip) {
         if (flip) {
             CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
         } else {
@@ -106,19 +113,8 @@ public class PlayerScript : MonoBehaviour {
     }
 
     private void Update() {
-        cam.updateAbility(abilityRecharge, abilityCoolDown - Time.time);
+        cam.updateAbility(weaponScript.abilityRecharge, weaponScript.getAbilityCoolDown() - Time.time);
     }
-
-    //no longer being used due to the class system
-    /*
-    void SwapWeap(GameObject weap) {
-        // -------------------- deletes current weap & swap --------------------------
-        Quaternion weapRot = weapon.transform.rotation;
-        Destroy(weapon);
-        weapon = Instantiate(weap, transform);
-        weapon.transform.rotation = weapRot;
-        weaponS = weapon.GetComponent<WeaponScript>();
-    }*/
 
     public WeaponScript GetWeaponScript() {
         return weaponScript;
@@ -156,22 +152,14 @@ public class PlayerScript : MonoBehaviour {
         
     }
 
-    public virtual void ActivateAbility() {
-        if (Time.time > abilityCoolDown) {
-            weaponScript.Activate(Rb);
-            abilityCoolDown = Time.time + abilityRecharge;
-            coolDown += activationTime;
-        }
-    }
-
-    public virtual void ShieldsUp() {
-        Destroy(Instantiate(Shield, transform), 0.5f);
-    }
-
-    public virtual void Attack() {
-        if (Time.time > coolDown) {
-            coolDown = Time.time + reload;
-            weaponScript.Attack(Rb); // tranform is passed for knock back
-        }
-    }
+    //no longer being used due to the class system
+    /*
+    void SwapWeap(GameObject weap) {
+        // -------------------- deletes current weap & swap --------------------------
+        Quaternion weapRot = weapon.transform.rotation;
+        Destroy(weapon);
+        weapon = Instantiate(weap, transform);
+        weapon.transform.rotation = weapRot;
+        weaponS = weapon.GetComponent<WeaponScript>();
+    }*/
 }

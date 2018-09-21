@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4928827498165032}
   - component: {fileID: 50716433667644180}
-  - component: {fileID: 114534821632862184}
+  - component: {fileID: 114436733808755742}
   m_Layer: 0
   m_Name: Psychic
   m_TagString: Player
@@ -126,7 +126,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114534821632862184
+--- !u!114 &114436733808755742
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,19 +134,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1706510250701038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78aac64d2f2576146979833f36a5d2d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 772e83e27762060449d0d115a9747986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterClass: Psychic
   ani: {fileID: 95724055054061826}
   CharacterSprite: {fileID: 1728973642230796}
-  maxHp: 500
-  weapon: {fileID: 1014750538374478, guid: d9aac6daf8584e147b46605dad259fcf, type: 2}
+  weapon: {fileID: 1770481919273070, guid: 200ec4872f342884e953ee6f87b6c158, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
-  movementSpeed: 7.5
+  maxHp: 50
+  movementSpeed: 7
   reload: 1
-  activationTime: 2.7
-  abilityRecharge: 5
+  activationTime: 0
+  abilityRecharge: 10
 --- !u!212 &212211462959694750
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,9 +5,8 @@ using UnityEngine;
 public class BaseExplorerScript : PlayerScript {
     override
     public void ActivateAbility() {
-        if (Time.time > abilityCoolDown) {
+        if (((DaggerScript)weaponScript)) {
             StartCoroutine(speedBoost());
-            abilityCoolDown = Time.time + abilityRecharge;
         }
     }
 

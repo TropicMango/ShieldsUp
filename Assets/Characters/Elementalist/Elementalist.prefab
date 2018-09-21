@@ -141,7 +141,7 @@ MonoBehaviour:
   ani: {fileID: 95545476856912518}
   CharacterSprite: {fileID: 1762498784472104}
   maxHp: 500
-  weapon: {fileID: 1014750538374478, guid: d9aac6daf8584e147b46605dad259fcf, type: 2}
+  weapon: {fileID: 1849589567661724, guid: 5d0744bb5722edf48ad87271db0e6dfe, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
   movementSpeed: 7.5
   reload: 1

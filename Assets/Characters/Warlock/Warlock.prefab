@@ -38,8 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4479208303422190}
   - component: {fileID: 50244666172801280}
-  - component: {fileID: 114451049222745822}
   - component: {fileID: 212920317266270802}
+  - component: {fileID: 114086489982332896}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Player
@@ -127,7 +127,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114451049222745822
+--- !u!114 &114086489982332896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,19 +135,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905606683203212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78aac64d2f2576146979833f36a5d2d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a0ad7ba6a7d47e4da125dd4fa09cf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterClass: Warlock
   ani: {fileID: 95630355535995678}
   CharacterSprite: {fileID: 1205514466914290}
-  maxHp: 500
-  weapon: {fileID: 1014750538374478, guid: d9aac6daf8584e147b46605dad259fcf, type: 2}
+  weapon: {fileID: 1862475150563512, guid: ade0da13bedc0094ca1bf5b36bb68c3c, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
-  movementSpeed: 7.5
-  reload: 1
-  activationTime: 2.7
-  abilityRecharge: 5
+  maxHp: 100
+  movementSpeed: 8
 --- !u!212 &212824121178411124
 SpriteRenderer:
   m_ObjectHideFlags: 1

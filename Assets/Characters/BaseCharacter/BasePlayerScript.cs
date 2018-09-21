@@ -11,29 +11,16 @@ public class BasePlayerScript : PlayerScript {
         //Instantiate(camera, transform);
     }
 
-    // Update is called once per frame
-    void FixedUpdate() {
-        // -------------------- basic movement --------------------------
-        ani.speed = 1;
-        if (Input.GetKey(KeyCode.W)) {
-            Rb.AddForce(new Vector2(0, movementSpeed));
-            ani.speed = movementSpeed / 5 + 1;
-        } else if (Input.GetKey(KeyCode.S)) {
-            Rb.AddForce(new Vector2(0, -1 * movementSpeed));
-            ani.speed = movementSpeed / 5 + 1;
-        }
-        if (Input.GetKey(KeyCode.A)) {
-            Rb.AddForce(new Vector2(-1 * movementSpeed, 0));
-            ani.speed = movementSpeed / 5 + 1;
-        } else if (Input.GetKey(KeyCode.D)) {
-            Rb.AddForce(new Vector2(movementSpeed, 0));
-            ani.speed = movementSpeed / 5 + 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            ShieldsUp();
+    override
+    protected  void updateWeapon() {
+        if (Rb.velocity.x > 0) {
+            updatePlayerSprite(true);
+        } else {
+            updatePlayerSprite(false);
         }
     }
+
+
 
     private void OnTriggerEnter(Collider collision) {
         if (collision.tag == "Pedestal") {
