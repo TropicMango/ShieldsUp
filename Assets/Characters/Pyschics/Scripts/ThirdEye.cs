@@ -14,7 +14,7 @@ public class ThirdEye : WeaponScript {
     }
 
     override
-    protected IEnumerator AttackCommand(Rigidbody2D player, float offSet = 0.12345f) {
+    protected IEnumerator AttackCommand(float offSet = 0.12345f) {
         Debug.Log("damaging");
         yield return new WaitForSeconds(delay);
         if (watcher.active) {

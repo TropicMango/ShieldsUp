@@ -8,7 +8,7 @@ public class FighterBeltScript : pedestalScript {
         if (player.characterClass == "Base") {
             characterManager.evoPlayer(futureEvo);
         } else {
-            player.maxHp += 50;
+            player.hp += 50;
         }
         base.pickUp(player);
     }

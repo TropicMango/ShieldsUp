@@ -5,12 +5,12 @@ using UnityEngine;
 public class BasicStaffScript : WeaponScript {
 
     override
-    protected void Activate(Rigidbody2D player) {
-        base.Activate(player);
-        StartCoroutine(Activation(player));
+    protected void Activate() {
+        base.Activate();
+        StartCoroutine(Activation());
     }
 
-    IEnumerator Activation(Rigidbody2D player) {
+    IEnumerator Activation() {
         yield return new WaitForSeconds(2.5f);
         GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation);
         tempBullet.transform.localScale += new Vector3(0.3f, 0.3f, 0);
@@ -19,6 +19,6 @@ public class BasicStaffScript : WeaponScript {
 
         Vector3 tran = new Vector3(0, -300, 0);
         tran = transform.rotation * tran;
-        player.AddForce(tran);
+        player.GetComponent<Rigidbody2D>().AddForce(tran);
     }
 }

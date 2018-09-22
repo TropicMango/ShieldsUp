@@ -25,6 +25,7 @@ public class OverlayScript : MonoBehaviour {
     }
 
     public void updateHP(float maxHp, float Current) {
+        Debug.Log(10 * Current / maxHp);
         HealthMeter.transform.localScale = new Vector3(10 * Current / maxHp, 10, 1);
     }
 

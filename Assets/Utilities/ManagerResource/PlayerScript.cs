@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript : CharacterScript {
     
     public string characterClass;
+
+    protected float currentHp;
     public Animator ani;
     public GameObject CharacterSprite;
-    public GameObject weapon;
     public GameObject Shield;
-    public float maxHp;
-    public float movementSpeed;
-    protected float currentHp;
     protected Rigidbody2D Rb;
     protected WeaponScript weaponScript;
     protected OverlayScript cam;
@@ -20,8 +18,8 @@ public class PlayerScript : MonoBehaviour {
     void Start() {
         Rb = GetComponent<Rigidbody2D>();
         weaponScript = Instantiate(weapon,transform).GetComponent<WeaponScript>();
-        weaponScript.init(true);
-        currentHp = maxHp;
+        weaponScript.init(gameObject, true);
+        currentHp = hp;
         initialize();
     }
 
@@ -87,7 +85,7 @@ public class PlayerScript : MonoBehaviour {
 
     public virtual void ActivateAbility() {
         if (Input.GetKey(KeyCode.Q)) {
-            weaponScript.checkActivation(Rb);
+            weaponScript.checkActivation();
         }
     }
 
@@ -99,7 +97,7 @@ public class PlayerScript : MonoBehaviour {
 
     public virtual void Attack() {
         if (Input.GetKey(KeyCode.Space)) {
-            weaponScript.checkAttack(Rb);
+            weaponScript.checkAttack();
         }
         // tranform is passed for knock back
     }
@@ -140,16 +138,17 @@ public class PlayerScript : MonoBehaviour {
         }else if (collision.tag == "Room") {
             collision.gameObject.GetComponent<GateScript>().spawnEnemies(gameObject);
         }
+        extraTriggernEnter(collision.gameObject);
+    }
+
+    protected virtual void extraTriggernEnter(GameObject colli) {
+        // override me
     }
 
     protected void hurt(float damage) {
         StartCoroutine(cam.shake(damage));
         currentHp -= damage;
-        cam.updateHP(maxHp, currentHp);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision) {
-        
+        cam.updateHP(hp, currentHp);
     }
 
     //no longer being used due to the class system

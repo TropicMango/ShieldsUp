@@ -24,10 +24,12 @@ public class WeaponScript : MonoBehaviour {
     private bool isPlayer = false;
     public bool melee;
     protected float rotationLock;
+    protected GameObject player;
 
 
-    public void init(bool isPlayer) {
+    public void init(GameObject player, bool isPlayer) {
         this.isPlayer = isPlayer;
+        this.player = player;
     }
 
     private bool flip() {
@@ -69,20 +71,20 @@ public class WeaponScript : MonoBehaviour {
         return flip();
     }
 
-    public virtual void checkAttack(Rigidbody2D Rb) {
+    public virtual void checkAttack() {
         if (Time.time > coolDown) {
             coolDown = Time.time + reload;
-            this.Attack(Rb); // tranform is passed for knock back
+            this.Attack(); // tranform is passed for knock back
         }
     }
 
-    protected virtual void Attack(Rigidbody2D player) {
+    protected virtual void Attack() {
         //-----------------------------accounts for burst-----------------------------
         animations.Play("Reload"); //Play Animation
-        StartCoroutine(AttackCommand(player));
+        StartCoroutine(AttackCommand());
     }
 
-    protected virtual IEnumerator AttackCommand(Rigidbody2D player, float offSet = 0.12345f) {
+    protected virtual IEnumerator AttackCommand(float offSet = 0.12345f) {
         //-----------------------------Fires and playes reload animation-----------------------------
         yield return new WaitForSeconds(delay); // Pause
         if (melee) {
@@ -96,7 +98,7 @@ public class WeaponScript : MonoBehaviour {
         if (player) {
             Vector3 tran = new Vector3(0, -knockBack, 0);
             tran = transform.rotation * tran;
-            player.AddForce(tran);
+            player.GetComponent<Rigidbody2D>().AddForce(tran);
         }
 
         followUp();
@@ -128,15 +130,15 @@ public class WeaponScript : MonoBehaviour {
 
     protected virtual void followUp() { }
 
-    public void checkActivation(Rigidbody2D Rb) {
+    public void checkActivation() {
         if (Time.time > abilityCoolDown) {
-            this.Activate(Rb);
+            this.Activate();
             abilityCoolDown = Time.time + abilityRecharge;
             coolDown += activationTime;
         }
     }
 
-    protected virtual void Activate(Rigidbody2D player) {
+    protected virtual void Activate() {
         animations.Play("Activate");
     }
 

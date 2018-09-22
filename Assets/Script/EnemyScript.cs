@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour {
+public class EnemyScript : CharacterScript {
 
-    public float hp;
-    public float movementSpeed = 0.01f;
-    public GameObject weapon;
     private Quaternion dir;
     private float dirDuration;
     private GameObject target;
@@ -24,6 +21,7 @@ public class EnemyScript : MonoBehaviour {
         dir = new Quaternion(0,0,0,0);
         transform.Translate(new Vector3(0, 0, -50));
         weaponScript = Instantiate(weapon, transform).GetComponent<WeaponScript>();
+        weaponScript.init(gameObject, false);
         coolDown = Time.time + Random.Range(0, reload*2);
 	}
 	
@@ -55,7 +53,7 @@ public class EnemyScript : MonoBehaviour {
         spriteRenderer.flipX = weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
         if (Time.time > coolDown && Vector2.Distance(target.transform.position, transform.position) < attackRange) {
             coolDown = Time.time + reload;
-            weaponScript.checkAttack(GetComponent<Rigidbody2D>());
+            weaponScript.checkAttack();
         }
     }
 

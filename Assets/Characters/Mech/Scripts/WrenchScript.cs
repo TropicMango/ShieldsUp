@@ -6,12 +6,12 @@ public class WrenchScript : WeaponScript {
     public GameObject wallObject;
 
     override
-    protected void Activate(Rigidbody2D player) {
-        base.Activate(player);
-        StartCoroutine(Activation(player));
+    protected void Activate() {
+        base.Activate();
+        StartCoroutine(Activation());
     }
 
-    IEnumerator Activation(Rigidbody2D player) {
+    IEnumerator Activation() {
         yield return new WaitForSeconds(0.35f);
         GameObject wall = Instantiate(wallObject, transform.position, transform.rotation);
         wall.transform.Translate(new Vector2(0, 0.75f));
@@ -19,6 +19,6 @@ public class WrenchScript : WeaponScript {
 
         Vector3 tran = new Vector3(0, -100, 0);
         tran = transform.rotation * tran;
-        player.AddForce(tran);
+        player.GetComponent<Rigidbody2D>().AddForce(tran);
     }
 }
