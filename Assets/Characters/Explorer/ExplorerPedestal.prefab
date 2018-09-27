@@ -87,6 +87,9 @@ MonoBehaviour:
   displayItem: {fileID: 1854043938310306, guid: 00af14ac0d41fc045910cc4e87db49d5,
     type: 2}
   futureEvo: {fileID: 1111181405742884, guid: b462e8d324fe15c42896e7c05a2aa083, type: 2}
+  ItemName: ExplorerMap
+  BaseClass: Base
+  EvoSet: []
 --- !u!212 &212532064074582308
 SpriteRenderer:
   m_ObjectHideFlags: 1

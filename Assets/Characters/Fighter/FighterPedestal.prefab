@@ -87,6 +87,9 @@ MonoBehaviour:
   displayItem: {fileID: 1778444229726730, guid: 767b74f2e47c7344782f498e0c4cc60f,
     type: 2}
   futureEvo: {fileID: 1075849886887240, guid: e794a3fcc67299345b38622a28398810, type: 2}
+  ItemName: FighterBelt
+  BaseClass: Base
+  EvoSet: []
 --- !u!212 &212063617968408504
 SpriteRenderer:
   m_ObjectHideFlags: 1

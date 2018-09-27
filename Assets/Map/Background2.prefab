@@ -32,7 +32,6 @@ GameObject:
   - component: {fileID: 61579278667079698}
   - component: {fileID: 61006709889480236}
   - component: {fileID: 61339870996740446}
-  - component: {fileID: 61889857264666000}
   m_Layer: 0
   m_Name: Background2
   m_TagString: Room
@@ -76,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1795600033390914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 550}
+  m_LocalPosition: {x: 3.0001543, y: -5.3037786, z: 550}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4545300025396652}
@@ -333,31 +332,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 8}
   m_EdgeRadius: 0
---- !u!61 &61889857264666000
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1795600033390914}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 15, y: 15}
-  m_EdgeRadius: 0
 --- !u!61 &61892594653865584
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -424,6 +398,7 @@ MonoBehaviour:
   - {fileID: 61579278667079698}
   - {fileID: 61006709889480236}
   - {fileID: 61339870996740446}
+  GateSprite: {fileID: 1781158345883782, guid: 69e25c140372e7244ba1a341ccfe64c5, type: 2}
   portal: {fileID: 1983841559840682, guid: 437fe9db5a41e5c40ad87513b81cd722, type: 2}
 --- !u!212 &212004706553678504
 SpriteRenderer:

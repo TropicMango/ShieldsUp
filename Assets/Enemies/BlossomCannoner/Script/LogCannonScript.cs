@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LogCannonScript : WeaponScript {
-    public int numShots = 5;
+    public float numShots;
 
     override
     protected void Attack() {
@@ -11,7 +11,7 @@ public class LogCannonScript : WeaponScript {
         if (!animations.GetCurrentAnimatorStateInfo(0).IsName("Activate")) {
             animations.Play("Reload"); //Play Animation
             for (int i = 0; i < numShots; i++) {
-                StartCoroutine(AttackCommand( -bulletSpray + bulletSpray * 2 / numShots * i));
+                StartCoroutine(AttackCommand(-bulletSpray + bulletSpray * 2 / (numShots - 1) * i));
             }
         }
     }

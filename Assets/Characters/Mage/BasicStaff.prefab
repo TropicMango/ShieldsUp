@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59e2c9ed36bccc4b8dbd70de672d523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 3
+  RotationSpeed: 8
   terminationTime: 10
   bullet: {fileID: 1731856771356328, guid: d3871ca7b8b10b5429c12f9b08afa501, type: 2}
   animations: {fileID: 95987565018184806}

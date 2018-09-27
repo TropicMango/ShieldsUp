@@ -68,7 +68,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4287422973546848}
   - component: {fileID: 212540580206515414}
-  - component: {fileID: 114078356442929562}
   m_Layer: 0
   m_Name: WarlockOrb
   m_TagString: Untagged
@@ -111,13 +110,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885356703764428}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2500002, y: 0.2500002, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 4.03, z: -1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 4063702812202226}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!4 &4748230662192274
 Transform:
   m_ObjectHideFlags: 1
@@ -170,7 +169,7 @@ MonoBehaviour:
   bonusBulletSize: 0
   damage: 15
   explosionSize: 0
-  pierce: 5
+  pierce: 100
   bulletSpeed: 0.2
   reload: 1
   activationTime: 0
@@ -179,19 +178,6 @@ MonoBehaviour:
   chargeAmount: 0.005
   SpellCircle: {fileID: 1572300860816286, guid: de48a63b31b79624e8536a6fc3205ce2,
     type: 2}
---- !u!114 &114078356442929562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1885356703764428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c6d908452df23479c5edf3c46b738b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offSetDist: 1
-  explosion: {fileID: 0}
 --- !u!212 &212540580206515414
 SpriteRenderer:
   m_ObjectHideFlags: 1

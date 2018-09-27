@@ -10,7 +10,7 @@ public class MechWallScript : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log("wallHit");
         if (collision.tag == "EnemyDamage") {
-            hp -= collision.gameObject.GetComponent<BulletScrpit>().Hit();
+            hp -= collision.gameObject.GetComponent<BulletScrpit>().Hit(gameObject);
             if(hp < 0) {
                 Destroy(gameObject);
             }

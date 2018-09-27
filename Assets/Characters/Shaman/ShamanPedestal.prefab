@@ -87,6 +87,9 @@ MonoBehaviour:
   displayItem: {fileID: 1014604936589592, guid: 6cf83dbb9c43f164e91862c8a94f3b6a,
     type: 2}
   futureEvo: {fileID: 1584864687232338, guid: 26a435476b7a0ed46981e7100a86b149, type: 2}
+  ItemName: ShamanStone
+  BaseClass: Base
+  EvoSet: []
 --- !u!212 &212909601595545480
 SpriteRenderer:
   m_ObjectHideFlags: 1

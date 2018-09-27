@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class MagicStickScript : pedestalScript {
 
+
     override
-    public void pickUp(PlayerScript player) {
-        if (player.characterClass == "Base") {
-            characterManager.evoPlayer(futureEvo);
-        } else {
-            player.GetWeaponScript().damage += 5;
-        }
-        base.pickUp(player);
+    public void enhance(PlayerScript player) {
+        player.GetWeaponScript().damage += 5;
     }
 }

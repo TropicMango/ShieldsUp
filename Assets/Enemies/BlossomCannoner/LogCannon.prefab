@@ -145,7 +145,7 @@ MonoBehaviour:
   activationTime: 0
   abilityRecharge: 0
   melee: 0
-  numShots: 5
+  numShots: 4
 --- !u!212 &212055626361695490
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseExplorerScript : PlayerScript {
     override
     public void ActivateAbility() {
-        if (((DaggerScript)weaponScript)) {
+        if (weaponScript.activatable()) {
             StartCoroutine(speedBoost());
         }
     }

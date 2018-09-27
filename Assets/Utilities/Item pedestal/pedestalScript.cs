@@ -1,20 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class pedestalScript : Removable {
     public GameObject displayItem;
     public GameObject futureEvo;
+    public string ItemName;
+    public string BaseClass;
+    public string[] EvoSet;
     protected CharacterUpdateScript characterManager;
     protected RoomGenerationScript roomGenerator;
 
-	void Start () {
+    void Start() {
         Instantiate(displayItem, transform);
-	}
-
-    public virtual void pickUp(PlayerScript player) {
-        roomGenerator.progression();
     }
+
+    public string pickUp(PlayerScript player) {
+        Debug.Log(player.characterClass + ", " + BaseClass);
+        if (player.characterClass.Equals(BaseClass)) {
+            string[] playerItems = player.getItems().ToArray();
+            foreach (string str in playerItems) {
+                Debug.Log(str);
+            }
+            Debug.Log("-----------------");
+            bool passed = true;
+            foreach (string item in EvoSet) {
+                if (!playerItems.Contains(item)) { passed = false; break; }
+            }
+            if (passed) {
+                characterManager.evoPlayer(futureEvo);
+                Destroy(gameObject);
+            }
+        } else {
+            enhance(player);
+        }
+        return ItemName;
+    }
+
+    public virtual void enhance(PlayerScript player) {/* override me*/ }
 
     public void setManager(CharacterUpdateScript manager, RoomGenerationScript RS) {
         characterManager = manager;

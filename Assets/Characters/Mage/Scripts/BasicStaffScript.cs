@@ -14,8 +14,9 @@ public class BasicStaffScript : WeaponScript {
         yield return new WaitForSeconds(2.5f);
         GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation);
         tempBullet.transform.localScale += new Vector3(0.3f, 0.3f, 0);
-        tempBullet.GetComponent<BulletScrpit>().setStats(damage * 5, bulletSpeed/2, explosionSize, pierce, bonusBulletSize);
+
         Destroy(tempBullet, 5);
+        tempBullet.GetComponent<BulletScrpit>().setStats(damage * 5, bulletSpeed/2, pierce, bonusBulletSize);
 
         Vector3 tran = new Vector3(0, -300, 0);
         tran = transform.rotation * tran;

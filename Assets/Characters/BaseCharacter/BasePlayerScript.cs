@@ -8,6 +8,7 @@ public class BasePlayerScript : PlayerScript {
     // Use this for initialization
     void Start() {
         Rb = GetComponent<Rigidbody2D>();
+        currentItems = new List<string>();
         //Instantiate(camera, transform);
     }
 
@@ -20,6 +21,9 @@ public class BasePlayerScript : PlayerScript {
         }
     }
 
+    private void Update() {
+        
+    }
 
 
     private void OnTriggerEnter(Collider collision) {

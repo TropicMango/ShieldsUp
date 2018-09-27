@@ -87,6 +87,9 @@ MonoBehaviour:
   displayItem: {fileID: 1145874379309390, guid: d213b66783f6ce04daf658bba1944efb,
     type: 2}
   futureEvo: {fileID: 1629498480316104, guid: b20e40592b6638445bbd4db0677d54f8, type: 2}
+  ItemName: MagicStick
+  BaseClass: Base
+  EvoSet: []
 --- !u!212 &212630026260545188
 SpriteRenderer:
   m_ObjectHideFlags: 1

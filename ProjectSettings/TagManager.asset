@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - Dead
   - Special
+  - playerSpecial
   layers:
   - Default
   - TransparentFX

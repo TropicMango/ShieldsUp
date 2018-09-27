@@ -13,6 +13,12 @@ public class ShamanScript : PlayerScript {
     }
 
     void dropTotem() {
-        Destroy(Instantiate(totem,transform.position, new Quaternion(0,0,0,0)),10);
+        StartCoroutine(removeTotem(Instantiate(totem, transform.position, new Quaternion(0, 0, 0, 0))));
+    }
+
+    private IEnumerator removeTotem(GameObject totem) {
+        yield return new WaitForSeconds(10);
+        totem.GetComponent<CircleCollider2D>().enabled = false;
+        Destroy(totem, 0.1f);
     }
 }

@@ -87,6 +87,9 @@ MonoBehaviour:
   displayItem: {fileID: 1239170054927968, guid: d619f60d2fc8b464c986e7a69b4d5a02,
     type: 2}
   futureEvo: {fileID: 1294545291177298, guid: 18fa50cdfffee9d418b5c4259b7612bf, type: 2}
+  ItemName: Gear
+  BaseClass: Base
+  EvoSet: []
 --- !u!212 &212566750661529900
 SpriteRenderer:
   m_ObjectHideFlags: 1

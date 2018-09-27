@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class ExplorerMapScript : pedestalScript {
     override
-    public void pickUp(PlayerScript player) {
-        if(player.characterClass == "Base") {
-            Debug.Log(characterManager);
-            Debug.Log(futureEvo);
-            characterManager.evoPlayer(futureEvo);
-        } else {
-            player.movementSpeed += 5;
-        }
-        base.pickUp(player);
+    public void enhance(PlayerScript player) {
+        player.movementSpeed += 5;
     }
 }

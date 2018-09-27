@@ -138,13 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0ad7ba6a7d47e4da125dd4fa09cf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 10
+  movementSpeed: 8
+  weapon: {fileID: 1862475150563512, guid: ade0da13bedc0094ca1bf5b36bb68c3c, type: 2}
   characterClass: Warlock
   ani: {fileID: 95630355535995678}
   CharacterSprite: {fileID: 1205514466914290}
-  weapon: {fileID: 1862475150563512, guid: ade0da13bedc0094ca1bf5b36bb68c3c, type: 2}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
-  maxHp: 100
-  movementSpeed: 8
 --- !u!212 &212824121178411124
 SpriteRenderer:
   m_ObjectHideFlags: 1
