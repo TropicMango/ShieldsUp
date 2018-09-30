@@ -250,6 +250,83 @@ Transform:
   m_Father: {fileID: 1364198316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &324979453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324979454}
+  - component: {fileID: 324979456}
+  - component: {fileID: 324979455}
+  m_Layer: 5
+  m_Name: InfoText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &324979454
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324979453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1001863008}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 320, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &324979455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324979453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'herro
+
+'
+--- !u!222 &324979456
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324979453}
+  m_CullTransparentMesh: 0
 --- !u!1 &595452978
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +604,7 @@ RectTransform:
   - {fileID: 1636522531}
   - {fileID: 1166064238}
   - {fileID: 1356970934}
+  - {fileID: 324979454}
   m_Father: {fileID: 1114751997}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1061,7 +1139,7 @@ MonoBehaviour:
   - {fileID: 1914481208859974, guid: 6aa9d58c7f6486d4cbaa85b88458ab24, type: 2}
   - {fileID: 1219203955227420, guid: e7766969211705746b90b8bd543b5d85, type: 2}
   - {fileID: 1590726205991806, guid: 24817e8951086f94eb75ab53ba7fdd3b, type: 2}
-  - {fileID: 1371561978039420, guid: 40900a67dbcf6f54a939c0cc21001224, type: 2}
+  - {fileID: 1398834953832238, guid: 40900a67dbcf6f54a939c0cc21001224, type: 2}
   - {fileID: 1080983510456096, guid: b540bacae56fe9743ab4fb67a4383527, type: 2}
   - {fileID: 1071820673583248, guid: f1da5c91db829374cbfd400bbdfaee11, type: 2}
   ProgressionToken: {fileID: 1854891708291474, guid: aff42e5f7ebea384f8a119b1cb72bc7d,

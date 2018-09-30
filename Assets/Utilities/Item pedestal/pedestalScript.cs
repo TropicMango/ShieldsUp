@@ -4,26 +4,23 @@ using UnityEngine;
 using System.Linq;
 
 public class pedestalScript : Removable {
-    public GameObject displayItem;
+    // public GameObject displayItem;
     public GameObject futureEvo;
     public string ItemName;
     public string BaseClass;
     public string[] EvoSet;
+    public string Description;
     protected CharacterUpdateScript characterManager;
     protected RoomGenerationScript roomGenerator;
 
     void Start() {
-        Instantiate(displayItem, transform);
+        // Instantiate(displayItem, transform);
     }
 
     public string pickUp(PlayerScript player) {
         Debug.Log(player.characterClass + ", " + BaseClass);
         if (player.characterClass.Equals(BaseClass)) {
             string[] playerItems = player.getItems().ToArray();
-            foreach (string str in playerItems) {
-                Debug.Log(str);
-            }
-            Debug.Log("-----------------");
             bool passed = true;
             foreach (string item in EvoSet) {
                 if (!playerItems.Contains(item)) { passed = false; break; }
@@ -31,6 +28,8 @@ public class pedestalScript : Removable {
             if (passed) {
                 characterManager.evoPlayer(futureEvo);
                 Destroy(gameObject);
+            } else {
+                enhance(player);
             }
         } else {
             enhance(player);
