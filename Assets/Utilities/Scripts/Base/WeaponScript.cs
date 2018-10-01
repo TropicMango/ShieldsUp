@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour {
 
-    public float RotationSpeed;
-    public float terminationTime;
     public GameObject bullet;
     public Animator animations;
-    public float delay;
+    protected float reloadCoolDown;
+    protected float abilityCoolDown;
+    protected float rotationLock; //lock rotation when casting
+    protected GameObject player; //do stuff
+    protected GateScript currentRoom; //collect all the enemies in the room
+    private bool isPlayer = false; //determine ally or enemy damage
+    private float baseReload; //calculate for the animation speed
+ //   [SerializeField]
+    public float RotationSpeed;
     public float bulletSpray;
-    public float knockBack;
     public float bonusBulletSize;
+    public float recoil;
     public float damage;
     public float pierce;
     public float bulletSpeed;
     public float reload;
-    public float activationTime;
     public float abilityRecharge;
-    protected float coolDown;
-    protected float abilityCoolDown;
-    private bool isPlayer = false;
-    private float baseReload;
+    public float activationTime;
+    public float delay;
+    public float terminationTime;
     public bool melee;
-    protected float rotationLock;
-    protected GameObject player;
-    protected GateScript currentRoom;
-
 
     public void init(GameObject player, bool isPlayer) {
         this.isPlayer = isPlayer;
@@ -79,8 +79,8 @@ public class WeaponScript : MonoBehaviour {
     }
 
     public virtual void checkAttack() {
-        if (Time.time > coolDown) {
-            coolDown = Time.time + reload;
+        if (Time.time > reloadCoolDown) {
+            reloadCoolDown = Time.time + reload;
             this.Attack(); // tranform is passed for knock back
         }
     }
@@ -103,7 +103,7 @@ public class WeaponScript : MonoBehaviour {
 
         //calculate knockback
         if (player) {
-            Vector3 tran = new Vector3(0, -knockBack, 0);
+            Vector3 tran = new Vector3(0, -recoil, 0);
             tran = transform.rotation * tran;
             player.GetComponent<Rigidbody2D>().AddForce(tran);
         }
@@ -141,7 +141,7 @@ public class WeaponScript : MonoBehaviour {
         if (Time.time > abilityCoolDown) {
             this.Activate();
             abilityCoolDown = Time.time + abilityRecharge;
-            coolDown += activationTime;
+            reloadCoolDown += activationTime;
         }
     }
 

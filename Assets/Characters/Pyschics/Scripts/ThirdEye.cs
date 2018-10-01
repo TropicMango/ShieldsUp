@@ -23,7 +23,7 @@ public class ThirdEye : WeaponScript {
     IEnumerator Activation() {
         Activating = true;
         List<GameObject> EneList = currentRoom.getEnemies();
-        coolDown = Time.time + EneList.Count * 0.125f; // freeze auto attacks
+        reloadCoolDown = Time.time + EneList.Count * 0.125f; // freeze auto attacks
         if (EneList.Count > 0) {
             lr.enabled = true;
             watcher.SetActive(true);

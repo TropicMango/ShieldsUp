@@ -235,7 +235,7 @@ MonoBehaviour:
   abilityRecharge: 10
   melee: 0
   ElementalBolts:
-  - {fileID: 1263182960974104, guid: 78c83375f5467a048bbec27e4b379867, type: 2}
+  - {fileID: 1342203119217496, guid: 78c83375f5467a048bbec27e4b379867, type: 2}
   - {fileID: 1467452664348708, guid: 7c5e58c4b5429824982e1f02a5d08c44, type: 2}
   - {fileID: 1052104336758764, guid: dc75bf8bc45997843881d529c93db10b, type: 2}
 --- !u!212 &212264674136575342

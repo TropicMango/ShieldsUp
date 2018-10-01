@@ -25,10 +25,4 @@ public class BasePlayerScript : PlayerScript {
         
     }
 
-
-    private void OnTriggerEnter(Collider collision) {
-        if (collision.tag == "Pedestal") {
-            collision.gameObject.GetComponent<pedestalScript>().pickUp(this);
-        }
-    }
 }

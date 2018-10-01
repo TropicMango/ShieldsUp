@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4511489837896340}
   - component: {fileID: 212630026260545188}
   - component: {fileID: 114497583288930282}
-  - component: {fileID: 70511977882235676}
   - component: {fileID: 70744590347808372}
   m_Layer: 0
   m_Name: MagePedestal
@@ -74,21 +73,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &70511977882235676
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1914481208859974}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.000000038082128, y: -1.347211}
-  m_Size: {x: 3.4509447, y: 3.4509447}
-  m_Direction: 1
 --- !u!70 &70744590347808372
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -101,8 +85,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000011920929, y: 0.8049798}
-  m_Size: {x: 0.5069502, y: 2.5390592}
+  m_Offset: {x: 0, y: -1.2672524}
+  m_Size: {x: 2.9712138, y: 3.2910624}
   m_Direction: 0
 --- !u!95 &95551386783318896
 Animator:

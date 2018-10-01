@@ -145,8 +145,8 @@ public class PlayerScript : CharacterScript {
         } else if(collision.tag == "Token") {
             collision.gameObject.GetComponent<ProgressionTokenScript>().progress(gameObject);
         }else if(collision.tag == "Pedestal") {
+            Debug.Log(gameObject);
             currentItems.Add(collision.gameObject.GetComponent<pedestalScript>().pickUp(this));
-            Debug.Log(currentItems);
         }else if (collision.tag == "Room") {
             collision.gameObject.GetComponent<GateScript>().spawnEnemies(gameObject);
             weaponScript.setRoom(collision.gameObject.GetComponent<GateScript>());

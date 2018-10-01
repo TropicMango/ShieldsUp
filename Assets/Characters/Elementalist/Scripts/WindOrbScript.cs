@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindOrbScript : BulletScrpit {
     override
- public float Hit(GameObject gm) {
+    public float Hit(GameObject gm) {
         //-----------------------------pierce-----------------------------
         if (pierce == 0) {
             Destroy(gameObject, 0.05f);

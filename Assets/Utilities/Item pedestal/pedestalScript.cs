@@ -10,6 +10,7 @@ public class pedestalScript : Removable {
     public string BaseClass;
     public string[] EvoSet;
     public string Description;
+    protected GameObject infoText;
     protected CharacterUpdateScript characterManager;
     protected RoomGenerationScript roomGenerator;
 
@@ -27,13 +28,14 @@ public class pedestalScript : Removable {
             }
             if (passed) {
                 characterManager.evoPlayer(futureEvo);
-                Destroy(gameObject);
+                
             } else {
                 enhance(player);
             }
         } else {
             enhance(player);
         }
+        Destroy(gameObject);
         return ItemName;
     }
 

@@ -1142,11 +1142,14 @@ MonoBehaviour:
   - {fileID: 1398834953832238, guid: 40900a67dbcf6f54a939c0cc21001224, type: 2}
   - {fileID: 1080983510456096, guid: b540bacae56fe9743ab4fb67a4383527, type: 2}
   - {fileID: 1071820673583248, guid: f1da5c91db829374cbfd400bbdfaee11, type: 2}
+  - {fileID: 1012295740431688, guid: 30a9ee9698f2d6e42a50f9000db51cef, type: 2}
+  - {fileID: 1887469819128890, guid: 9dc92ee1aa8777c4eb84bb851c9cee43, type: 2}
+  - {fileID: 1578771843837648, guid: e98ce2cf473f454449f6c57b12ccfc2a, type: 2}
   ProgressionToken: {fileID: 1854891708291474, guid: aff42e5f7ebea384f8a119b1cb72bc7d,
     type: 2}
   CharacterManager: {fileID: 125071668}
   numRooms: 5
-  difficulty: 100
+  difficulty: 5
 --- !u!4 &1675456579
 Transform:
   m_ObjectHideFlags: 0

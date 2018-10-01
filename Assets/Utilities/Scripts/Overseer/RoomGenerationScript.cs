@@ -146,7 +146,9 @@ public class RoomGenerationScript : MonoBehaviour {
             }
         }
         for(int i=otherInstanciatedObjects.Count-1; i>=0; i--) {
-            otherInstanciatedObjects[i].GetComponent<Removable>().remove();
+            if (otherInstanciatedObjects[i]) {
+                otherInstanciatedObjects[i].GetComponent<Removable>().remove();
+            }
             otherInstanciatedObjects.RemoveAt(i);
         }
         Debug.Log("---------------------");

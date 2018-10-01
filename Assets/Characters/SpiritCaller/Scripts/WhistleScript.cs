@@ -29,7 +29,7 @@ public class WhistleScript : WeaponScript {
         if (abilityCoolDown > abilityRecharge) {
             this.Activate();
             abilityCoolDown = 0;
-            coolDown += activationTime;
+            reloadCoolDown += activationTime;
         }
     }
 

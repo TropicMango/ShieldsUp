@@ -9,7 +9,7 @@ public class WarlockStaff : WeaponScript {
     public GameObject SpellCircle;
 
     public void storeEnergy() {
-        if (Time.time > coolDown) {
+        if (Time.time > reloadCoolDown) {
             if (charge == 0) {
                 animations.Play("storeEnergy");
             }
@@ -21,11 +21,11 @@ public class WarlockStaff : WeaponScript {
 
     override
     public void checkAttack() {
-        if (charge != 0 && Time.time > coolDown) {
-            coolDown = Time.time + reload;
+        if (charge != 0 && Time.time > reloadCoolDown) {
+            reloadCoolDown = Time.time + reload;
             damage *= (charge/1.5f+1);
             bonusBulletSize += charge/2f;
-            knockBack += charge * 300;
+            recoil += charge * 300;
             this.Attack(); // tranform is passed for knock back
         }
     }
@@ -34,7 +34,7 @@ public class WarlockStaff : WeaponScript {
     protected void followUp() {
         bonusBulletSize -= charge/2;
         damage /= (charge / 2 + 1);
-        knockBack -= charge * 300;
+        recoil -= charge * 300;
         charge = 0;
     }
 
