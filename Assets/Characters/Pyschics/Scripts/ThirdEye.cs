@@ -12,6 +12,8 @@ public class ThirdEye : WeaponScript {
     private void Start() {
         watcher = Instantiate(bullet, transform);
         lr = GetComponent<LineRenderer>();
+        setRotation(Quaternion.Euler(0, 0, 0));
+        watcher.SetActive(false);
     }
 
     override

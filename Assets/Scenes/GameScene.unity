@@ -1145,6 +1145,9 @@ MonoBehaviour:
   - {fileID: 1012295740431688, guid: 30a9ee9698f2d6e42a50f9000db51cef, type: 2}
   - {fileID: 1887469819128890, guid: 9dc92ee1aa8777c4eb84bb851c9cee43, type: 2}
   - {fileID: 1578771843837648, guid: e98ce2cf473f454449f6c57b12ccfc2a, type: 2}
+  - {fileID: 1707025072705370, guid: 2c1a187f8c269814a86089d574c5bab0, type: 2}
+  - {fileID: 1808947087595810, guid: 9e9474bf08c297840bdceef47e64e4c3, type: 2}
+  - {fileID: 1792063678668736, guid: 445d9439582335b42879b973e722bbaa, type: 2}
   ProgressionToken: {fileID: 1854891708291474, guid: aff42e5f7ebea384f8a119b1cb72bc7d,
     type: 2}
   CharacterManager: {fileID: 125071668}

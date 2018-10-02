@@ -32,7 +32,7 @@ public class BulletScrpit :  DamageScrpit{
         this.damage = damage;
         this.movementSpeed = movementSpeed;
         this.pierce = pierce;
-        transform.localScale += new Vector3(bonusBulletSize, bonusBulletSize, 0);
+        transform.localScale = new Vector3(transform.localScale.x*bonusBulletSize, transform.localScale.y * bonusBulletSize, 0);
     }
 
 
@@ -51,12 +51,14 @@ public class BulletScrpit :  DamageScrpit{
     }
 
     protected void triggerOnhit(GameObject gm) {
+        if (Onhits == null) { return; }
         foreach (AddonOnhitScript Onhit in Onhits) {
             // Onhit.triggerEffect(gm.GetComponent<CharacterScript>());
         }
     }
 
     protected void triggerEffect() {
+        if (Effects == null) { return; }
         foreach (AddonEffectScript effect in Effects) {
             effect.triggerEffect(this);
         }

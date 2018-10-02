@@ -13,7 +13,6 @@ public class WeaponScript : MonoBehaviour {
     protected GateScript currentRoom; //collect all the enemies in the room
     private bool isPlayer = false; //determine ally or enemy damage
     private float baseReload; //calculate for the animation speed
- //   [SerializeField]
     public float RotationSpeed;
     public float bulletSpray;
     public float bonusBulletSize;
@@ -27,6 +26,8 @@ public class WeaponScript : MonoBehaviour {
     public float delay;
     public float terminationTime;
     public bool melee;
+    public AddonEffectScript[] Effects;
+    public AddonOnhitScript[] Onhit;
 
     public void init(GameObject player, bool isPlayer) {
         this.isPlayer = isPlayer;
@@ -39,7 +40,7 @@ public class WeaponScript : MonoBehaviour {
         animations.speed = baseReload / newReloadSpeed;
     }
 
-    private bool flip() {
+    public bool flip() {
         if (transform.rotation.eulerAngles.z < 180) {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             return false;

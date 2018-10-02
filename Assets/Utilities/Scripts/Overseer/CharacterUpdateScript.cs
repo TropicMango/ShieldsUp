@@ -29,11 +29,13 @@ public class CharacterUpdateScript : MonoBehaviour {
         currentCharacter.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         Vector3 playerPosition = currentCharacter.transform.position;
         GameObject player = Instantiate(character, playerPosition, Quaternion.Euler(0,0,0));
-        StartCoroutine(eveolutionAnimation(currentCharacter, player));
+        StartCoroutine(eveolutionAnimation(player));
     }
 
-    private IEnumerator eveolutionAnimation(GameObject currentPlayer, GameObject futurePlayer) {
+    private IEnumerator eveolutionAnimation(GameObject futurePlayer) {
         futurePlayer.SetActive(false);
+        bool playerDir = currentCharacter.GetComponent<PlayerScript>().getFacingLeft();
+        futurePlayer.GetComponent<PlayerScript>().updatePlayerSprite(playerDir);
         currentCharacter.GetComponent<PlayerScript>().enabled = false;
         futurePlayer.GetComponent<PlayerScript>().enabled = false;
 
@@ -44,10 +46,10 @@ public class CharacterUpdateScript : MonoBehaviour {
 
             if (i % 2 == 0) {
                 futurePlayer.SetActive(false);
-                currentPlayer.SetActive(true);
+                currentCharacter.SetActive(true);
             } else {
                 futurePlayer.SetActive(true);
-                currentPlayer.SetActive(false);
+                currentCharacter.SetActive(false);
             }
         }
 
@@ -62,6 +64,7 @@ public class CharacterUpdateScript : MonoBehaviour {
         player.GetComponent<PlayerScript>().setUI(ui);
         currentCharacter = player;
         ui.setFollow(player.transform);
+        // currentCharacter.GetComponent<PlayerScript>().GetWeaponScript().transform.rotation = (Quaternion.Euler(0, 0, 270)); //playerDir ? Quaternion.Euler(0, 0, 90) : Quaternion.Euler(0, 0, 270)
     }
 	
 }

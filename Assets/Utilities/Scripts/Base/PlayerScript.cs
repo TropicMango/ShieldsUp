@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : CharacterScript {
-    
-    public string characterClass;
 
+    public string characterClass;
     protected float currentHp;
     public Animator ani;
     public GameObject CharacterSprite;
@@ -14,12 +13,14 @@ public class PlayerScript : CharacterScript {
     protected WeaponScript weaponScript;
     protected OverlayScript cam;
     protected List<string> currentItems;
+    protected bool facingLeft;
 
     // Use this for initialization
     void Start() {
         Rb = GetComponent<Rigidbody2D>();
         weaponScript = Instantiate(weapon,transform).GetComponent<WeaponScript>();
         weaponScript.init(gameObject, true);
+        weaponScript.transform.rotation = (facingLeft ? Quaternion.Euler(0, 0, 270) : Quaternion.Euler(0, 0, 90));
         currentItems = new List<string>();
         currentHp = hp;
         initialize();
@@ -113,12 +114,19 @@ public class PlayerScript : CharacterScript {
         // tranform is passed for knock back
     }
 
-    public void updatePlayerSprite(bool flip) {
-        if (flip) {
-            CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-        } else {
-            CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+    public void updatePlayerSprite(bool left) {
+        if (facingLeft != left) {
+            if (left) {
+                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+            } else {
+                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
+            }
+            facingLeft = left;
         }
+    }
+
+    public bool getFacingLeft() {
+        return facingLeft;
     }
 
     private void Update() {
