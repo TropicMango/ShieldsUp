@@ -173,6 +173,12 @@ public class PlayerScript : CharacterScript {
         cam.updateHP(hp, currentHp);
     }
 
+    public  getStats() {
+
+    }
+
+       
+
     //no longer being used due to the class system
     /*
     void SwapWeap(GameObject weap) {

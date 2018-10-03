@@ -32,7 +32,7 @@ public class BulletScrpit :  DamageScrpit{
         this.damage = damage;
         this.movementSpeed = movementSpeed;
         this.pierce = pierce;
-        transform.localScale = new Vector3(transform.localScale.x*bonusBulletSize, transform.localScale.y * bonusBulletSize, 0);
+        transform.localScale = new Vector3(transform.localScale.x*(1+bonusBulletSize), transform.localScale.y * (1+bonusBulletSize), 0);
     }
 
 

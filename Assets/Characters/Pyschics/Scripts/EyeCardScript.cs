@@ -7,6 +7,6 @@ public class EyeCardScript : pedestalScript {
     public void enhance(PlayerScript player) {
         WeaponScript weap = player.GetWeaponScript();
         weap.damage *= 1.5f;
-        weap.bonusBulletSize -= 0.8f;
+        weap.bonusBulletSize -= 0.1f;
     }
 }
