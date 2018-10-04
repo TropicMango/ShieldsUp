@@ -7,6 +7,6 @@ public class Moonstone : pedestalScript {
     public void enhance(PlayerScript player) {
         WeaponScript weap = player.GetWeaponScript();
         weap.damage += 5f;
-        weap.bonusBulletSize += 0.1f;
+        weap.bulletSize += 0.1f;
     }
 }

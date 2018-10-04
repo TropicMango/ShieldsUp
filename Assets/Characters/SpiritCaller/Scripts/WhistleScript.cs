@@ -10,7 +10,7 @@ public class WhistleScript : WeaponScript {
         offSet = Random.Range(-bulletSpray, bulletSpray);
         GameObject tempBullet = Instantiate(bullet, transform.position, transform.rotation * Quaternion.Euler(0, 0, offSet));
 
-        tempBullet.GetComponent<BulletScrpit>().setStats(damage, bulletSpeed, pierce, bonusBulletSize);
+        tempBullet.GetComponent<BulletScrpit>().setStats(damage, bulletSpeed, pierce, bulletSize);
         tempBullet.GetComponent<NoteScript>().setReturn(gameObject);
         Destroy(tempBullet, terminationTime);
     }

@@ -24,7 +24,7 @@ public class WarlockStaff : WeaponScript {
         if (charge != 0 && Time.time > reloadCoolDown) {
             reloadCoolDown = Time.time + reload;
             damage *= (charge/1.5f+1);
-            bonusBulletSize += charge/2f;
+            bulletSize += charge/2f;
             recoil += charge * 300;
             this.Attack(); // tranform is passed for knock back
         }
@@ -32,7 +32,7 @@ public class WarlockStaff : WeaponScript {
 
     override
     protected void followUp() {
-        bonusBulletSize -= charge/2;
+        bulletSize -= charge/2;
         damage /= (charge / 2 + 1);
         recoil -= charge * 300;
         charge = 0;

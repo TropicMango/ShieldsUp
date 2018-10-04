@@ -2,22 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerStats : MonoBehaviour {
+public class PlayerStats : MonoBehaviour {
     private float movementSpeed;
-    public float RotationSpeed;
-    public float bulletSpray;
-    public float recoil;
-    public float bulletSize;
-    public float damage;
-    public float pierce;
-    public float bulletSpeed;
-    public float reload;
-    public float abilityRecharge;
-    public float activationTime;
-    public float delay;
-    public float terminationTime;
-    public AddonEffectScript[] Effects;
-    public AddonOnhitScript[] Onhits;
+    private float RotationSpeed;
+    private float bulletSpray;
+    private float recoil;
+    private float bulletSize;
+    private float damage;
+    private float pierce;
+    private float bulletSpeed;
+    private float reload;
+    private float abilityRecharge;
+    private AddonEffectScript[] Effects;
+    private AddonOnhitScript[] Onhits;
 
     public void setStats(
      float movementSpeed,
@@ -30,13 +27,32 @@ public class playerStats : MonoBehaviour {
      float bulletSpeed,
      float reload,
      float abilityRecharge,
-     float activationTime,
-     float delay,
-     float terminationTime,
      AddonEffectScript[] Effects,
      AddonOnhitScript[] Onhits) {
         this.movementSpeed = movementSpeed;
         this.RotationSpeed = RotationSpeed;
         this.bulletSpray = bulletSpray;
+        this.recoil = recoil;
+        this.bulletSize = bulletSize;
+        this.damage = damage;
+        this.pierce = pierce;
+        this.bulletSpeed = bulletSpeed;
+        this.reload = reload;
+        this.abilityRecharge = abilityRecharge;
+    }
+
+
+    public void setStats(PlayerScript player) {
+        player.movementSpeed = this.movementSpeed;
+        WeaponScript WS = player.GetComponent<WeaponScript>();
+        WS.RotationSpeed = this.RotationSpeed;
+        WS.bulletSpray = this.bulletSpray;
+        WS.recoil = this.recoil;
+        WS.bulletSize = this.bulletSize;
+        WS.damage = this.damage;
+        WS.pierce = this.pierce;
+        WS.bulletSpeed = this.bulletSpeed;
+        WS.reload = this.reload;
+        WS.abilityRecharge = this.abilityRecharge;
     }
 }

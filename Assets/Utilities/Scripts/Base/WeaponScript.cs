@@ -15,7 +15,7 @@ public class WeaponScript : MonoBehaviour {
     private float baseReload; //calculate for the animation speed
     public float RotationSpeed;
     public float bulletSpray;
-    public float bonusBulletSize;
+    public float bulletSize;
     public float recoil;
     public float damage;
     public float pierce;
@@ -126,7 +126,7 @@ public class WeaponScript : MonoBehaviour {
             tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
         }
 
-        tempBullet.GetComponent<BulletScrpit>().setStats(damage, bulletSpeed, pierce, bonusBulletSize);
+        tempBullet.GetComponent<BulletScrpit>().setStats(damage, bulletSpeed, pierce, bulletSize);
 
         if (isPlayer) {
             tempBullet.tag = "AllyDamage";
@@ -165,5 +165,11 @@ public class WeaponScript : MonoBehaviour {
 
     public void setRoom(GateScript room) {
         currentRoom = room;
+    }
+
+    public PlayerStats GetWeapStats(float movementSpeed) {
+        PlayerStats PS = new PlayerStats();
+        PS.setStats(movementSpeed, RotationSpeed, bulletSpray, recoil, bulletSize, damage, pierce, bulletSpeed, reload, abilityRecharge, Effects, Onhit);
+        return PS;
     }
 }

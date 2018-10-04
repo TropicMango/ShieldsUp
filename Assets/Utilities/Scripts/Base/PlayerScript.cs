@@ -173,11 +173,13 @@ public class PlayerScript : CharacterScript {
         cam.updateHP(hp, currentHp);
     }
 
-    public  getStats() {
-
+    public PlayerStats getStats() {
+        return weaponScript.GetWeapStats(movementSpeed);
     }
 
-       
+    public void setStats(PlayerStats stats) {
+
+    }
 
     //no longer being used due to the class system
     /*

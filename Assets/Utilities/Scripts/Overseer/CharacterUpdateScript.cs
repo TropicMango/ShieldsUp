@@ -54,7 +54,9 @@ public class CharacterUpdateScript : MonoBehaviour {
         }
 
         futurePlayer.GetComponent<PlayerScript>().enabled = true;
+        futurePlayer.GetComponent<PlayerScript>().setStats(currentCharacter.GetComponent<PlayerScript>().getStats());
         Destroy(currentCharacter);
+        
         setUpPlayer(futurePlayer);
         //Time.timeScale = 1;
     }

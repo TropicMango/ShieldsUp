@@ -16,7 +16,7 @@ public class BasicStaffScript : WeaponScript {
         tempBullet.transform.localScale += new Vector3(0.3f, 0.3f, 0);
 
         Destroy(tempBullet, 5);
-        tempBullet.GetComponent<BulletScrpit>().setStats(damage * 5, bulletSpeed/2, pierce, bonusBulletSize);
+        tempBullet.GetComponent<BulletScrpit>().setStats(damage * 5, bulletSpeed/2, pierce, bulletSize);
 
         Vector3 tran = new Vector3(0, -300, 0);
         tran = transform.rotation * tran;

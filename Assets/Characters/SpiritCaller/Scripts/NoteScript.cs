@@ -9,7 +9,6 @@ public class NoteScript : BulletScrpit {
     private GameObject returnTarget;
 
     public void setReturn(GameObject player) {
-        Debug.Log("set: "+player);
         this.returnTarget = player;
     }
 
