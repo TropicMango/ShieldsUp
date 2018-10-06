@@ -37,6 +37,8 @@ public class CharacterUpdateScript : MonoBehaviour {
         bool playerDir = currentCharacter.GetComponent<PlayerScript>().getFacingLeft();
         futurePlayer.GetComponent<PlayerScript>().updatePlayerSprite(playerDir);
         currentCharacter.GetComponent<PlayerScript>().enabled = false;
+        WeaponScript WS = currentCharacter.GetComponent<PlayerScript>().GetWeaponScript();
+        if (WS) { WS.enabled = false; }
         futurePlayer.GetComponent<PlayerScript>().enabled = false;
 
         for (int i = 30; i > 0; i--) {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour {
+public class PlayerStats {
     private float movementSpeed;
     private float RotationSpeed;
     private float bulletSpray;
@@ -44,7 +44,8 @@ public class PlayerStats : MonoBehaviour {
 
     public void setStats(PlayerScript player) {
         player.movementSpeed = this.movementSpeed;
-        WeaponScript WS = player.GetComponent<WeaponScript>();
+        WeaponScript WS = player.GetWeaponScript();
+        Debug.Log(WS);
         WS.RotationSpeed = this.RotationSpeed;
         WS.bulletSpray = this.bulletSpray;
         WS.recoil = this.recoil;
@@ -55,4 +56,5 @@ public class PlayerStats : MonoBehaviour {
         WS.reload = this.reload;
         WS.abilityRecharge = this.abilityRecharge;
     }
+
 }

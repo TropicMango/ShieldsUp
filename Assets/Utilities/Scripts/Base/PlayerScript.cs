@@ -174,11 +174,20 @@ public class PlayerScript : CharacterScript {
     }
 
     public PlayerStats getStats() {
+        if (!weapon) {
+            return null;
+        }
         return weaponScript.GetWeapStats(movementSpeed);
     }
 
     public void setStats(PlayerStats stats) {
+        if (stats == null) { return; }
+        StartCoroutine(delayedStatSet(stats));
+    }
 
+    private IEnumerator delayedStatSet(PlayerStats stats) {
+        yield return new WaitForFixedUpdate();
+        stats.setStats(this);
     }
 
     //no longer being used due to the class system
