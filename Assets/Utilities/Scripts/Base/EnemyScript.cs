@@ -11,7 +11,6 @@ public class EnemyScript : CharacterScript {
     public float attackRange;
     private WeaponScript weaponScript;
     private GateScript RS;
-    public SpriteRenderer spriteRenderer;
     public bool melee;
     protected float coolDown;
     public float reload;
@@ -91,13 +90,13 @@ public class EnemyScript : CharacterScript {
             Destroy(this);
             Destroy(gameObject, 5);
         } else {
-            StartCoroutine(damageFlash());
+            // StartCoroutine(damageFlash());
         }
     }
 
     IEnumerator damageFlash() {
         for (int i = 0; i < 5; i++) {
-            spriteRenderer.color = new Color(0.8f, 0.8f, 0.8f, 0.2f);
+            spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(0.1f);
             spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(0.1f);

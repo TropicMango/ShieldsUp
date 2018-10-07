@@ -137,12 +137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ce000717012b145958def735a40d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212611318195517140}
   hp: 10
   movementSpeed: 7.5
   weapon: {fileID: 1067597507428756, guid: a13b7584741f19e4aa158abce6cf3424, type: 2}
   characterClass: SpiritCaller
   ani: {fileID: 95388545439021780}
-  CharacterSprite: {fileID: 1824611811149652}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
 --- !u!212 &212611318195517140
 SpriteRenderer:

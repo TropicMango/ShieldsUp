@@ -137,12 +137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78aac64d2f2576146979833f36a5d2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212554219697895832}
   hp: 100
   movementSpeed: 7.5
   weapon: {fileID: 1698424768380492, guid: 513f0aa53da4a1a43a3e6816e82269b4, type: 2}
   characterClass: Sorcerer
   ani: {fileID: 95636648069269826}
-  CharacterSprite: {fileID: 1653828343714988}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
 --- !u!212 &212554219697895832
 SpriteRenderer:

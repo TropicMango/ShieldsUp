@@ -7,7 +7,6 @@ public class PlayerScript : CharacterScript {
     public string characterClass;
     protected float currentHp;
     public Animator ani;
-    public GameObject CharacterSprite;
     public GameObject Shield;
     protected Rigidbody2D Rb;
     protected WeaponScript weaponScript;
@@ -116,11 +115,7 @@ public class PlayerScript : CharacterScript {
 
     public void updatePlayerSprite(bool left) {
         if (facingLeft != left) {
-            if (left) {
-                CharacterSprite.transform.localScale = new Vector3(-Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            } else {
-                CharacterSprite.transform.localScale = new Vector3(Mathf.Abs(CharacterSprite.transform.localScale.x), CharacterSprite.transform.localScale.y, CharacterSprite.transform.localScale.z);
-            }
+            spriteRenderer.flipX = left;
             facingLeft = left;
         }
     }

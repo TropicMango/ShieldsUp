@@ -137,12 +137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ce000717012b145958def735a40d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212674194993815806}
   hp: 10
   movementSpeed: 7.5
   weapon: {fileID: 1748933860664832, guid: 91822cb4f25b48240a4f6da59fed935d, type: 2}
   characterClass: Druid
   ani: {fileID: 95248830336780390}
-  CharacterSprite: {fileID: 1536470525510886}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
 --- !u!212 &212674194993815806
 SpriteRenderer:

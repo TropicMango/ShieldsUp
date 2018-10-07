@@ -137,16 +137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3fa312229700d54bb0e2e29fe129926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212578943335811184}
+  hp: 0
+  movementSpeed: 7
+  weapon: {fileID: 0}
   characterClass: Base
   ani: {fileID: 95720750086481804}
-  CharacterSprite: {fileID: 1137130583567058}
-  maxHp: 10
-  weapon: {fileID: 0}
   Shield: {fileID: 1185020414677600, guid: 230d9633a9a0c7a4ebc1c877b735ca0f, type: 2}
-  movementSpeed: 7
-  reload: 10
-  activationTime: 0
-  abilityRecharge: 10
 --- !u!212 &212578943335811184
 SpriteRenderer:
   m_ObjectHideFlags: 1

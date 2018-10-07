@@ -38,6 +38,7 @@ public class BulletScrpit :  DamageScrpit{
 
     override
     public float Hit(GameObject gm) {
+        if(gm.tag == "AllyDamage" || gm.tag == "EnemyDamge") { return 0; }
         //-----------------------------pierce-----------------------------
         if (pierce == 0) {
             triggerOnhit(gm);
