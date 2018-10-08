@@ -1,4 +1,4 @@
 ### Shields Up
 Insert lore there~
 
-![alt text](https://raw.github.com/TropicMango/ShieldsUp/blob/master/Assets/Characters/Elementalist/Sprites/pixil-frame-0.png)
+![myimage-alt-tag](https://raw.githubusercontent.com/TropicMango/ShieldsUp/master/Assets/Characters/Elementalist/Sprites/pixil-frame-0.png)
