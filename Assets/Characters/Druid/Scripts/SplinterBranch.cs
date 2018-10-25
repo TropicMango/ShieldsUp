@@ -21,7 +21,7 @@ public class SplinterBranch : WeaponScript {
         }
         yield return new WaitForSeconds(reload/2);
         for (int i = 0; i < numShots/2; i++) {
-            StartCoroutine(AttackCommand(-bulletSpray/2 + bulletSpray/2 * 2 / (/2 - 1) * i));
+            StartCoroutine(AttackCommand(-bulletSpray/2 + bulletSpray/2 * 2 / (numShots/2 - 1) * i));
         }
     }
 
