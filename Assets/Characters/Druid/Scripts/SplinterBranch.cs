@@ -16,12 +16,12 @@ public class SplinterBranch : WeaponScript {
     }
 
     private IEnumerator OrbAttack() {
-        for (int i = 0; i < numShots; i++) {
-            StartCoroutine(AttackCommand(-bulletSpray + bulletSpray * 2 / (numShots - 1) * i));
+        for (int i = 0; i < numShots/2; i++) {
+            StartCoroutine(AttackCommand(-bulletSpray + bulletSpray * 2 / (numShots/2 - 1) * i));
         }
         yield return new WaitForSeconds(reload/2);
-        for (int i = 0; i < numShots; i++) {
-            StartCoroutine(AttackCommand(-bulletSpray + bulletSpray * 2 / (numShots - 1) * i));
+        for (int i = 0; i < numShots/2; i++) {
+            StartCoroutine(AttackCommand(-bulletSpray/2 + bulletSpray/2 * 2 / (/2 - 1) * i));
         }
     }
 
@@ -34,5 +34,11 @@ public class SplinterBranch : WeaponScript {
     private IEnumerator StartAnimation() {
         yield return new WaitForSeconds(0.5f);
         Instantiate(vine, transform.position, transform.rotation);
+    }
+
+    override
+    public void activateStatsModifier() {
+        reload *= 2;
+        bulletSpray *= 2;
     }
 }

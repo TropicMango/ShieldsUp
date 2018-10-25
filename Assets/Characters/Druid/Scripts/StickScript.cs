@@ -6,7 +6,7 @@ public class StickScript : pedestalScript {
     override
     public void enhance(PlayerScript player) {
         WeaponScript weap = player.GetWeaponScript();
-        weap.bulletSpray *= 1.2f;
+        weap.bulletSpray = (weap.bulletSpray==0)? weap.bulletSpray + 5f : weap.bulletSpray * 1.2f;
         weap.damage *= 1.2f;
     }
 }

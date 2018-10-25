@@ -20,6 +20,8 @@ public class pedestalScript : Removable {
 
     public string pickUp(PlayerScript player) {
         Debug.Log(player.characterClass + ", " + BaseClass);
+        if(player.characterClass != "Base") { enhance(player); }
+        
         if (player.characterClass.Equals(BaseClass)) {
             string[] playerItems = player.getItems().ToArray();
             bool passed = true;
@@ -28,12 +30,7 @@ public class pedestalScript : Removable {
             }
             if (passed) {
                 characterManager.evoPlayer(futureEvo);
-                
-            } else {
-                enhance(player);
             }
-        } else {
-            enhance(player);
         }
         Destroy(gameObject);
         return ItemName;

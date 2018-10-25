@@ -168,10 +168,7 @@ public class PlayerScript : CharacterScript {
         cam.updateHP(hp, currentHp);
     }
 
-    public PlayerStats getStats() {
-        if (!weapon) {
-            return null;
-        }
+    public virtual PlayerStats getStats() {
         return weaponScript.GetWeapStats(movementSpeed);
     }
 
@@ -183,7 +180,9 @@ public class PlayerScript : CharacterScript {
     private IEnumerator delayedStatSet(PlayerStats stats) {
         yield return new WaitForFixedUpdate();
         stats.setStats(this);
+        weaponScript.activateStatsModifier();
     }
+
 
     //no longer being used due to the class system
     /*

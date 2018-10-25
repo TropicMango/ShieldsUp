@@ -22,7 +22,15 @@ public class BasePlayerScript : PlayerScript {
     }
 
     private void Update() {
-        
+
+    }
+
+    override
+    public PlayerStats getStats() {
+        if (!weapon) {
+            return null;
+        }
+        return weaponScript.GetWeapStats(movementSpeed);
     }
 
 }

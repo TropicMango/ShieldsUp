@@ -167,6 +167,8 @@ public class WeaponScript : MonoBehaviour {
         currentRoom = room;
     }
 
+    public virtual void activateStatsModifier() { }
+
     public PlayerStats GetWeapStats(float movementSpeed) {
         PlayerStats PS = new PlayerStats();
         PS.setStats(movementSpeed, RotationSpeed, bulletSpray, recoil, bulletSize, damage, pierce, bulletSpeed, reload, abilityRecharge, Effects, Onhit);
