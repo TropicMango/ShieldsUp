@@ -121,7 +121,7 @@ MonoBehaviour:
   ItemName: Gear
   BaseClass: Base
   EvoSet: []
-  Description: 
+  Description: Mechanic Essential
 --- !u!212 &212154616172880716
 SpriteRenderer:
   m_ObjectHideFlags: 1

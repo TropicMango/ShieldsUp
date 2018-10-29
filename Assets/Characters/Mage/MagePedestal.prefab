@@ -121,7 +121,7 @@ MonoBehaviour:
   ItemName: MagicStick
   BaseClass: Base
   EvoSet: []
-  Description: 
+  Description: Mage Essential
 --- !u!212 &212456332353999682
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -121,7 +121,7 @@ MonoBehaviour:
   ItemName: ShamanStone
   BaseClass: Base
   EvoSet: []
-  Description: 
+  Description: Shaman Essential
 --- !u!212 &212687878575250032
 SpriteRenderer:
   m_ObjectHideFlags: 1

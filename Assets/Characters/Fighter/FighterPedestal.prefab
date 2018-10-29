@@ -121,7 +121,7 @@ MonoBehaviour:
   ItemName: FighterBelt
   BaseClass: Base
   EvoSet: []
-  Description: 
+  Description: Fighter Essential
 --- !u!212 &212046442346448646
 SpriteRenderer:
   m_ObjectHideFlags: 1

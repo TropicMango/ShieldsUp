@@ -283,7 +283,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 320, y: 60}
+  m_SizeDelta: {x: 320, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &324979455
 MonoBehaviour:
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 324979453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1149,6 +1149,9 @@ MonoBehaviour:
   - {fileID: 1707025072705370, guid: 2c1a187f8c269814a86089d574c5bab0, type: 2}
   - {fileID: 1808947087595810, guid: 9e9474bf08c297840bdceef47e64e4c3, type: 2}
   - {fileID: 1792063678668736, guid: 445d9439582335b42879b973e722bbaa, type: 2}
+  - {fileID: 1860012942713310, guid: 465dc134027f77a49a4c365a20370993, type: 2}
+  - {fileID: 1645122515421346, guid: b302082eb22f1f44bb52eeea78e8e947, type: 2}
+  - {fileID: 1909733512152032, guid: 4c0553f69e679e84c83ed77d450c7885, type: 2}
   ProgressionToken: {fileID: 1854891708291474, guid: aff42e5f7ebea384f8a119b1cb72bc7d,
     type: 2}
   CharacterManager: {fileID: 125071668}

@@ -121,7 +121,7 @@ MonoBehaviour:
   ItemName: ExplorerMap
   BaseClass: Base
   EvoSet: []
-  Description: 
+  Description: Explorer Essential
 --- !u!212 &212431109220949234
 SpriteRenderer:
   m_ObjectHideFlags: 1
