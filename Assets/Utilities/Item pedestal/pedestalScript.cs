@@ -10,7 +10,7 @@ public class pedestalScript : Removable {
     public string BaseClass;
     public string[] EvoSet;
     public string Description;
-    protected GameObject infoText;
+    protected GameManagerScript gameManager;
     protected CharacterUpdateScript characterManager;
     protected RoomGenerationScript roomGenerator;
 
@@ -21,6 +21,8 @@ public class pedestalScript : Removable {
     public string pickUp(PlayerScript player) {
         Debug.Log(player.characterClass + ", " + BaseClass);
         if(player.characterClass != "Base") { enhance(player); }
+
+        gameManager.displayMessage(2.5f, Description);
         
         if (player.characterClass.Equals(BaseClass)) {
             string[] playerItems = player.getItems().ToArray();
@@ -38,9 +40,10 @@ public class pedestalScript : Removable {
 
     public virtual void enhance(PlayerScript player) {/* override me*/ }
 
-    public void setManager(CharacterUpdateScript manager, RoomGenerationScript RS) {
-        characterManager = manager;
-        roomGenerator = RS;
+    public void setManager(CharacterUpdateScript CU, RoomGenerationScript RG, GameManagerScript GM) {
+        characterManager = CU;
+        roomGenerator = RG;
+        gameManager = GM;
     }
 
     public IEnumerator dismantle() {

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour {
 
     public GameObject pausePanel;
+    public Text TextPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -30,5 +32,17 @@ public class GameManagerScript : MonoBehaviour {
     private void ContinueGame() {
         pausePanel.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void displayMessage(float time, string message) {
+        StartCoroutine(timedDisplay(time, message));
+    }
+
+    public IEnumerator timedDisplay (float time, string message) {
+        TextPanel.text = message;
+        TextPanel.enabled = true;
+        yield return new WaitForSeconds(time);
+        TextPanel.text = "";
+        TextPanel.enabled = false;
     }
 }
