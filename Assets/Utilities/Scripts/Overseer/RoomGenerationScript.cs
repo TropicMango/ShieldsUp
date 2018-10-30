@@ -28,6 +28,7 @@ public class RoomGenerationScript : MonoBehaviour {
 
     private void startingSequence() {
         SmartGeneration(numRooms, size / 2, size / 2, -100);
+        
         float pedestalDistance = 2.5f;
         for (int i = 0; i < 5; i++) {
             GameObject IP = Instantiate(itemPedestal[i], new Vector3(pedestalDistance * Mathf.Sin(2*Mathf.PI/ 5*i), pedestalDistance * Mathf.Cos(2 * Mathf.PI / 5 * i), 15), Quaternion.Euler(0, 0, 0));
@@ -37,7 +38,7 @@ public class RoomGenerationScript : MonoBehaviour {
 
         pedestalDistance += 2.5f;
 
-        for (int i = 0; i < itemPedestal.Length; i++) {
+        for (int i = 0; i < itemPedestal.Length-5; i++) {
             GameObject IP = Instantiate(itemPedestal[i+5], new Vector3(pedestalDistance * Mathf.Sin(2 * Mathf.PI / (itemPedestal.Length-5) * i), pedestalDistance * Mathf.Cos(2 * Mathf.PI / (itemPedestal.Length-5) * i), 15), Quaternion.Euler(0, 0, 0));
             IP.GetComponent<pedestalScript>().setManager(CharacterManager, this, GameManager);
             otherInstanciatedObjects.Add(IP);

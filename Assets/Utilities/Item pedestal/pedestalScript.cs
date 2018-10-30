@@ -22,7 +22,7 @@ public class pedestalScript : Removable {
         Debug.Log(player.characterClass + ", " + BaseClass);
         if(player.characterClass != "Base") { enhance(player); }
 
-        gameManager.displayMessage(2.5f, Description);
+        gameManager.displayMessage(3f, ItemName, Description);
         
         if (player.characterClass.Equals(BaseClass)) {
             string[] playerItems = player.getItems().ToArray();

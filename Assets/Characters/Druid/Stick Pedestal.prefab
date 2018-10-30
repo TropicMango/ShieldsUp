@@ -124,7 +124,7 @@ MonoBehaviour:
   EvoSet:
   - Daisy
   - EnchantedFlower
-  Description: Dmg Up & Aim Down
+  Description: Swing for More Dmg
 --- !u!114 &114886515917126784
 MonoBehaviour:
   m_ObjectHideFlags: 1

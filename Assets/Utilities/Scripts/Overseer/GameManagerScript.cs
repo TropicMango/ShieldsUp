@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class GameManagerScript : MonoBehaviour {
 
     public GameObject pausePanel;
-    public Text TextPanel;
+    public Text TitlePanel;
+    public Text InfoPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -34,15 +35,19 @@ public class GameManagerScript : MonoBehaviour {
         Time.timeScale = 1;
     }
 
-    public void displayMessage(float time, string message) {
-        StartCoroutine(timedDisplay(time, message));
+    public void displayMessage(float time, string name, string message) {
+        message = message.Replace("NEWLINE", "\n");
+        StartCoroutine(timedDisplay(time, name, message));
     }
 
-    public IEnumerator timedDisplay (float time, string message) {
-        TextPanel.text = message;
-        TextPanel.enabled = true;
+    public IEnumerator timedDisplay (float time, string name, string message) {
+        TitlePanel.text = name;
+        TitlePanel.enabled = true;
+        InfoPanel.text = message;
+        InfoPanel.enabled = true;
         yield return new WaitForSeconds(time);
-        TextPanel.text = "";
-        TextPanel.enabled = false;
+        //InfoPanel.text = "";
+        TitlePanel.enabled = false;
+        InfoPanel.enabled = false;
     }
 }

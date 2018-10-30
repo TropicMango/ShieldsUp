@@ -6,7 +6,6 @@ public class EnchantedNoteScript : pedestalScript {
     override
     public void enhance(PlayerScript player) {
         WeaponScript weap = player.GetWeaponScript();
-        weap.damage *= 1.5f;
-        weap.bulletSize -= 0.1f;
+        weap.setReload(weap.reload * 0.8f);
     }
 }

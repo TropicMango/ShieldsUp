@@ -123,7 +123,7 @@ MonoBehaviour:
   EvoSet:
   - LostSoul
   - CallerBell
-  Description: smth
+  Description: Enchanted NoteNEWLINERaise the Tempo
 --- !u!212 &212423932484604860
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -14,7 +14,7 @@ public class WeaponScript : MonoBehaviour {
     private bool isPlayer = false; //determine ally or enemy damage
     private float baseReload; //calculate for the animation speed
     public float RotationSpeed;
-    public float bulletSpray;
+    public float bulletSpray; 
     public float bulletSize;
     public float recoil;
     public float damage;
@@ -33,6 +33,7 @@ public class WeaponScript : MonoBehaviour {
         this.isPlayer = isPlayer;
         this.player = player;
         baseReload = reload;
+
     }
 
     public void setReload(float newReloadSpeed) {
