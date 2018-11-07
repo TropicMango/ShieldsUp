@@ -235,8 +235,9 @@ MonoBehaviour:
   - {fileID: 1329089694567190, guid: a5e16fa895505c140bb95bb98ca26858, type: 2}
   - {fileID: 1261549461366338, guid: 862e03a648f00f74baa0693640ce059c, type: 2}
   - {fileID: 1791842056302144, guid: c0af5d320027c554b8c6d0309ba7f717, type: 2}
+  - {fileID: 1325106185023668, guid: 59bcf040ea8864132816ffe29d3ee7a1, type: 2}
   ui: {fileID: 1114751996}
-  select: 9
+  select: 13
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0
@@ -1345,7 +1346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -23.599976}
+  m_AnchoredPosition: {x: 25, y: -23.600098}
   m_SizeDelta: {x: 6.399994, y: 6.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2059145870

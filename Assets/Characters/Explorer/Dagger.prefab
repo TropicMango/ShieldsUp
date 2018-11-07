@@ -129,22 +129,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f377e6f03aea03649b2396ee01c0ca57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 20
-  terminationTime: 0.3
   bullet: {fileID: 1159773852254208, guid: 9dbc4d0806e12a54094c86bc3e74736b, type: 2}
   animations: {fileID: 95942981692391626}
-  delay: 0.03
+  RotationSpeed: 20
   bulletSpray: 0
-  knockBack: 0
-  bonusBulletSize: 0
+  bulletSize: 0
+  recoil: 0
   damage: 15
-  explosionSize: 0
   pierce: 100
   bulletSpeed: 0.1
   reload: 1
-  activationTime: 0
   abilityRecharge: 5
+  activationTime: 0
+  delay: 0.03
+  terminationTime: 0.3
   melee: 1
+  Effects: []
+  Onhit: []
+  throwingDagger: {fileID: 1223761890337628, guid: 0cc5979ce28f44af2b99daf95231d066,
+    type: 2}
 --- !u!212 &212447025544090756
 SpriteRenderer:
   m_ObjectHideFlags: 1

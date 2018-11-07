@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseExplorerScript : PlayerScript {
-    override
+
+    /*override
     public void ActivateAbility() {
         if (weaponScript.activatable()) {
             StartCoroutine(speedBoost());
@@ -14,5 +15,5 @@ public class BaseExplorerScript : PlayerScript {
         movementSpeed += 30;
         yield return new WaitForSeconds(0.5f);
         movementSpeed -= 30;
-    }
+    }*/
 }
