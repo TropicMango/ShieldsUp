@@ -121,8 +121,17 @@ public class WeaponScript : MonoBehaviour {
         }
         Quaternion sprayRot = Quaternion.Euler(0, 0, offSet);
         if (melee) {
-            tempBullet = Instantiate(bullet, transform);
-            tempBullet.transform.rotation = transform.rotation * sprayRot;
+            /*tempBullet = Instantiate(bullet, transform);
+            tempBullet.transform.rotation = transform.rotation * sprayRot;*/
+            tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
+            tempBullet.AddComponent<Rigidbody2D>();
+            Rigidbody2D tempRG = tempBullet.GetComponent<Rigidbody2D>();
+                
+            Rigidbody2D playerRG = player.GetComponent<Rigidbody2D>();
+            tempRG.mass = playerRG.mass;
+            tempRG.velocity = playerRG.velocity;
+            tempRG.gravityScale = 0;
+            tempRG.drag = playerRG.drag;
         } else {
             tempBullet = Instantiate(bullet, transform.position, transform.rotation * sprayRot);
         }

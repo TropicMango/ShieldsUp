@@ -101,36 +101,37 @@ public class RoomGenerationScript : MonoBehaviour {
                 break;
         }
 
-        int repeats = Random.Range(1, 1);
+        int repeats = Random.Range(1, 3);
 
         for (int i = 0; i < repeats; i++) {
+            roomsLeft -= 1;
             switch (Random.Range(0, 3)) { // calls it self for new rooms
                 case 0:
                     if (roomY < size) {
-                        SmartGeneration(roomsLeft - 1, roomX, roomY + 1, 0);
+                        SmartGeneration(roomsLeft, roomX, roomY + 1, 0);
                     } else {
-                        SmartGeneration(roomsLeft - 1, roomX, roomY - 1, 1);
+                        SmartGeneration(roomsLeft, roomX, roomY - 1, 1);
                     }
                     break;
                 case 1:
                     if (roomY > 0) {
-                        SmartGeneration(roomsLeft - 1, roomX, roomY - 1, 1);
+                        SmartGeneration(roomsLeft, roomX, roomY - 1, 1);
                     } else {
-                        SmartGeneration(roomsLeft - 1, roomX, roomY + 1, 0);
+                        SmartGeneration(roomsLeft, roomX, roomY + 1, 0);
                     }
                     break;
                 case 2:
                     if (roomX > 0) {
-                        SmartGeneration(roomsLeft - 1, roomX - 1, roomY, 2);
+                        SmartGeneration(roomsLeft, roomX - 1, roomY, 2);
                     } else {
-                        SmartGeneration(roomsLeft - 1, roomX + 1, roomY, 3);
+                        SmartGeneration(roomsLeft, roomX + 1, roomY, 3);
                     }
                     break;
                 case 3:
                     if (roomX < 0) {
-                        SmartGeneration(roomsLeft - 1, roomX + 1, roomY, 3);
+                        SmartGeneration(roomsLeft, roomX + 1, roomY, 3);
                     } else {
-                        SmartGeneration(roomsLeft - 1, roomX - 1, roomY, 2);
+                        SmartGeneration(roomsLeft, roomX - 1, roomY, 2);
                     }
                     break;
             }

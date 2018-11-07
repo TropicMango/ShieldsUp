@@ -90,15 +90,15 @@ public class EnemyScript : CharacterScript {
             Destroy(this);
             Destroy(gameObject, 5);
         } else {
-            // StartCoroutine(damageFlash());
+            StartCoroutine(damageFlash());
         }
     }
 
     IEnumerator damageFlash() {
-        for (int i = 0; i < 5; i++) {
-            spriteRenderer.color = Color.white;
+        for (int i = 0; i < 1; i++) {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a * 0.2f);
             yield return new WaitForSeconds(0.1f);
-            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(0.1f);
         }
     }

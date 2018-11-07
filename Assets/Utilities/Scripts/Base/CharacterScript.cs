@@ -35,6 +35,6 @@ public class CharacterScript : MonoBehaviour {
         movementSpeed *= slowedPercentage;
         yield return new WaitForSeconds(duration);
         movementSpeed /= slowedPercentage;
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+
     }
 }
