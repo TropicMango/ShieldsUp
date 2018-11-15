@@ -25,9 +25,9 @@ public class PlayerScript : CharacterScript {
         initialize();
     }
 
-    protected virtual void initialize() { }
+    protected virtual void initialize() { } // for overriding
 
-    public List<string> getItems() {
+    public List<string> getItems() { // returns current items held by the player
         return currentItems;
     }
 
@@ -107,10 +107,7 @@ public class PlayerScript : CharacterScript {
     }
 
     public virtual void Attack() {
-        if (Input.GetKey(KeyCode.Space)) {
-            weaponScript.checkAttack();
-        }
-        // tranform is passed for knock back
+        weaponScript.checkAttack();
     }
 
     public void updatePlayerSprite(bool left) {

@@ -81,10 +81,14 @@ public class WeaponScript : MonoBehaviour {
     }
 
     public virtual void checkAttack() {
-        if (Time.time > reloadCoolDown) {
+        if (Input.GetKey(KeyCode.Space) && Time.time > reloadCoolDown) { // if space pressed and reloaded
             reloadCoolDown = Time.time + reload;
             this.Attack(); // tranform is passed for knock back
         }
+    }
+
+    public virtual void forceAttack() {
+        this.Attack();
     }
 
     protected virtual void Attack() {

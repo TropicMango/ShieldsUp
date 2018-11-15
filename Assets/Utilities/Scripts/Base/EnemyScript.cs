@@ -53,7 +53,7 @@ public class EnemyScript : CharacterScript {
         spriteRenderer.flipX = weaponScript.setRotation(Quaternion.Euler(0, 0, 180 + angle));
         if (Time.time > coolDown && Vector2.Distance(target.transform.position, transform.position) < attackRange) {
             coolDown = Time.time + reload;
-            weaponScript.checkAttack();
+            weaponScript.forceAttack();
         }
     }
 

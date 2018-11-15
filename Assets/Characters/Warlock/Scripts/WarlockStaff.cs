@@ -2,40 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarlockStaff : WeaponScript {
-    private float charge;
-    private float maxCharge = 1.5f; // 1.5
-    public float chargeAmount = 0.005f;// 0.005
+public class WarlockStaff : ChargeWeaponScript {
     public GameObject SpellCircle;
 
-    public void storeEnergy() {
-        if (Time.time > reloadCoolDown) {
-            if (charge == 0) {
-                animations.Play("storeEnergy");
-            }
-            if (charge < maxCharge) {
-                charge += chargeAmount;
-            }
-        }
+    override
+    protected void prepAttack() {
+        damage *= (charge / 1.5f + 1);
+        bulletSize += charge * 3f;
+        recoil += charge * 300;
     }
 
     override
-    public void checkAttack() {
-        if (charge != 0 && Time.time > reloadCoolDown) {
-            reloadCoolDown = Time.time + reload;
-            damage *= (charge/1.5f+1);
-            bulletSize += charge/2f;
-            recoil += charge * 300;
-            this.Attack(); // tranform is passed for knock back
-        }
-    }
-
-    override
-    protected void followUp() {
-        bulletSize -= charge/2;
+    protected void resetAttack() {
+        bulletSize -= charge * 3f;
         damage /= (charge / 2 + 1);
         recoil -= charge * 300;
-        charge = 0;
     }
 
     override

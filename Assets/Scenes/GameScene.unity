@@ -237,7 +237,7 @@ MonoBehaviour:
   - {fileID: 1791842056302144, guid: c0af5d320027c554b8c6d0309ba7f717, type: 2}
   - {fileID: 1325106185023668, guid: 59bcf040ea8864132816ffe29d3ee7a1, type: 2}
   ui: {fileID: 1114751996}
-  select: 13
+  select: 7
 --- !u!4 &125071669
 Transform:
   m_ObjectHideFlags: 0
