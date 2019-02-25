@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GateScript : MonoBehaviour {
 
-    public BoxCollider2D[] gates;
+    public GameObject[] gates;
     public GameObject GateSprite;
     private List<GameObject> enemies;
     private List<GameObject> generatedEnemies;
@@ -19,19 +19,19 @@ public class GateScript : MonoBehaviour {
     }
 
     public void openTop(bool status) {
-        gates[0].isTrigger = status;
+        gates[0].SetActive(!status);
         gateUsed[0] = status;
     }
     public void openBot(bool status) {
-        gates[1].isTrigger = status;
+        gates[1].SetActive(!status);
         gateUsed[1] = status;
     }
     public void openLeft(bool status) {
-        gates[2].isTrigger = status;
+        gates[2].SetActive(!status);
         gateUsed[2] = status;
     }
     public void openRight(bool status) {
-        gates[3].isTrigger = status;
+        gates[3].SetActive(!status);
         gateUsed[3] = status;
     }
 
@@ -45,7 +45,6 @@ public class GateScript : MonoBehaviour {
         // numEnemies--;
         if (generatedEnemies.Count == 0) {
             for (int i = 0; i < gates.Length; i++) {
-                gates[i].isTrigger = gateUsed[i];
                 Destroy(gateSprites[i]);
                 
             }

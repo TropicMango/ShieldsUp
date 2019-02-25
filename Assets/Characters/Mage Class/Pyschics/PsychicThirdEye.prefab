@@ -51,13 +51,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1852815700365252}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4528173964486320}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4528173964486320
 Transform:
   m_ObjectHideFlags: 1
@@ -101,22 +101,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9913d1c04984e2548885949c20d91f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 0
-  terminationTime: 3
   bullet: {fileID: 1040996490238542, guid: 85e243a4129e79045974a37f452c0a98, type: 2}
   animations: {fileID: 95080004502039272}
-  delay: 0.1
+  RotationSpeed: 0
   bulletSpray: 0
-  knockBack: 0
-  bonusBulletSize: 0
+  bulletSize: 0
+  recoil: 0
   damage: 5
-  explosionSize: 0
   pierce: 100
   bulletSpeed: 0.2
   reload: 1
-  activationTime: 0.1
   abilityRecharge: 4
+  activationTime: 0.1
+  delay: 0.1
+  terminationTime: 3
   melee: 0
+  Effects: []
+  Onhit: []
   range: 8
 --- !u!120 &120246045222530300
 LineRenderer:

@@ -32,6 +32,7 @@ public class RoomGenerationScript : MonoBehaviour {
         float pedestalDistance = 2.5f;
         for (int i = 0; i < 5; i++) {
             GameObject IP = Instantiate(itemPedestal[i], new Vector3(pedestalDistance * Mathf.Sin(2*Mathf.PI/ 5*i), pedestalDistance * Mathf.Cos(2 * Mathf.PI / 5 * i), 15), Quaternion.Euler(0, 0, 0));
+            IP.transform.SetParent(this.transform);
             IP.GetComponent<pedestalScript>().setManager(CharacterManager, this, GameManager);
             otherInstanciatedObjects.Add(IP);
         }
@@ -40,6 +41,7 @@ public class RoomGenerationScript : MonoBehaviour {
 
         for (int i = 0; i < itemPedestal.Length-5; i++) {
             GameObject IP = Instantiate(itemPedestal[i+5], new Vector3(pedestalDistance * Mathf.Sin(2 * Mathf.PI / (itemPedestal.Length-5) * i), pedestalDistance * Mathf.Cos(2 * Mathf.PI / (itemPedestal.Length-5) * i), 15), Quaternion.Euler(0, 0, 0));
+            IP.transform.SetParent(this.transform);
             IP.GetComponent<pedestalScript>().setManager(CharacterManager, this, GameManager);
             otherInstanciatedObjects.Add(IP);
         }
@@ -69,40 +71,53 @@ public class RoomGenerationScript : MonoBehaviour {
         }
 
         // summon room
-        Grid[roomX, roomY] = Instantiate(Room[0], new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist, 120), Quaternion.Euler(0, 0, 0));
+        GameObject new_room = Instantiate(Room[0], new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist, 120), Quaternion.Euler(0, 0, 0));
+        new_room.transform.SetParent(this.transform);
+        Grid[roomX, roomY] = new_room;
         if (roomsLeft != numRooms && roomsLeft != 1) {
             addEnemies(Grid[roomX, roomY].GetComponent<GateScript>());
         }else if (roomsLeft == 1) {
             GameObject PT = Instantiate(ProgressionToken, new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist, 90), Quaternion.Euler(0, 0, 0));
+            PT.transform.SetParent(this.transform);
             PT.GetComponent<ProgressionTokenScript>().setGeneratorScript(this);
             otherInstanciatedObjects.Add(PT);
         }
 
+        GameObject new_hall;
         switch (dir) { // Open the gates on for the rooms and create the hall
             case 0:
                 Grid[roomX, roomY-1].GetComponent<GateScript>().openTop(true);
                 Grid[roomX, roomY].GetComponent<GateScript>().openBot(true);
-                otherInstanciatedObjects.Add(Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist - roomDist/2, 100), Quaternion.Euler(0, 0, 90)));
+                new_hall = Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist - roomDist/2, 100), Quaternion.Euler(0, 0, 90));
+                new_hall.transform.SetParent(this.transform);
+                otherInstanciatedObjects.Add(new_hall);
                 break;
             case 1:
                 Grid[roomX, roomY + 1].GetComponent<GateScript>().openBot(true);
                 Grid[roomX, roomY].GetComponent<GateScript>().openTop(true);
-                otherInstanciatedObjects.Add(Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist + roomDist/2, 100), Quaternion.Euler(0, 0, 90)));
+                new_hall = Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist + roomDist/2, 100), Quaternion.Euler(0, 0, 90));
+                new_hall.transform.SetParent(this.transform);
+                otherInstanciatedObjects.Add(new_hall);
                 break;
             case 2:
                 Grid[roomX + 1, roomY].GetComponent<GateScript>().openLeft(true);
                 Grid[roomX, roomY].GetComponent<GateScript>().openRight(true);
-                otherInstanciatedObjects.Add(Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist + roomDist/2, (roomY - size / 2) * roomDist, 100), Quaternion.Euler(0, 0, 0)));
+                new_hall = Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist + roomDist/2, (roomY - size / 2) * roomDist, 100), Quaternion.Euler(0, 0, 0));
+                new_hall.transform.SetParent(this.transform);
+                otherInstanciatedObjects.Add(new_hall);
                 break;
             case 3:
                 Grid[roomX - 1, roomY].GetComponent<GateScript>().openRight(true);
                 Grid[roomX, roomY].GetComponent<GateScript>().openLeft(true);
-                otherInstanciatedObjects.Add(Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist - roomDist/2, (roomY - size / 2) * roomDist, 100), Quaternion.Euler(0, 0, 0)));
+                new_hall = Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist - roomDist/2, (roomY - size / 2) * roomDist, 100), Quaternion.Euler(0, 0, 0));
+                new_hall.transform.SetParent(this.transform);
+                otherInstanciatedObjects.Add(new_hall);
                 break;
         }
 
-        int repeats = Random.Range(1, 3);
-
+        // int repeats = Random.Range(1, 3);
+        // repeats = (roomsLeft > repeats) ? repeats : roomsLeft;
+        int repeats = 1;
         for (int i = 0; i < repeats; i++) {
             roomsLeft -= 1;
             switch (Random.Range(0, 3)) { // calls it self for new rooms
