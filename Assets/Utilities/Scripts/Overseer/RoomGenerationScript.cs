@@ -86,7 +86,7 @@ public class RoomGenerationScript : MonoBehaviour {
         GameObject new_hall;
         switch (dir) { // Open the gates on for the rooms and create the hall
             case 0:
-                Grid[roomX, roomY-1].GetComponent<GateScript>().openTop(true);
+                Grid[roomX, roomY - 1].GetComponent<GateScript>().openTop(true);
                 Grid[roomX, roomY].GetComponent<GateScript>().openBot(true);
                 new_hall = Instantiate(Hall[0], new Vector3((roomX - size / 2) * roomDist, (roomY - size / 2) * roomDist - roomDist/2, 100), Quaternion.Euler(0, 0, 90));
                 new_hall.transform.SetParent(this.transform);
